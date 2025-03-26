@@ -6,7 +6,7 @@ export default function Header() {
     <header>
       <Icon glyph="logo" size="logo" />
       <Button variant="icon">
-        <Icon glyph="account" glyph-color="blue-dark" />
+        <Icon glyph="account" />
       </Button>
     </header>
   );
