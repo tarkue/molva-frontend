@@ -21,6 +21,7 @@ export type glyphs =
   | 'heart'
   | 'like'
   | 'login'
+  | 'logo'
   | 'notification'
   | 'report'
   | 'review'
