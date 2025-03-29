@@ -1,7 +1,7 @@
 import ky from 'ky';
 
-const api = ky.create({
+const client = ky.create({
   prefixUrl: import.meta.env.VITE_API_URL,
 });
 
-export default api;
+export default client;

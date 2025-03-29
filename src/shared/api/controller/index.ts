@@ -1,1 +1,1 @@
-export { auth } from './auth.controller';
+export * as auth from './auth.controller';

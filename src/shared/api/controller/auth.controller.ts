@@ -1,22 +1,19 @@
-import api from '../base';
+import client from '../base';
 import { UserDTO } from '../dto/shared/user.dto';
 import { LoginDTO, RegisterDTO } from '../dto/auth';
 
-const auth = {
-  login: async (dto: LoginDTO) => {
-    return await api
-      .post('/auth/login', {
-        body: JSON.stringify(dto),
-      })
-      .json<UserDTO>();
-  },
-  register: async (dto: RegisterDTO) => {
-    return await api
-      .post('/auth/register', {
-        body: JSON.stringify(dto),
-      })
-      .json<UserDTO>();
-  },
-};
+const login = async (dto: LoginDTO) =>
+  await client
+    .post('/auth/login', {
+      body: JSON.stringify(dto),
+    })
+    .json<UserDTO>();
 
-export { auth };
+const register = async (dto: RegisterDTO) =>
+  await client
+    .post('/auth/register', {
+      body: JSON.stringify(dto),
+    })
+    .json<UserDTO>();
+
+export { login, register };
