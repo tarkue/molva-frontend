@@ -7,7 +7,7 @@ const IconVariants = cva(
       size: {
         '16': 'w-4 h-4',
         '24': 'w-6 h-6',
-        logo: 'w-4 h-',
+        logo: 'w-[90px] h-[35px]',
       },
       'glyph-color': {
         'blue-dark': 'bg-blue-dark',
