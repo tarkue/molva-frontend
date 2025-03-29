@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400..500&family=Manrope:wght@400..700&display=swap');
+
+@layer components {
+  .text-headline,
+  .text-body,
+  .text-caption,
+  .text-subhead {
+    font-family: 'Manrope', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  .text-hero-title,
+  .text-h1 {
+    font-family: 'Comfortaa', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  .text-headline {
+    @apply font-bold text-2xl/[120%];
+  }
+  .text-body {
+    @apply font-medium text-base/[140%];
+  }
+  .text-caption {
+    @apply font-medium text-sm/[120%];
+  }
+  .text-subhead {
+    @apply font-semibold text-[20px]/[120%];
+  }
+  .text-caption {
+    @apply font-medium text-sm/[120%];
+  }
+  .text-hero-title {
+    @apply font-medium text-6xl/[120%];
+  }
+  .text-h1 {
+    @apply font-normal text-[32px]/[120%];
+  }
+}

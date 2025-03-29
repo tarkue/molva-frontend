@@ -10,7 +10,7 @@ export default function AppLayout({
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="min-h-max min-w-full">{children}</main>
       <Footer />
     </>
   );
