@@ -3,7 +3,7 @@ import { Link } from '../../models/link';
 
 export default function ListItem({ href, text }: Link) {
   return (
-    <RouterLink to={href} target="_self">
+    <RouterLink to={href} target="_self" className="text-body">
       {text}
     </RouterLink>
   );

@@ -11,5 +11,5 @@ export default function LinkList({ links }: LinkListProps) {
       <ListItem {...props} />
     </li>
   ));
-  return <ul>{list}</ul>;
+  return <ul className="flex gap-3">{list}</ul>;
 }

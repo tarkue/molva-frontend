@@ -9,7 +9,7 @@ export default function Router() {
           path="/"
           element={
             <AppLayout>
-              <h1>Главная</h1>
+              <h1 className="text-h1">Главная</h1>
             </AppLayout>
           }
         />

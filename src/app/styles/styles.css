@@ -40,6 +40,30 @@
   --color-white-900: #626262;
 }
 
+@layer components {
+  .text-headline {
+    @apply font-bold text-2xl/[120%];
+  }
+  .text-body {
+    @apply font-medium text-base/[140%];
+  }
+  .text-caption {
+    @apply font-medium text-sm/[120%];
+  }
+  .text-subhead {
+    @apply font-semibold text-[20px]/[120%];
+  }
+  .text-caption {
+    @apply font-medium text-sm/[120%];
+  }
+  .text-hero-title {
+    @apply font-medium text-6xl/[120%];
+  }
+  .text-h1 {
+    @apply font-normal text-[32px]/[120%];
+  }
+}
+
 html {
   -webkit-text-rendering: optimizeSpeed;
   text-rendering: optimizeSpeed;
