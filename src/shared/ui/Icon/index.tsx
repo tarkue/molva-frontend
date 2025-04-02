@@ -1,9 +1,9 @@
 import { forwardRef } from 'react';
 import { IconProps } from './props';
-import { cn } from '@/shared/lib/utils';
+import { IconVariants } from './variants';
 
-const Icon = forwardRef<HTMLSpanElement, IconProps>(
-  ({ glyph, className, ...props }, ref) => {
+const Icon = forwardRef<HTMLElement, IconProps>(
+  ({ size, color, glyph, className = '' }, ref) => {
     const iconStyle: React.CSSProperties = {
       maskImage: `url(/icons/${glyph}.svg)`,
       maskPosition: 'center center',
@@ -12,10 +12,9 @@ const Icon = forwardRef<HTMLSpanElement, IconProps>(
 
     return (
       <i
-        className={cn('inline-block w-8 h-6 bg-no-repeat', className)}
+        className={IconVariants({ size, color, className })}
         style={iconStyle}
         ref={ref}
-        {...props}
       />
     );
   },

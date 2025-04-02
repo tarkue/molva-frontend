@@ -1,4 +1,4 @@
-import Icon from '@/shared/ui/Icon';
+import Icon from '@/shared/ui/icon';
 import LinkList from './link-list';
 import { Links } from '../models/links';
 
