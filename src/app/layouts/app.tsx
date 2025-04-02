@@ -11,7 +11,7 @@ export default function AppLayout({
   return (
     <AuthProvider>
       <Header />
-      <main className="min-h-max min-w-full">{children}</main>
+      <main className="min-w-full">{children}</main>
       <Footer />
     </AuthProvider>
   );

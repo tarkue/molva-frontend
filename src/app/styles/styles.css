@@ -56,7 +56,7 @@
   .text-caption {
     @apply font-medium text-sm/[120%];
   }
-  .text-hero-title {
+  .text-hero {
     @apply font-medium text-6xl/[120%];
   }
   .text-h1 {
@@ -93,6 +93,8 @@ body {
 }
 
 #root {
+  display: block;
+  position: relative;
   width: 100%;
   height: 100%;
 }

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 import AppLayout from './layouts/app';
 import MainPage from '@/pages/main';
+import NotFoundPage from '@/pages/not-found';
 
 export default function Router() {
   return (
@@ -8,7 +9,7 @@ export default function Router() {
       <AppLayout>
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/" element={<h1>id</h1>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AppLayout>
     </BrowserRouter>
