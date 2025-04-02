@@ -6,12 +6,17 @@ import { glyphs } from '../icon/props';
 interface NavigateToIconProps {
   to: string;
   glyph: glyphs;
+  size?: '24' | 'logo';
 }
 
-const NavigateToIcon = ({ to, glyph }: NavigateToIconProps) => (
+const NavigateToIcon = ({
+  to,
+  glyph,
+  size = '24',
+}: NavigateToIconProps) => (
   <Link to={to} target="_self">
     <Button variant="icon">
-      <Icon glyph={glyph} />
+      <Icon glyph={glyph} size={size} />
     </Button>
   </Link>
 );

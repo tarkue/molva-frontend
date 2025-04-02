@@ -1,20 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 import AppLayout from './layouts/app';
+import MainPage from '@/pages/main';
 
 export default function Router() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <AppLayout>
-              <h1 className="text-h1">Главная</h1>
-            </AppLayout>
-          }
-        />
-        <Route path="/:id" element={<h1>id</h1>} />
-      </Routes>
+      <AppLayout>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/" element={<h1>id</h1>} />
+        </Routes>
+      </AppLayout>
     </BrowserRouter>
   );
 }

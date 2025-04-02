@@ -1,12 +1,12 @@
 import HeaderActions from '@/features/header-actions';
+import NavigateToMain from '@/features/navigate-to-main';
 import Container from '@/shared/ui/Container';
-import Icon from '@/shared/ui/icon';
 
 export default function Header() {
   return (
     <header className="w-full flex items-center justify-center bg-gray-900 p-3 ">
       <Container className="flex items-center justify-between">
-        <Icon glyph="logo" size="logo" />
+        <NavigateToMain />
         <HeaderActions />
       </Container>
     </header>
