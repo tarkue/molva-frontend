@@ -34,7 +34,7 @@ const CardStatistics = (props: CardStatisticsProps) => {
   return (
     <ul className="flex gap-6">
       {statistics.map((el, key) => (
-        <li className="flex gap-3 w-20" key={key}>
+        <li className="flex gap-3 w-20 items-center" key={key}>
           <Icon glyph={el.glyph} size="20" />
           <span className="text-subhead">{el.value}</span>
         </li>

@@ -22,7 +22,7 @@ const config: Config = {
         'base-01': 'var(--color-base-01)',
         gray: 'var(--color-gray)',
         white: 'var(--color-white)',
-        black: '--color-black',
+        black: 'var(--color-black)',
       },
     },
   },

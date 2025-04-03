@@ -1,3 +1,4 @@
+import { Input } from '@/shared/ui/input';
 import Container from '@/shared/ui/сontainer';
 import { DisciplineList } from '@/widgets/discipline-list';
 
@@ -10,6 +11,7 @@ const MainPage = () => {
           Твой навигатор в мире ИОТ
         </p>
       </div>
+      <Input placeholder="Название дисциплины" />
       <DisciplineList />
     </Container>
   );

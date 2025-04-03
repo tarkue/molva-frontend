@@ -86,12 +86,9 @@ svg {
   object-position: center;
 }
 
-.p-body ul {
-  padding: 0;
-  padding-bottom: 12px;
-}
-.p-body li {
-  list-style-type: disc;
-  list-style-position: inside;
-  padding: 0;
+input,
+select,
+button,
+a {
+  color: var(--text-color);
 }

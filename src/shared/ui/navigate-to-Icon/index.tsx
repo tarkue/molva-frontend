@@ -16,7 +16,7 @@ const NavigateToIcon = ({
 }: NavigateToIconProps) => (
   <Link to={to} target="_self">
     <Button variant="icon">
-      <Icon glyph={glyph} size={size} />
+      <Icon glyph={glyph} size={size} color="white" />
     </Button>
   </Link>
 );
