@@ -53,6 +53,11 @@ body {
   color: var(--text-color);
 }
 
+header,
+footer {
+  background: var(--footer-and-header-body);
+}
+
 #root {
   display: block;
   position: relative;

@@ -64,8 +64,3 @@ html[data-theme='dark'] {
   --color-base-01: var(--base-color-base-01);
   --color-gray: var(--base-color-gray);
 }
-
-header,
-footer {
-  background: var(--footer-and-header-body);
-}

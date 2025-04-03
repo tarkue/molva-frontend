@@ -17,7 +17,7 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
-export const ThemeContext = createContext<ThemeContextType>(
+const ThemeContext = createContext<ThemeContextType>(
   {} as ThemeContextType,
 );
 
@@ -29,7 +29,7 @@ export const ThemeProvider: FC<{ children: ReactNode }> = ({
   useEffect(() => {
     const userSystemPrefersDark = window.matchMedia(
       '(prefers-color-scheme: dark)',
-    ).matches;
+    ).media;
     const prefersTheme = userSystemPrefersDark ? 'dark' : 'light';
     updateDataTheme(prefersTheme);
     setTheme(prefersTheme);
