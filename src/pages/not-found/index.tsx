@@ -1,4 +1,4 @@
-import Container from '@/shared/ui/Container';
+import Container from '@/shared/ui/сontainer';
 
 const NotFoundPage = () => {
   return (

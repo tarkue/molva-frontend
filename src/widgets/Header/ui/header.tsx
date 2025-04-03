@@ -1,6 +1,6 @@
 import HeaderActions from '@/features/header-actions';
 import NavigateToMain from '@/features/navigate-to-main';
-import Container from '@/shared/ui/Container';
+import Container from '@/shared/ui/сontainer';
 
 export default function Header() {
   return (
