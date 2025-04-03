@@ -1,43 +1,62 @@
 @import 'tailwindcss';
 
-:root {
-  /* Colors */
-  --light-theme-color-green: #4c996a;
-  --dark-theme-color--green: #4f9945;
+html[data-theme='light'] {
+  --base-color-yellow: #eed56f;
+  --base-color-green: #4c996a;
+  --base-color-blue: #8eaeff;
+  --base-color-dark-blue: #2563ff;
+  --base-color-red: #b82128;
+  --base-color-warn-red: #ffeded;
+  --base-color-base-09: #b8b8b8;
+  --base-color-base-08: #c0c0c0;
+  --base-color-base-07: #cfcfcf;
+  --base-color-base-06: #d0d0d0;
+  --base-color-base-05: #d8d8d8;
+  --base-color-base-04: #dfdfdf;
+  --base-color-base-03: #f0f0f0;
+  --base-color-base-02: #f8f8f8;
+  --base-color-base-01: #ffffff;
+  --base-color-gray: #767676;
+}
 
-  --dark-theme-color-red: #dc585a;
-  --light-theme-color-red: #b82128;
-  --color-dark-red: #9f1e1e;
+html[data-theme='dark'] {
+  --base-color-yellow: #c7b47d;
+  --base-color--green: #4f9945;
+  --base-color-blue: #83a6ff;
+  --base-color-dark-blue: #497dff;
+  --base-color-red: #dc585a;
+  --base-color-warn-red: #382626;
+  --base-color-base-09: #43444d;
+  --base-color-base-08: #3d3e46;
+  --base-color-base-07: #373840;
+  --base-color-base-06: #32333a;
+  --base-color-base-05: #2d2e34;
+  --base-color-base-04: #29292f;
+  --base-color-base-03: #25252a;
+  --base-color-base-02: #212126;
+  --base-color-base-01: #18181a;
+  --base-color-gray: #767677;
+}
 
-  --light-theme-color-blue: #8eaeff;
-  --light-theme-color-dark-blue: #2563ff;
-
-  --dark-theme-color-blue: #83a6ff;
-  --dark-theme-color-dark-blue: #497dff;
-
-  --light-theme-color-yellow: #ffda46;
-  --dark-theme-color-yellow: #c7b47d;
-
-  --color-gray: #9c9c9c;
-  --color-gray-100: #43444d;
-  --color-gray-200: #3d3e46;
-  --color-gray-300: #373840;
-  --color-gray-400: #32333a;
-  --color-gray-500: #2d2e34;
-  --color-gray-600: #29292f;
-  --color-gray-700: #25252a;
-  --color-gray-800: #212126;
-  --color-gray-900: #1e1e22;
-
-  --color-white-100: #ffffff;
-  --color-white-200: #f1f1f1;
-  --color-white-300: #dbdbdb;
-  --color-white-400: #c7c7c7;
-  --color-white-500: #b5b5b5;
-  --color-white-600: #a5a5a5;
-  --color-white-700: #868686;
-  --color-white-800: #797979;
-  --color-white-900: #626262;
+@theme {
+  --color-white: #ffffff;
+  --color-black: #2b2b2b;
+  --color-yellow: var(--base-color-yellow);
+  --color-green: var(--base-color-green);
+  --color-blue: var(--base-color-blue);
+  --color-dark-blue: var(--base-color-blue);
+  --color-red: var(--base-color-red);
+  --color-warn-red: var(--base-color-warn-red);
+  --color-base-09: var(--base-color-base-09);
+  --color-base-08: var(--base-color-base-08);
+  --color-base-07: var(--base-color-base-07);
+  --color-base-06: var(--base-color-base-06);
+  --color-base-05: var(--base-color-base-05);
+  --color-base-04: var(--base-color-base-04);
+  --color-base-03: var(--base-color-base-03);
+  --color-base-02: var(--base-color-base-02);
+  --color-base-01: var(--base-color-base-01);
+  --color-gray: var(--base-color-gray);
 }
 
 @layer components {

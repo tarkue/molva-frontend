@@ -5,7 +5,6 @@ import {
   useState,
   ReactNode,
 } from 'react';
-import React from 'react';
 
 interface AuthContextType {
   isAuthorized: boolean;
