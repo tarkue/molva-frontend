@@ -1,63 +1,5 @@
 @import 'tailwindcss';
-
-html[data-theme='light'] {
-  --base-color-yellow: #eed56f;
-  --base-color-green: #4c996a;
-  --base-color-blue: #8eaeff;
-  --base-color-dark-blue: #2563ff;
-  --base-color-red: #b82128;
-  --base-color-warn-red: #ffeded;
-  --base-color-base-09: #b8b8b8;
-  --base-color-base-08: #c0c0c0;
-  --base-color-base-07: #cfcfcf;
-  --base-color-base-06: #d0d0d0;
-  --base-color-base-05: #d8d8d8;
-  --base-color-base-04: #dfdfdf;
-  --base-color-base-03: #f0f0f0;
-  --base-color-base-02: #f8f8f8;
-  --base-color-base-01: #ffffff;
-  --base-color-gray: #767676;
-}
-
-html[data-theme='dark'] {
-  --base-color-yellow: #c7b47d;
-  --base-color--green: #4f9945;
-  --base-color-blue: #83a6ff;
-  --base-color-dark-blue: #497dff;
-  --base-color-red: #dc585a;
-  --base-color-warn-red: #382626;
-  --base-color-base-09: #43444d;
-  --base-color-base-08: #3d3e46;
-  --base-color-base-07: #373840;
-  --base-color-base-06: #32333a;
-  --base-color-base-05: #2d2e34;
-  --base-color-base-04: #29292f;
-  --base-color-base-03: #25252a;
-  --base-color-base-02: #212126;
-  --base-color-base-01: #18181a;
-  --base-color-gray: #767677;
-}
-
-@theme {
-  --color-white: #ffffff;
-  --color-black: #2b2b2b;
-  --color-yellow: var(--base-color-yellow);
-  --color-green: var(--base-color-green);
-  --color-blue: var(--base-color-blue);
-  --color-dark-blue: var(--base-color-blue);
-  --color-red: var(--base-color-red);
-  --color-warn-red: var(--base-color-warn-red);
-  --color-base-09: var(--base-color-base-09);
-  --color-base-08: var(--base-color-base-08);
-  --color-base-07: var(--base-color-base-07);
-  --color-base-06: var(--base-color-base-06);
-  --color-base-05: var(--base-color-base-05);
-  --color-base-04: var(--base-color-base-04);
-  --color-base-03: var(--base-color-base-03);
-  --color-base-02: var(--base-color-base-02);
-  --color-base-01: var(--base-color-base-01);
-  --color-gray: var(--base-color-gray);
-}
+@import './theme.css';
 
 @layer components {
   .text-headline {
@@ -94,8 +36,6 @@ html {
 
   height: 100dvh;
   width: 100%;
-
-  color-scheme: light;
 }
 
 body {
@@ -109,6 +49,8 @@ body {
   padding: 0;
 
   overscroll-behavior-y: contain;
+  background: var(--base-color-base-01);
+  color: var(--text-color);
 }
 
 #root {
