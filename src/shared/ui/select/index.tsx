@@ -19,7 +19,7 @@ const Select = (props: Props) => (
           isFocused ? 'border-base-07 outline-none' : '',
         ),
       option: () =>
-        'flex w-full px-[14px] py-[6px] text-body rounded-xl hover:bg-base-06',
+        'flex px-[14px] py-[6px] text-body rounded-xl hover:bg-base-06',
       menu: () =>
         'flex flex-col w-full rounded-2xl bg-base-03 p-[10px] mt-1',
       singleValue: () => 'text-body',

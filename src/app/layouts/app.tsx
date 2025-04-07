@@ -1,5 +1,5 @@
-import Header from '@/widgets/Header';
-import Footer from '@/widgets/Footer';
+import Header from '@/widgets/header';
+import Footer from '@/widgets/footer';
 import { AuthProvider } from '@/entity/user';
 import { JSX } from 'react';
 import { ThemeProvider } from '@/shared/models/theme-store';

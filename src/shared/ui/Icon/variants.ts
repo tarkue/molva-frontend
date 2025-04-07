@@ -10,7 +10,7 @@ const IconVariants = cva('inline-block bg-no-repeat', {
     },
     color: {
       'blue-dark': 'bg-blue-dark',
-      'gray-dark': 'bg-gray-dark',
+      gray: 'bg-gray',
       white: 'bg-white',
       default: 'background-contrast',
     },

@@ -24,7 +24,7 @@ export type glyphs =
   | 'notification'
   | 'report'
   | 'review'
-  | 'sord-asc'
+  | 'sort-asc'
   | 'sort-desc'
   | 'star'
   | 'trash';

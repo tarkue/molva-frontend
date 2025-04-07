@@ -1,6 +1,5 @@
-import { Input } from '@/shared/ui/input';
 import Container from '@/shared/ui/сontainer';
-import { DisciplineList } from '@/widgets/discipline-list';
+import Disciplines from '@/widgets/disciplines';
 
 const MainPage = () => {
   return (
@@ -11,8 +10,7 @@ const MainPage = () => {
           Твой навигатор в мире ИОТ
         </p>
       </div>
-      <Input placeholder="Название дисциплины" />
-      <DisciplineList />
+      <Disciplines />
     </Container>
   );
 };

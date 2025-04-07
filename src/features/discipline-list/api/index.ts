@@ -1,6 +1,6 @@
-import { Discipline, DisciplineCard } from '@/entity/discipline';
+import { Discipline } from '@/entity/discipline';
 
-const disciplines: Discipline[] = [
+const getDisciplines = (): Discipline[] => [
   {
     id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
     name: 'Стратегии формирования навыков',
@@ -74,16 +74,5 @@ const disciplines: Discipline[] = [
     likes_count: 1,
   },
 ];
-const DisciplineList = () => {
-  return (
-    <ul className="flex flex-col gap-3">
-      {disciplines.map((el, key) => (
-        <li key={key}>
-          <DisciplineCard discipline={el} />
-        </li>
-      ))}
-    </ul>
-  );
-};
 
-export { DisciplineList };
+export { getDisciplines };

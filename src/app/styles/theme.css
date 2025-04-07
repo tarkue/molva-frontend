@@ -50,7 +50,7 @@ html[data-theme='dark'] {
   --color-yellow: var(--base-color-yellow);
   --color-green: var(--base-color-green);
   --color-blue: var(--base-color-blue);
-  --color-dark-blue: var(--base-color-blue);
+  --color-dark-blue: var(--base-color-dark-blue);
   --color-red: var(--base-color-red);
   --color-warn-red: var(--base-color-warn-red);
   --color-base-09: var(--base-color-base-09);

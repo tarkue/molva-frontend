@@ -1,6 +1,9 @@
 @import './theme.css';
 @import 'tailwindcss';
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant light (&:where([data-theme=light], [data-theme=light] *));
+
 @layer components {
   .text-headline {
     @apply font-bold text-2xl/[120%];
@@ -88,10 +91,4 @@ p {
 svg {
   object-fit: cover;
   object-position: center;
-}
-
-input,
-select,
-button {
-  color: var(--text-color);
 }
