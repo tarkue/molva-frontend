@@ -45,7 +45,7 @@ const Pagination = ({
         onClick={onClick}
       />
       <Dots
-        view={total > 4 && total - selectedNumber > 23}
+        view={total > 4 && total - selectedNumber > 2}
         value={total}
         onClick={onClick}
       />
