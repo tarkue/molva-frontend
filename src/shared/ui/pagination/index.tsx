@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import Number from './ui/number';
-import { paginationRange } from './utils/range';
 import Arrow from './ui/arrow';
 import Dots from './ui/dots';
 import NumberList from './ui/number-list';
@@ -23,7 +21,7 @@ const Pagination = ({ total, onSelect }: NumberListProps) => {
   if (total <= 1) return <></>;
 
   return (
-    <div className="flex gap-3 items-center">
+    <div className="flex gap-3 justify-center items-center w-full">
       <Arrow
         variant="left"
         onClick={() => onClick(selectedNumber - 1)}

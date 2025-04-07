@@ -7,9 +7,7 @@ const Disciplines = () => {
     <article className="flex flex-col gap-6">
       <DisciplineFilters />
       <DisciplineList />
-      <div>
-        <Pagination total={100} />
-      </div>
+      <Pagination total={100} />
     </article>
   );
 };
