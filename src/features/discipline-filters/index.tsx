@@ -20,7 +20,7 @@ const DisciplineFilters = () => {
         </div>
         <div className="flex gap-2">
           <Button variant="circle">
-            <Icon glyph="sort-asc" color="gray" />
+            <Icon glyph="sort-asc" stroke="gray" />
           </Button>
           <fieldset className="w-[200px]">
             <Select placeholder="Сортировать по" />

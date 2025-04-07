@@ -1,7 +1,9 @@
 import { VariantProps } from 'class-variance-authority';
 import { IconVariants } from './variants';
 
-export interface IconProps extends VariantProps<typeof IconVariants> {
+export interface IconProps
+  extends VariantProps<typeof IconVariants>,
+    React.HTMLAttributes<HTMLElement> {
   className?: string;
   glyph: glyphs;
 }

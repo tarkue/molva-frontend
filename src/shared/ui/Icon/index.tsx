@@ -3,7 +3,7 @@ import { IconProps } from './props';
 import { IconVariants } from './variants';
 
 const Icon = forwardRef<HTMLElement, IconProps>(
-  ({ size, color, glyph, className = '' }, ref) => {
+  ({ size, stroke, glyph, className = '' }, ref) => {
     const iconStyle: React.CSSProperties = {
       maskImage: `url(/icons/${glyph}.svg)`,
       maskPosition: 'center center',
@@ -12,7 +12,7 @@ const Icon = forwardRef<HTMLElement, IconProps>(
 
     return (
       <i
-        className={IconVariants({ size, color, className })}
+        className={IconVariants({ size, stroke, className })}
         style={iconStyle}
         ref={ref}
       />

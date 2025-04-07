@@ -8,7 +8,7 @@ const IconVariants = cva('inline-block bg-no-repeat', {
       '24': 'w-6 h-6',
       logo: 'w-[90px] h-[35px]',
     },
-    color: {
+    stroke: {
       'blue-dark': 'bg-blue-dark',
       gray: 'bg-gray',
       white: 'bg-white',
@@ -17,7 +17,7 @@ const IconVariants = cva('inline-block bg-no-repeat', {
   },
   defaultVariants: {
     size: '24',
-    color: 'default',
+    stroke: 'default',
   },
 });
 
