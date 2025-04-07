@@ -5,11 +5,17 @@ import NumberList from './ui/number-list';
 
 interface NumberListProps {
   total: number;
+  selected?: number;
   onSelect?: (el: number) => void;
 }
 
-const Pagination = ({ total, onSelect }: NumberListProps) => {
-  const [selectedNumber, setSelectedNumber] = useState<number>(1);
+const Pagination = ({
+  total,
+  onSelect,
+  selected = 1,
+}: NumberListProps) => {
+  const [selectedNumber, setSelectedNumber] =
+    useState<number>(selected);
 
   const onClick = (el: number) => {
     if (onSelect) {
