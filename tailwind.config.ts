@@ -23,6 +23,7 @@ const config: Config = {
         gray: 'var(--color-gray)',
         white: 'var(--color-white)',
         black: 'var(--color-black)',
+        contrast: 'var(--text-color)',
       },
     },
   },

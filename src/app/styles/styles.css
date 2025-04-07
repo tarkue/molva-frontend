@@ -1,5 +1,5 @@
-@import 'tailwindcss';
 @import './theme.css';
+@import 'tailwindcss';
 
 @layer components {
   .text-headline {
@@ -22,6 +22,10 @@
   }
   .text-h1 {
     @apply font-normal text-[32px]/[120%];
+  }
+
+  .background-contrast {
+    background: var(--text-color);
   }
 }
 
@@ -88,7 +92,6 @@ svg {
 
 input,
 select,
-button,
-a {
+button {
   color: var(--text-color);
 }
