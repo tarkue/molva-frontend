@@ -10,7 +10,7 @@ const DisciplineContentDescription = (
   props: DisciplineContentDescriptionProps,
 ) => {
   return (
-    <footer className="flex flex-col gap-4 p-6 rounded-3xl">
+    <div className="flex flex-col gap-4 p-6 rounded-3xl bg-base-03">
       <p className="text-body text-contrast w-full">
         {props.description}
       </p>
@@ -29,7 +29,7 @@ const DisciplineContentDescription = (
           </Link>
         </li>
       </ul>
-    </footer>
+    </div>
   );
 };
 

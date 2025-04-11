@@ -13,7 +13,7 @@ const Discipline = () => {
   }
 
   return (
-    <Container className="flex flex-col items-center justify-center">
+    <Container className="flex flex-col items-center justify-center py-6">
       <DisciplineContent discipline={discipline} />
     </Container>
   );
