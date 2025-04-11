@@ -11,7 +11,7 @@ const DisciplineContent = ({
   discipline,
 }: DisciplineContentProps) => {
   return (
-    <section className="">
+    <section className="flex flex-col gap-3 w-full">
       <DisciplineContentHeader
         name={discipline.name}
         module_name={discipline.module_name}

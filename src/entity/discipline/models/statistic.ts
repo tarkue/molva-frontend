@@ -26,4 +26,10 @@ const generateStatistic = (data: StatisticProps): Statistic[] => [
   },
 ];
 
-export { generateStatistic };
+const statisticTitles = [
+  'Добавили в избранное',
+  'Средняя оценка',
+  'Оставили отзывы',
+];
+
+export { generateStatistic, statisticTitles };

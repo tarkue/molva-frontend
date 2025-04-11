@@ -6,7 +6,6 @@ import NotFoundPage from '../not-found';
 
 const Discipline = () => {
   const params = useParams();
-
   const discipline = getDiscipline(params.disciplineId);
 
   if (discipline === undefined) {

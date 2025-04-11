@@ -1,3 +1,4 @@
+import Link from '@/shared/ui/link';
 import { Discipline } from '../../models/discipline';
 
 type DisciplineContentDescriptionProps = Pick<
@@ -9,19 +10,23 @@ const DisciplineContentDescription = (
   props: DisciplineContentDescriptionProps,
 ) => {
   return (
-    <footer>
-      <p>{props.description}</p>
-      <p>Формат: {props.format}</p>
-      <ul>
+    <footer className="flex flex-col gap-4 p-6 rounded-3xl">
+      <p className="text-body text-contrast w-full">
+        {props.description}
+      </p>
+      <p className="text-body text-contrast">
+        Формат: {props.format}
+      </p>
+      <ul className="flex justify-between items-center">
         <li>
-          <a href={props.presentation_link} target="_blank">
+          <Link href={props.presentation_link} target="_blank">
             Посмотреть презентацию модуля
-          </a>
+          </Link>
         </li>
         <li>
-          <a href={props.modeus_link} target="_blank">
+          <Link href={props.modeus_link} target="_blank">
             Посмотреть расписание модуля в Modeus
-          </a>
+          </Link>
         </li>
       </ul>
     </footer>
