@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { Discipline } from '../../models/discipline';
-import { CardStatistics } from './stats';
+import { CardStatistics } from './statistics';
 
 interface DisciplineCardProps {
   discipline: Discipline;

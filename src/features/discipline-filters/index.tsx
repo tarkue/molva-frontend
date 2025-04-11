@@ -1,15 +1,13 @@
+import {
+  Format,
+  FormatPair,
+} from '@/entity/discipline/models/format';
 import { useParam } from '@/shared/hooks/search-params';
-import { enumToPair, getValue } from '@/shared/lib/enum-utils';
+import { getValue } from '@/shared/lib/enum-utils';
 import Button from '@/shared/ui/button';
 import Icon from '@/shared/ui/icon';
 import Input from '@/shared/ui/input';
 import Select from '@/shared/ui/select';
-
-enum Format {
-  offline = 'Оффлайн',
-  online = 'Онлайн',
-  mixed = 'Смешанный',
-}
 
 const DisciplineFilters = () => {
   const [disciplineName, setDisciplineName] = useParam<string>('q');
@@ -34,7 +32,7 @@ const DisciplineFilters = () => {
               placeholder="Формат проведения"
               defaultInputValue={getValue(Format, format)}
               onChange={(e) => setFormat(e?.value as Format)}
-              options={enumToPair(Format)}
+              options={FormatPair}
             />
           </fieldset>
         </div>
