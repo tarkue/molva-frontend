@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router';
 
 type Param<T> = [value: T | undefined, update: (value: T) => void];
@@ -23,18 +23,24 @@ export function useParam<T>(
       : options.default,
   );
 
+  useEffect(() => {
+    if (value !== undefined) {
+      setSearchParams((prev) => {
+        if (!prev.has(key)) {
+          prev.set(key, (value as object).toString());
+        }
+        return prev;
+      });
+    }
+  }, []);
+
   return [
     value,
     (value: T) => {
-      setSearchParams(
-        (prev) => {
-          prev.set(key, (value as object).toString());
-          return prev;
-        },
-        {
-          preventScrollReset: false,
-        },
-      );
+      setSearchParams((prev) => {
+        prev.set(key, (value as object).toString());
+        return prev;
+      });
       setValue(value);
     },
   ];

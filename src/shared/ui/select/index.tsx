@@ -1,7 +1,12 @@
 import { cn } from '@/shared/lib/utils';
-import { default as ReactSelect, Props } from 'react-select';
+import {
+  default as ReactSelect,
+  Props,
+  ActionMeta,
+} from 'react-select';
+import { Pair } from './pair';
 
-const Select = (props: Props) => (
+const Select = (props: Props<Pair, false>) => (
   <ReactSelect
     unstyled
     styles={{

@@ -1,4 +1,5 @@
 import { useParam } from '@/shared/hooks/search-params';
+import { enumToPair, getValue } from '@/shared/lib/enum-utils';
 import Button from '@/shared/ui/button';
 import Icon from '@/shared/ui/icon';
 import Input from '@/shared/ui/input';
@@ -8,25 +9,6 @@ enum Format {
   offline = 'Оффлайн',
   online = 'Онлайн',
   mixed = 'Смешанный',
-}
-
-interface Pair {
-  value: string;
-  label: string;
-}
-
-function zip<K, T>(a: Array<K>, b: Array<T>) {
-  return a.map((k, i) => [k, b[i]]);
-}
-
-function enumToValueLabel<T extends object>(obj: T): Pair[] {
-  const keys = Object.keys(obj);
-  const values = Object.values(obj);
-
-  return zip(keys, values).map((el) => ({
-    value: el[0],
-    label: el[1],
-  }));
 }
 
 const DisciplineFilters = () => {
@@ -50,11 +32,9 @@ const DisciplineFilters = () => {
           <fieldset className="w-[230px]">
             <Select
               placeholder="Формат проведения"
-              defaultInputValue={
-                Format[format as unknown as keyof typeof Format]
-              }
-              onChange={(e) => setFormat((e as Pair).value as Format)}
-              options={enumToValueLabel(Format)}
+              defaultInputValue={getValue(Format, format)}
+              onChange={(e) => setFormat(e?.value as Format)}
+              options={enumToPair(Format)}
             />
           </fieldset>
         </div>

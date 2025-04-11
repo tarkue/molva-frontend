@@ -6,6 +6,7 @@ import Pagination from '@/shared/ui/pagination';
 const Disciplines = () => {
   const [offset, setOffset] = useParam('offset', {
     validator: (el) => Number(el),
+    default: 1,
   });
 
   return (
