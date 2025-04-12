@@ -32,7 +32,7 @@
   }
 
   .Star {
-    mask-position: left;
+    mask-position: left center;
     mask-repeat: no-repeat;
     position: absolute;
     top: 0;

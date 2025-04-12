@@ -3,6 +3,8 @@ import Container from '@/shared/ui/сontainer';
 import { useParams } from 'react-router';
 import getDiscipline from './api';
 import NotFoundPage from '../not-found';
+import Reviews from '@/widgets/reviews';
+import Select from '@/shared/ui/select';
 
 const Discipline = () => {
   const params = useParams();
@@ -15,6 +17,15 @@ const Discipline = () => {
   return (
     <Container className="flex flex-col items-center py-6">
       <DisciplineContent discipline={discipline} />
+      <div className="flex w-full justify-between items-center pt-2 pb-6">
+        <fieldset className="w-[196px]">
+          <Select placeholder="Преподаватели" />
+        </fieldset>
+        <fieldset className="w-[200px]">
+          <Select placeholder="Сортировать по" />
+        </fieldset>
+      </div>
+      <Reviews />
     </Container>
   );
 };

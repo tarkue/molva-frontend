@@ -4,33 +4,40 @@ import Button from '@/shared/ui/button';
 import Icon from '@/shared/ui/icon';
 import { cn } from '@/shared/lib/utils';
 import { getColorClassByLikes } from './utils/color';
+import { getTeacherNames } from './utils/names';
 
 interface ReviewCardProps {
   review: Review;
 }
 
 const ReviewCard = ({ review }: ReviewCardProps) => {
-  const teachers = [
-    review.lector_name || '',
-    review.practic_name || '',
-  ].join(', ');
+  const teacherNames = getTeacherNames([
+    review.lector_name,
+    review.practic_name,
+  ]);
   const like_text_color = getColorClassByLikes(review.likes_count);
 
   return (
-    <article>
-      <div>
-        <p>{review.user_name}</p>
+    <article className="flex flex-col gap-2.5 p-6 rounded-3xl bg-base-03">
+      <div className="flex items-center justify-between w-full">
+        <p className="text-subhead text-contrast">
+          {review.user_name}
+        </p>
         <Stars value={review.grade} />
       </div>
-      <data>
-        <p>{review.comment}</p>
-        <div>
-          <span>{teachers}</span>
-          <span>{review.created_at}</span>
+      <data className="flex flex-col gap-3">
+        <p className="text-body">{review.comment}</p>
+        <div className="flex justify-between items-center w-full">
+          <span className="text-caption text-gray">
+            {teacherNames}
+          </span>
+          <span className="text-caption text-gray">
+            {review.created_at}
+          </span>
         </div>
         <span className="h-[1px] bg-gray w-full"></span>
-        <div>
-          <div>
+        <div className="flex items-center justify-between w-full">
+          <div className="flex gap-3">
             <Button variant="icon">
               <Icon glyph="like" />
             </Button>

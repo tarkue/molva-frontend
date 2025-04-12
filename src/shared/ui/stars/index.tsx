@@ -16,13 +16,13 @@ const Stars = forwardRef<HTMLDivElement, StarsProps>(
         <i
           style={{
             maskImage: `url('/stars/active.svg')`,
+            width: `${starsWidth}px`,
           }}
           className="Star background-contrast"
         />
         <i
           style={{
             maskImage: `url('/stars/disable.svg')`,
-            width: `${starsWidth}px`,
           }}
           className="Star background-contrast"
         />
