@@ -13,7 +13,9 @@ export default function AppLayout({
     <ThemeProvider>
       <AuthProvider>
         <Header />
-        <main className="min-w-full">{children}</main>
+        <main className="flex min-w-full min-h-[calc(100dvh-130px)]">
+          {children}
+        </main>
         <Footer />
       </AuthProvider>
     </ThemeProvider>
