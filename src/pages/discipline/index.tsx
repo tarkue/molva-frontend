@@ -5,6 +5,7 @@ import getDiscipline from './api';
 import NotFoundPage from '../not-found';
 import Reviews from '@/widgets/reviews';
 import Select from '@/shared/ui/select';
+import Pagination from '@/shared/ui/pagination';
 
 const Discipline = () => {
   const params = useParams();
@@ -26,6 +27,9 @@ const Discipline = () => {
         </fieldset>
       </div>
       <Reviews />
+      <fieldset className="flex justify-center items-center w-full pt-6">
+        <Pagination total={10} />
+      </fieldset>
     </Container>
   );
 };
