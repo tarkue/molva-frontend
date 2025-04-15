@@ -2,36 +2,8 @@ import {
   DefaultFormField,
   DefaultFormFieldProps,
 } from '@/shared/ui/form';
-
-enum FieldLabel {
-  Email = 'Почта',
-  Password = 'Пароль',
-  OldPassword = 'Старый пароль',
-  NewPassword = 'Новый пароль',
-  ConfirmPassword = 'Подтверждение пароля',
-  Name = 'Имя',
-  Surname = 'Фамилия',
-  Patronymic = 'Отчество',
-}
-
-const BasePassword = ({
-  form,
-  withPlaceholder,
-  label = FieldLabel.Password,
-  fieldName = 'password',
-}: DefaultFormFieldProps & {
-  label?: FieldLabel;
-  fieldName?: string;
-}) => (
-  <DefaultFormField
-    required
-    name={fieldName}
-    label={withPlaceholder ? undefined : label}
-    placeholder={withPlaceholder ? label : undefined}
-    type="password"
-    form={form}
-  />
-);
+import { FieldLabel } from '../../models/field-label';
+import BasePassword from './base-password';
 
 const Email = ({ form, withPlaceholder }: DefaultFormFieldProps) => (
   <DefaultFormField
