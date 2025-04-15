@@ -1,13 +1,13 @@
 import Header from '@/widgets/header';
 import Footer from '@/widgets/footer';
 import { AuthProvider } from '@/entity/user';
-import { JSX } from 'react';
 import { ThemeProvider } from '@/shared/models/theme-store';
+import { Toaster } from '@/shared/ui/toast';
 
 export default function AppLayout({
   children,
 }: {
-  children: JSX.Element;
+  children: React.ReactNode;
 }) {
   return (
     <ThemeProvider>
@@ -17,6 +17,7 @@ export default function AppLayout({
           {children}
         </main>
         <Footer />
+        <Toaster />
       </AuthProvider>
     </ThemeProvider>
   );

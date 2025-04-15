@@ -47,8 +47,8 @@ const Reviews = () => {
   return (
     <ul className="flex flex-col gap-6">
       {reviews.map((el, key) => (
-        <li>
-          <ReviewCard key={key} review={el} />{' '}
+        <li key={key}>
+          <ReviewCard review={el} />
         </li>
       ))}
     </ul>
