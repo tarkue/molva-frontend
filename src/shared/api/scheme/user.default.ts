@@ -5,9 +5,9 @@ const basePassword = (name: string = '') =>
     .string({ message: `${name} обязателен` })
     .min(8, 'Пароль должен быть не менее 8 символов')
     .max(20, 'Пароль должен быть не более 20 символов')
-    .regex(/\[A-Za-z0-9]/)
     .refine(
       (value) =>
+        /\[A-Za-z0-9]/.test(value) &&
         /[A-Z]/.test(value) &&
         /[a-z]/.test(value) &&
         /[0-9]/.test(value),

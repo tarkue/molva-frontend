@@ -2,10 +2,14 @@ import {
   DefaultFormField,
   DefaultFormFieldProps,
 } from '@/shared/ui/form';
+import { FieldValues } from 'react-hook-form';
 import { FieldLabel } from '../../models/field-label';
 import BasePassword from './base-password';
 
-const Email = ({ form, withPlaceholder }: DefaultFormFieldProps) => (
+const Email = <T extends FieldValues>({
+  form,
+  withPlaceholder,
+}: DefaultFormFieldProps<T>) => (
   <DefaultFormField
     required
     name="email"
@@ -16,10 +20,10 @@ const Email = ({ form, withPlaceholder }: DefaultFormFieldProps) => (
   />
 );
 
-const Surname = ({
+const Surname = <T extends FieldValues>({
   form,
   withPlaceholder,
-}: DefaultFormFieldProps) => (
+}: DefaultFormFieldProps<T>) => (
   <DefaultFormField
     required
     name="surname"
@@ -30,7 +34,10 @@ const Surname = ({
   />
 );
 
-const Name = ({ form, withPlaceholder }: DefaultFormFieldProps) => (
+const Name = <T extends FieldValues>({
+  form,
+  withPlaceholder,
+}: DefaultFormFieldProps<T>) => (
   <DefaultFormField
     required
     name="name"
@@ -41,10 +48,10 @@ const Name = ({ form, withPlaceholder }: DefaultFormFieldProps) => (
   />
 );
 
-const Patronymic = ({
+const Patronymic = <T extends FieldValues>({
   form,
   withPlaceholder,
-}: DefaultFormFieldProps) => (
+}: DefaultFormFieldProps<T>) => (
   <DefaultFormField
     name="patronymic"
     label={withPlaceholder ? undefined : FieldLabel.Patronymic}
@@ -54,11 +61,13 @@ const Patronymic = ({
   />
 );
 
-const Password = (props: DefaultFormFieldProps) => (
-  <BasePassword {...props} />
-);
+const Password = <T extends FieldValues>(
+  props: DefaultFormFieldProps<T>,
+) => <BasePassword {...props} />;
 
-const OldPassword = (props: DefaultFormFieldProps) => (
+const OldPassword = <T extends FieldValues>(
+  props: DefaultFormFieldProps<T>,
+) => (
   <BasePassword
     label={FieldLabel.OldPassword}
     fieldName="oldPassword"
@@ -66,7 +75,9 @@ const OldPassword = (props: DefaultFormFieldProps) => (
   />
 );
 
-const NewPassword = (props: DefaultFormFieldProps) => (
+const NewPassword = <T extends FieldValues>(
+  props: DefaultFormFieldProps<T>,
+) => (
   <BasePassword
     label={FieldLabel.NewPassword}
     fieldName="newPassword"
@@ -74,7 +85,9 @@ const NewPassword = (props: DefaultFormFieldProps) => (
   />
 );
 
-const ConfirmPassword = (props: DefaultFormFieldProps) => (
+const ConfirmPassword = <T extends FieldValues>(
+  props: DefaultFormFieldProps<T>,
+) => (
   <BasePassword
     label={FieldLabel.ConfirmPassword}
     fieldName="confirmPassword"

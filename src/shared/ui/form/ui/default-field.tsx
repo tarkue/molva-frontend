@@ -8,8 +8,8 @@ import {
 } from '../index';
 import Input from '@/shared/ui/input';
 
-interface DefaultFormFieldProps {
-  form: Control<FieldValues>;
+interface DefaultFormFieldProps<T extends FieldValues> {
+  form: Control<T>;
   name: string;
   required?: boolean | undefined;
   type?: React.HTMLInputTypeAttribute | undefined;
@@ -17,7 +17,9 @@ interface DefaultFormFieldProps {
   placeholder?: string | undefined;
 }
 
-const DefaultFormField = (props: DefaultFormFieldProps) => {
+const DefaultFormField = <T extends FieldValues>(
+  props: DefaultFormFieldProps<T>,
+) => {
   return (
     <FormField
       control={props.form}
@@ -27,7 +29,9 @@ const DefaultFormField = (props: DefaultFormFieldProps) => {
           {props.label && (
             <FormLabel>
               {props.label}
-              {props.required && <span className="text-red">*</span>}
+              {props.required && (
+                <span className="text-red">{' *'}</span>
+              )}
             </FormLabel>
           )}
           <FormControl aria-required={props.required}>

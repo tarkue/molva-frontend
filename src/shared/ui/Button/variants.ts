@@ -19,7 +19,7 @@ const buttonVariants = cva(
     },
     defaultVariants: {
       variant: 'primary',
-      size: 'small',
+      size: 'medium',
     },
   },
 );

@@ -16,7 +16,7 @@ const FormMessage = ({
   return (
     <FormPrompt
       id={formMessageId}
-      className={cn('text-sm text-destructive', className)}
+      className={cn('text-caption text-gray pt-1', className)}
     >
       {body}
     </FormPrompt>

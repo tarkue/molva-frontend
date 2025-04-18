@@ -3,13 +3,14 @@ import {
   DefaultFormFieldProps,
 } from '@/shared/ui/form';
 import { FieldLabel } from '../../models/field-label';
+import { FieldValues } from 'react-hook-form';
 
-const BasePassword = ({
+const BasePassword = <T extends FieldValues>({
   form,
   withPlaceholder,
   label = FieldLabel.Password,
   fieldName = 'password',
-}: DefaultFormFieldProps & {
+}: DefaultFormFieldProps<T> & {
   label?: FieldLabel;
   fieldName?: string;
 }) => (

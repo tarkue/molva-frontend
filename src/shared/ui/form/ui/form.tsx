@@ -1,39 +1,35 @@
 import { cn } from '@/shared/lib/utils';
-import { FormProvider } from 'react-hook-form';
+import { FieldValues, FormProvider } from 'react-hook-form';
 import { FormProviderProps } from 'react-hook-form';
 
-export interface FormProps extends FormProviderProps {
+export interface FormProps<T extends FieldValues>
+  extends FormProviderProps<T> {
   title?: string;
-  titleAlign: 'left' | 'center' | 'right';
-  onSubmit: () => Promise<void> | void;
+  actions?: React.ReactNode;
+  onSubmit?: () => Promise<void> | void;
 }
 
-const Form = ({
+export function Form<T extends FieldValues>({
   children,
   title,
+  actions,
   onSubmit,
-  titleAlign = 'center',
   ...props
-}: FormProps) => {
+}: FormProps<T>) {
   return (
     <section className="flex flex-col gap-6 items-center justify-center bg-base-03 rounded-3xl w-full px-6 sm-max:px-8 py-12">
-      {title && (
-        <h1
-          className={cn('text-h1 text-contast', `text-${titleAlign}`)}
-        >
-          {title}
-        </h1>
-      )}
+      <div>
+        {title && <h1 className="text-contast text-h1">{title}</h1>}
+        {actions}
+      </div>
       <FormProvider {...props}>
         <form
           onSubmit={onSubmit}
-          className="w-full flex flex-col gap-4"
+          className="w-full flex flex-col gap-3"
         >
           {children}
         </form>
       </FormProvider>
     </section>
   );
-};
-
-export { Form };
+}
