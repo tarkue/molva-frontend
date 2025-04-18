@@ -3,5 +3,5 @@ export interface RegisterDTO {
   password: string;
   name: string;
   surname: string;
-  patronymic: string;
+  patronymic?: string;
 }

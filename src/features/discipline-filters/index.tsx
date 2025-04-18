@@ -4,8 +4,7 @@ import {
 } from '@/entity/discipline/models/format';
 import { useParam } from '@/shared/hooks/search-params';
 import { getValue } from '@/shared/lib/enum-utils';
-import Button from '@/shared/ui/button';
-import Icon from '@/shared/ui/icon';
+import { Desc } from '@/shared/ui/desc';
 import Input from '@/shared/ui/input';
 import Select from '@/shared/ui/select';
 
@@ -37,9 +36,7 @@ const DisciplineFilters = () => {
           </fieldset>
         </div>
         <div className="flex gap-2">
-          <Button variant="circle">
-            <Icon glyph="sort-asc" stroke="gray" />
-          </Button>
+          <Desc />
           <fieldset className="w-[200px]">
             <Select placeholder="Сортировать по" />
           </fieldset>
