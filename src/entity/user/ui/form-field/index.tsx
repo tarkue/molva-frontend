@@ -2,9 +2,9 @@ import {
   DefaultFormField,
   DefaultFormFieldProps,
 } from '@/shared/ui/form';
-import { FieldValues } from 'react-hook-form';
 import { FieldLabel } from '../../models/field-label';
 import BasePassword from './base-password';
+import { FieldValues } from 'react-hook-form';
 
 const Email = <T extends FieldValues>({
   form,

@@ -1,31 +1,32 @@
-import Button from '../../button';
 import { Form } from '../../form';
+import { useModal } from '../context/hooks';
+import { DefaultFormModalProps } from '../models/form-modal-props';
 import { CloseModal } from './close';
-import {
-  FieldValues,
-  FormProviderProps,
-  SubmitHandler,
-} from 'react-hook-form';
+import { FieldValues } from 'react-hook-form';
 
-export interface DefaultFormModalProps<T extends FieldValues> {
-  title?: string;
-  form: FormProviderProps<T>;
-  fields?: React.ReactNode;
-  buttons?: React.ReactNode;
-  onSubmit: SubmitHandler<T>;
-}
+type FormModalProps<T extends FieldValues> =
+  DefaultFormModalProps<T> & {
+    id: number;
+  };
 
 export const DefaultFormModal = <T extends FieldValues>({
+  id,
   title,
   form,
+  className,
   fields,
   buttons,
   onSubmit,
-}: DefaultFormModalProps<T>) => {
+}: FormModalProps<T>) => {
+  const { isOpen, close } = useModal(id);
+
+  if (!isOpen) return null;
+
   return (
     <Form
       title={title}
-      actions={<CloseModal />}
+      className={className}
+      actions={<CloseModal close={close} />}
       onSubmit={form.handleSubmit(onSubmit)}
       {...form}
     >

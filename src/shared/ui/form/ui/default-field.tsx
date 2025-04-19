@@ -1,4 +1,4 @@
-import { Control, FieldValues } from 'react-hook-form';
+import { Control, FieldValues, Path } from 'react-hook-form';
 import {
   FormControl,
   FormField,
@@ -9,12 +9,13 @@ import {
 import Input from '@/shared/ui/input';
 
 interface DefaultFormFieldProps<T extends FieldValues> {
-  form: Control<T>;
+  form: Control<T, string, T>;
   name: string;
   required?: boolean | undefined;
   type?: React.HTMLInputTypeAttribute | undefined;
   label?: string | undefined;
   placeholder?: string | undefined;
+  withPlaceholder?: boolean;
 }
 
 const DefaultFormField = <T extends FieldValues>(
@@ -23,7 +24,7 @@ const DefaultFormField = <T extends FieldValues>(
   return (
     <FormField
       control={props.form}
-      name={props.name}
+      name={props.name as Path<T>}
       render={({ field, fieldState }) => (
         <FormItem>
           {props.label && (

@@ -1,28 +1,23 @@
-import Button from '@/shared/ui/button';
-import { UserFormField, UserForms } from '@/entity/user';
-import { Form } from '@/shared/ui/form';
+import { UserForms } from '@/entity/user';
 import { useSignInSubmit } from './api/submit';
-import Icon from '@/shared/ui/icon';
+import { useModals } from '@/shared/ui/modal';
+import { SignInFormButtons } from './ui/buttons';
+import { SignInFormFields } from './ui/fields';
 
-const SignInForm = () => {
+export const useOpenSignIn = () => {
   const form = UserForms.useSignInForm();
   const onSubmit = useSignInSubmit();
+  const { addModal, clear } = useModals();
 
-  return (
-    <Form
-      title="Войти"
-      onSubmit={form.handleSubmit(onSubmit)}
-      {...form}
-    >
-      <UserFormField.Email withPlaceholder form={form.control} />
-      <UserFormField.Password withPlaceholder form={form.control} />
-      <div className="flex justify-center items-center gap-6">
-        <Button type="submit" size="medium">
-          Войти
-        </Button>
-      </div>
-    </Form>
-  );
+  return () => {
+    clear();
+    addModal({
+      form: form,
+      className: 'w-[343px]',
+      title: 'Вход',
+      onSubmit: onSubmit,
+      fields: <SignInFormFields form={form} />,
+      buttons: <SignInFormButtons />,
+    });
+  };
 };
-
-export { SignInForm };

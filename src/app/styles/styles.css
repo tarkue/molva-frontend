@@ -103,3 +103,7 @@ svg {
   object-fit: cover;
   object-position: center;
 }
+
+a {
+  cursor: pointer;
+}

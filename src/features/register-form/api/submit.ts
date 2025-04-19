@@ -1,0 +1,21 @@
+import { UserForms } from '@/entity/user';
+import { api } from '@/shared/api';
+import { toast } from '@/shared/ui/toast';
+import { z } from 'zod';
+
+export const useRegisterSubmit = () => {
+  return async (
+    data: z.infer<typeof UserForms.registerFormSchema>,
+  ) => {
+    try {
+      await api.auth.register(data);
+    } catch (error) {
+      toast({
+        title: 'Пользователь с такой почтой уже существует',
+        description:
+          'Попробуйте авторизоваться или восстановить пароль',
+        variant: 'destructive',
+      });
+    }
+  };
+};

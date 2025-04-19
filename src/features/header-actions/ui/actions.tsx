@@ -1,5 +1,5 @@
 import { useAuth } from '@/entity/user';
-import NavigateToAuth from './navigate-to-auth';
+import OpenSignIn from './open-signin';
 import NavigateToNotification from './navigate-to-notification';
 import NavigateToProfile from './navigate-to-profile';
 
@@ -11,7 +11,7 @@ const HeaderActions = () => {
       <NavigateToProfile />
     </>
   ) : (
-    <NavigateToAuth />
+    <OpenSignIn />
   );
 
   return <div className="flex items-center gap-2">{actions}</div>;
