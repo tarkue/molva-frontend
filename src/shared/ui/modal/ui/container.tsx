@@ -4,8 +4,10 @@ export const ModalContainer = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="fixed scroll-auto top-0 left-0 w-dvw h-dvh">
+    <div className="fixed scroll-auto top-0 left-0 w-dvw h-dvh backdrop-filter backdrop-blur-xs">
       <dialog
+        role="dialog"
+        aria-modal="true"
         open={true}
         className="absolute z-20 left-0 right-0 top-0 bottom-0 m-auto bg-none border-none rounded-3xl"
       >

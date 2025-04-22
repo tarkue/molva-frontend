@@ -9,7 +9,7 @@ import Pagination from '@/shared/ui/pagination';
 
 const Discipline = () => {
   const params = useParams();
-  const discipline = getDiscipline(params.disciplineId);
+  const discipline = getDiscipline(params.id);
 
   if (discipline === undefined) {
     return <NotFoundPage />;

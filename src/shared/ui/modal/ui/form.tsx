@@ -18,9 +18,7 @@ export const DefaultFormModal = <T extends FieldValues>({
   buttons,
   onSubmit,
 }: FormModalProps<T>) => {
-  const { isOpen, close } = useModal(id);
-
-  if (!isOpen) return null;
+  const { close } = useModal(id);
 
   return (
     <Form
