@@ -5,17 +5,22 @@ import Icon from '@/shared/ui/icon';
 import { cn } from '@/shared/lib/utils';
 import { getColorClassByLikes } from './utils/color';
 import { getTeacherNames } from './utils/names';
+import { useMemo } from 'react';
 
 interface ReviewCardProps {
   review: Review;
 }
 
 const ReviewCard = ({ review }: ReviewCardProps) => {
-  const teacherNames = getTeacherNames([
-    review.lector_name,
-    review.practic_name,
-  ]);
-  const like_text_color = getColorClassByLikes(review.likes_count);
+  const teacherNames = useMemo(
+    () => getTeacherNames([review.lector_name, review.practic_name]),
+    [review.lector_name, review.practic_name],
+  );
+
+  const like_text_color = useMemo(
+    () => getColorClassByLikes(review.likes_count),
+    [review.likes_count],
+  );
 
   return (
     <article className="flex flex-col gap-2.5 p-6 rounded-3xl bg-base-03">
