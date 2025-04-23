@@ -4,9 +4,10 @@ import Icon from '@/shared/ui/icon';
 
 const OpenSignIn = () => {
   const openSignIn = useOpenSignIn();
+
   return (
     <Button variant="icon" onClick={openSignIn}>
-      <Icon glyph="account" />
+      <Icon glyph="account" stroke={'white'} />
     </Button>
   );
 };

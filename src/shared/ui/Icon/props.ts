@@ -29,4 +29,5 @@ export type glyphs =
   | 'sort-asc'
   | 'sort-desc'
   | 'star'
-  | 'trash';
+  | 'trash'
+  | 'theme';
