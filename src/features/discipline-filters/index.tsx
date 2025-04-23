@@ -2,7 +2,7 @@ import {
   Format,
   FormatPair,
 } from '@/entity/discipline/models/format';
-import { useParam } from '@/shared/hooks/search-params';
+import { useParam } from '@/shared/models/search-params';
 import { getValue } from '@/shared/lib/enum-utils';
 import { Desc } from '@/shared/ui/desc';
 import Input from '@/shared/ui/input';

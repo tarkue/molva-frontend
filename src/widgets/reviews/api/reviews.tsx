@@ -1,6 +1,6 @@
 import { Review } from '@/entity/reviews';
 import { api } from '@/shared/api';
-import { useParam } from '@/shared/hooks/search-params';
+import { useParam } from '@/shared/models/search-params';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
@@ -10,7 +10,7 @@ export const useGetDisciplineReviews = () => {
   const [sort] = useParam<string>('sort');
 
   const [reviews, setReviews] = useState<Review[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (id) {
@@ -18,7 +18,7 @@ export const useGetDisciplineReviews = () => {
       api.review.get(id, { teacherId, sort }).then(setReviews);
       setIsLoading(false);
     }
-  }, [id]);
+  }, [id, teacherId, sort]);
 
   return { reviews, isLoading };
 };

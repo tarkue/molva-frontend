@@ -1,6 +1,6 @@
 import DisciplineFilters from '@/features/discipline-filters';
 import DisciplineList from '@/features/discipline-list';
-import { useParam } from '@/shared/hooks/search-params';
+import { useParam } from '@/shared/models/search-params';
 import Pagination from '@/shared/ui/pagination';
 
 const Disciplines = () => {
