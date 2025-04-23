@@ -1,5 +1,11 @@
-import { createContext, useContext, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { User } from '../user';
+import { api } from '@/shared/api';
 
 type UserContextType = {
   user: User | undefined;
@@ -16,6 +22,16 @@ export const UserProvider = ({
   children?: React.ReactNode;
 }) => {
   const [user, setUser] = useState<User | undefined>(undefined);
+
+  useEffect(() => {
+    if (!user) {
+      api.auth
+        .check()
+        .then(setUser)
+        .catch(() => setUser(undefined));
+    }
+  }, []);
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}

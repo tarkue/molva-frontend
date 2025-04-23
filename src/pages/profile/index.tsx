@@ -1,4 +1,4 @@
-import { useAuth, UserCard, useUser } from '@/entity/user';
+import { UserCard, useUser } from '@/entity/user';
 import Container from '@/shared/ui/сontainer';
 import { ChangePassword } from './ui/change-password';
 import { useEffect } from 'react';

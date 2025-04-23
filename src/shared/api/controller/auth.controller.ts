@@ -23,4 +23,8 @@ const changePassword = async (dto: any) =>
     })
     .json<any>();
 
-export { login, register, changePassword };
+const check = async (): Promise<UserDTO> => {
+  return await client.post('/auth/check').json<UserDTO>();
+};
+
+export { login, register, changePassword, check };

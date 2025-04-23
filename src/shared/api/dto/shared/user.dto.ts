@@ -2,6 +2,6 @@ export interface UserDTO {
   id: string;
   name: string;
   surname: string;
-  patronymic: string | null;
+  patronymic?: string;
   email: string;
 }
