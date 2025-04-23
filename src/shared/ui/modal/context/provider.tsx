@@ -11,7 +11,7 @@ const MAX_MODALS = 2 as const;
 export const ModalProvider = ({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) => {
   const [modals, setModals] = useState<Modal<FieldValues>[]>([]);
 

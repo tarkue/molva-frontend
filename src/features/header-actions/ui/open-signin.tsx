@@ -1,4 +1,4 @@
-import { useOpenSignIn } from '@/features/sign-in-form';
+import { useOpenSignIn } from '@/features/open-sign-in-form';
 import Button from '@/shared/ui/button';
 import Icon from '@/shared/ui/icon';
 

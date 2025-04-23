@@ -15,7 +15,7 @@ export const AuthContext = createContext<AuthContextType>(
   {} as AuthContextType,
 );
 
-export const AuthProvider: FC<{ children: ReactNode }> = ({
+export const AuthProvider: FC<{ children?: ReactNode }> = ({
   children,
 }) => {
   const [isAuthorized, setIsAuthorized] = useState<boolean>(false);

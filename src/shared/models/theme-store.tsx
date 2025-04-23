@@ -26,7 +26,7 @@ const ThemeContext = createContext<ThemeContextType>(
   {} as ThemeContextType,
 );
 
-export const ThemeProvider: FC<{ children: ReactNode }> = ({
+export const ThemeProvider: FC<{ children?: ReactNode }> = ({
   children,
 }) => {
   const [theme, setTheme] = useState<Theme>('light');

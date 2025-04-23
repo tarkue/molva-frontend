@@ -16,4 +16,11 @@ const register = async (dto: RegisterDTO) =>
     })
     .json<UserDTO>();
 
-export { login, register };
+const changePassword = async (dto: any) =>
+  await client
+    .post('/auth/change-password', {
+      body: JSON.stringify(dto),
+    })
+    .json<any>();
+
+export { login, register, changePassword };

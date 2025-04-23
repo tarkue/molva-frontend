@@ -1,4 +1,4 @@
-import { useOpenRegister } from '@/features/register-form';
+import { useOpenRegister } from '@/features/open-register-form';
 import Button from '@/shared/ui/button';
 
 export const SignInFormButtons = () => {

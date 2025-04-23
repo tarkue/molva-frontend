@@ -7,7 +7,7 @@ import Reviews from '@/widgets/reviews';
 import Select from '@/shared/ui/select';
 import Pagination from '@/shared/ui/pagination';
 
-const Discipline = () => {
+const DisciplinePage = () => {
   const params = useParams();
   const discipline = getDiscipline(params.id);
 
@@ -34,4 +34,4 @@ const Discipline = () => {
   );
 };
 
-export default Discipline;
+export default DisciplinePage;
