@@ -2,9 +2,9 @@ import { FormatPair } from '@/entity/discipline/models/format-pair';
 import { Format } from '@/shared/api';
 import { useParam } from '@/shared/models/search-params';
 import { getValue } from '@/shared/lib/enum-utils';
-import { Desc } from '@/shared/ui/desc';
 import Input from '@/shared/ui/input';
 import Select from '@/shared/ui/select';
+import { DescWithParam } from '../desc-param';
 
 const DisciplineFilters = () => {
   const [disciplineName, setDisciplineName] = useParam<string>('q');
@@ -34,7 +34,7 @@ const DisciplineFilters = () => {
           </fieldset>
         </div>
         <div className="flex gap-2">
-          <Desc />
+          <DescWithParam />
           <fieldset className="w-[200px]">
             <Select placeholder="Сортировать по" />
           </fieldset>

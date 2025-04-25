@@ -26,22 +26,20 @@ export function useParam<T>(
   useEffect(() => {
     if (value !== undefined) {
       setSearchParams((prev) => {
-        if (!prev.has(key)) {
-          prev.set(key, (value as object).toString());
+        const t = (value as object).toString();
+        if (prev.has(key)) {
+          prev.set(key, t);
+        } else {
+          prev.append(key, t);
         }
+        prev.forEach((value, key) => {
+          console.log(key, value);
+        });
+        console.log('----');
         return prev;
       });
     }
-  }, []);
+  }, [value]);
 
-  return [
-    value,
-    (value: T) => {
-      setSearchParams((prev) => {
-        prev.set(key, (value as object).toString());
-        return prev;
-      });
-      setValue(value);
-    },
-  ];
+  return [value, setValue];
 }

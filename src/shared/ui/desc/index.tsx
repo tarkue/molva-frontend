@@ -4,16 +4,15 @@ import Icon from '../icon';
 import { DescProps } from './props';
 
 const Desc = forwardRef<HTMLButtonElement, DescProps>(
-  ({ onDescChange, ...props }, ref) => {
-    const [desc, setDesc] = useState(false);
+  ({ onDescChange, value = 0, ...props }, ref) => {
+    const [desc, setDesc] = useState(value);
 
     const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      setDesc((prev) => !prev);
-
       if (onDescChange) {
-        onDescChange(desc);
+        onDescChange(desc ? 0 : 1);
       }
+      setDesc((prev) => (prev ? 0 : 1));
     };
 
     return (
