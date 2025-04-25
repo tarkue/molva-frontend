@@ -5,10 +5,11 @@ import { useNavigate } from 'react-router';
 import { z } from 'zod';
 
 export const useRegisterSubmit = () => {
+  const navigate = useNavigate();
+
   return async (
     data: z.infer<typeof UserForms.registerFormSchema>,
   ) => {
-    const navigate = useNavigate();
     try {
       await api.auth.register(data);
       await api.auth.login({
@@ -17,6 +18,7 @@ export const useRegisterSubmit = () => {
       });
       navigate('/profile');
     } catch (error) {
+      console.log(error);
       toast({
         title: 'Пользователь с такой почтой уже существует',
         description:

@@ -1,36 +1,34 @@
 import client from '../base';
 import {
-  UserDTO,
+  User,
   UserUpdateDTO,
   UserUpdatePasswordDTO,
 } from '../dto/user.dto';
 import { LoginDTO, RegisterDTO } from '../dto/user';
 
-const BASE_URL = '/users';
+const BASE_URL = 'users';
 
 const login = async (dto: LoginDTO) =>
   await client
-    .post(`${BASE_URL}/authorization}`, {
+    .post(`${BASE_URL}/authorization`, {
       body: JSON.stringify(dto),
       credentials: 'include',
     })
-    .json<UserDTO>();
+    .json();
 
-const check = async (): Promise<UserDTO> => {
-  return await client
-    .get(`${BASE_URL}/authorization/check}`)
-    .json<UserDTO>();
+const check = async (): Promise<User> => {
+  return await client.get(`${BASE_URL}/authorization/check`).json();
 };
 
 const register = async (dto: RegisterDTO) =>
   await client
-    .post(`${BASE_URL}/registration}`, {
+    .post(`${BASE_URL}/registration`, {
       body: JSON.stringify(dto),
     })
-    .json<UserDTO>();
+    .json();
 
 const logout = async () =>
-  await client.post(`${BASE_URL}/logout}`).json<any>();
+  await client.post(`${BASE_URL}/logout`).json<any>();
 
 const edit = async (dto: UserUpdateDTO) =>
   await client
@@ -41,16 +39,16 @@ const edit = async (dto: UserUpdateDTO) =>
 
 const changePassword = async (dto: UserUpdatePasswordDTO) =>
   await client
-    .patch(`${BASE_URL}/edit/password}`, {
+    .patch(`${BASE_URL}/edit/password`, {
       body: JSON.stringify(dto),
     })
     .json<any>();
 
 const get = async (id: string) =>
-  await client.get(`${BASE_URL}/user/${id}`).json<UserDTO>();
+  await client.get(`${BASE_URL}/user/${id}`).json<User>();
 
 const getAll = async () =>
-  await client.get(`${BASE_URL}/users`).json<UserDTO[]>();
+  await client.get(`${BASE_URL}/users`).json<User[]>();
 
 export {
   login,

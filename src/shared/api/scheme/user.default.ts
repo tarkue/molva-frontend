@@ -7,10 +7,9 @@ const basePassword = (name: string = '') =>
     .max(20, 'Пароль должен быть не более 20 символов')
     .refine(
       (value) =>
-        /\[A-Za-z0-9]/.test(value) &&
-        /[A-Z]/.test(value) &&
-        /[a-z]/.test(value) &&
-        /[0-9]/.test(value),
+        /[A-Z]+/.test(value) &&
+        /[a-z]+/.test(value) &&
+        /[0-9]+/.test(value),
       {
         message:
           'Пароль должен содержать хотя бы одну заглавную букву, одну строчную букву и одну цифру',

@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { Discipline } from '../../models/discipline';
+import { Discipline } from '@/shared/api';
 import { CardStatistics } from './statistics';
 
 interface DisciplineCardProps {
@@ -10,7 +10,7 @@ const DisciplineCard = ({ discipline }: DisciplineCardProps) => {
   return (
     <Link
       className="bg-base-03 flex justify-between items-center text-contrast pl-6 pr-6 pt-4 pb-4 rounded-3xl"
-      to={`/discipline/${discipline.id}`}
+      to={`/discipline/${discipline.discipline_id}`}
     >
       <div>
         <span className="text-subhead">{discipline.name}</span>

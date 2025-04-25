@@ -1,9 +1,8 @@
-import { Discipline } from '@/entity/discipline';
-import { Format } from '@/entity/discipline/models/format';
+import { Format, Discipline } from '@/shared/api';
 
 const getDisciplines = (): Discipline[] => [
   {
-    id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
+    discipline_id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
     name: 'Стратегии формирования навыков',
     module_name: 'Операционные системы',
     rating: 3.02,
@@ -16,7 +15,7 @@ const getDisciplines = (): Discipline[] => [
     modeus_link: 'https://urfu.modeus.org',
   },
   {
-    id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
+    discipline_id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
     name: 'Математическая статистика и теория вероятностей (Белоусова)',
     module_name: 'Математическая статистика и теория вероятностей',
     rating: 3.03,
@@ -29,7 +28,7 @@ const getDisciplines = (): Discipline[] => [
     modeus_link: 'https://urfu.modeus.org',
   },
   {
-    id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
+    discipline_id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
     name: 'Стратегии формирования навыков',
     module_name: 'Операционные системы',
     rating: 2.51,
@@ -42,7 +41,7 @@ const getDisciplines = (): Discipline[] => [
     modeus_link: 'https://urfu.modeus.org',
   },
   {
-    id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
+    discipline_id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
     name: 'Стратегии формирования навыков',
     module_name: 'Операционные системы',
     rating: 3.02,
@@ -55,7 +54,7 @@ const getDisciplines = (): Discipline[] => [
     modeus_link: 'https://urfu.modeus.org',
   },
   {
-    id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
+    discipline_id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
     name: 'Математическая статистика и теория вероятностей (Белоусова)',
     module_name: 'Математическая статистика и теория вероятностей',
     rating: 3.03,
@@ -68,7 +67,7 @@ const getDisciplines = (): Discipline[] => [
     modeus_link: 'https://urfu.modeus.org',
   },
   {
-    id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
+    discipline_id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
     name: 'Стратегии формирования навыков',
     module_name: 'Операционные системы',
     rating: 2.51,
@@ -81,7 +80,7 @@ const getDisciplines = (): Discipline[] => [
     modeus_link: 'https://urfu.modeus.org',
   },
   {
-    id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
+    discipline_id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
     name: 'Стратегии формирования навыков',
     module_name: 'Операционные системы',
     rating: 3.02,
@@ -94,7 +93,7 @@ const getDisciplines = (): Discipline[] => [
     modeus_link: 'https://urfu.modeus.org',
   },
   {
-    id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
+    discipline_id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
     name: 'Математическая статистика и теория вероятностей (Белоусова)',
     module_name: 'Математическая статистика и теория вероятностей',
     rating: 3.03,
@@ -107,7 +106,7 @@ const getDisciplines = (): Discipline[] => [
     modeus_link: 'https://urfu.modeus.org',
   },
   {
-    id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
+    discipline_id: 'ba25ddd5-cfc9-496b-9913-2fc1eebc7472',
     name: 'Стратегии формирования навыков',
     module_name: 'Операционные системы',
     rating: 2.51,

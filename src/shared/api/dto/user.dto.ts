@@ -1,4 +1,4 @@
-export interface UserDTO {
+export interface User {
   user_id: string;
   name: string;
   surname: string;
@@ -6,7 +6,7 @@ export interface UserDTO {
   email: string;
 }
 
-export type UserUpdateDTO = Partial<UserDTO>;
+export type UserUpdateDTO = Partial<User>;
 
 export type UserUpdatePasswordDTO = {
   user_id: string;

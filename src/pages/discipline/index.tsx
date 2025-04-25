@@ -3,7 +3,7 @@ import Container from '@/shared/ui/сontainer';
 import { useParams } from 'react-router';
 import getDiscipline from './api';
 import NotFoundPage from '../not-found';
-import Reviews from '@/widgets/reviews';
+import ReviewList from '@/widgets/review-list';
 import Select from '@/shared/ui/select';
 import Pagination from '@/shared/ui/pagination';
 
@@ -26,7 +26,7 @@ const DisciplinePage = () => {
           <Select placeholder="Сортировать по" />
         </fieldset>
       </div>
-      <Reviews />
+      <ReviewList />
       <fieldset className="flex justify-center items-center w-full pt-6">
         <Pagination total={10} />
       </fieldset>

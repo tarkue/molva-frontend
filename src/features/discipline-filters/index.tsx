@@ -1,7 +1,5 @@
-import {
-  Format,
-  FormatPair,
-} from '@/entity/discipline/models/format';
+import { FormatPair } from '@/entity/discipline/models/format-pair';
+import { Format } from '@/shared/api';
 import { useParam } from '@/shared/models/search-params';
 import { getValue } from '@/shared/lib/enum-utils';
 import { Desc } from '@/shared/ui/desc';

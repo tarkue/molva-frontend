@@ -40,6 +40,7 @@ const DefaultFormField = <T extends FieldValues>(
               required={props.required}
               type={props.type}
               placeholder={props.placeholder}
+              aria-describedby={props.name}
               {...field}
               fieldState={fieldState}
               autoCapitalize="off"

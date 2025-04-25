@@ -1,5 +1,5 @@
 import Stars from '@/shared/ui/stars';
-import { Review } from '../../models/review';
+import { Review } from '@/shared/api';
 import Button from '@/shared/ui/button';
 import Icon from '@/shared/ui/icon';
 import { cn } from '@/shared/lib/utils';

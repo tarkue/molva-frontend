@@ -18,6 +18,10 @@ const useRegisterForm = () =>
     defaultValues: {
       email: '',
       password: '',
+      confirmPassword: '',
+      name: '',
+      surname: '',
+      patronymic: '',
     },
   });
 

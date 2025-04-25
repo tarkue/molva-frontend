@@ -4,8 +4,7 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { User } from '../user';
-import { api } from '@/shared/api';
+import { api, User } from '@/shared/api';
 
 type UserContextType = {
   user: User | undefined;

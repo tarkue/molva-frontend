@@ -20,3 +20,5 @@ export interface AppointDisciplineDTO extends OnlyTeacherId {
 export interface RemoveDisciplineDTO extends OnlyTeacherId {
   discipline_id: string;
 }
+
+export type Teacher = CreateTeacherDTO & OnlyTeacherId;

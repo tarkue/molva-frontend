@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { User } from '../models/user';
+import { User } from '@/shared/api';
 import { getName } from '../libs/name';
 
 interface UserCardProps {

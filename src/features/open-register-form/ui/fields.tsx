@@ -4,7 +4,7 @@ import { FieldValues, UseFormReturn } from 'react-hook-form';
 export const RegisterFormFields = <T extends FieldValues>({
   form,
 }: {
-  form: UseFormReturn<T, any>;
+  form: UseFormReturn<T>;
 }) => (
   <>
     <UserFormField.Email form={form.control} />

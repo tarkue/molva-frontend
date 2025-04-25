@@ -41,8 +41,8 @@ const Name = <T extends FieldValues>({
   <DefaultFormField
     required
     name="name"
-    label={withPlaceholder ? undefined : 'Ваша почта'}
-    placeholder={withPlaceholder ? 'Ваша почта' : undefined}
+    label={withPlaceholder ? undefined : FieldLabel.Name}
+    placeholder={withPlaceholder ? FieldLabel.Name : undefined}
     type="text"
     form={form}
   />

@@ -4,18 +4,19 @@ import {
   CreateTeacherDTO,
   RemoveDisciplineDTO,
   RemoveTeacherDTO,
+  Teacher,
   UpdateTeacherDTO,
 } from '../dto/teacher.dto';
 
 const BASE_URL = '/teacher';
 
 export const getAll = async () =>
-  await client.get(`${BASE_URL}/teachers/get`).json();
+  await client.get(`${BASE_URL}/teachers/get`).json<Teacher[]>();
 
 export const getByDiscipline = async (discipline_id: string) =>
   await client
     .get(`${BASE_URL}/by-discipline/${discipline_id}`)
-    .json();
+    .json<Teacher>();
 
 export const create = async (dto: CreateTeacherDTO) =>
   await client.post(`${BASE_URL}/create`, {

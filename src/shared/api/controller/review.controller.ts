@@ -1,6 +1,5 @@
-import { Review } from '@/entity/reviews';
 import client from '../base';
-import { CreateReviewDTO } from '../dto/review.dto';
+import { CreateReviewDTO, Review } from '../dto/review.dto';
 
 interface GetOptions {
   teacherId?: string;
