@@ -1,6 +1,6 @@
 import { ReviewCard } from '@/entity/reviews';
 import { useGetDisciplineReviews } from './api/reviews';
-import { Spinner } from '@/shared/ui/Spinner';
+import { Spinner } from '@/shared/ui/spinner';
 import { ContentNotFound } from '@/shared/ui/content-not-found';
 
 const ReviewList = () => {

@@ -3,7 +3,7 @@ import Container from '@/shared/ui/сontainer';
 import { ChangePassword } from './ui/change-password';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { Spinner } from '@/shared/ui/Spinner';
+import { Spinner } from '@/shared/ui/spinner';
 
 const ProfilePage = () => {
   const { user } = useUser();

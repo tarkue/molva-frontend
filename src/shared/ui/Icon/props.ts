@@ -16,6 +16,7 @@ export type glyphs =
   | 'arrow-right'
   | 'arrow-up'
   | 'block'
+  | 'check'
   | 'close'
   | 'dislike'
   | 'edit'

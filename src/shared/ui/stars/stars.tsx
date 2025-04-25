@@ -32,4 +32,4 @@ const Stars = forwardRef<HTMLDivElement, StarsProps>(
 );
 Stars.displayName = 'Stars';
 
-export default Stars;
+export { Stars };

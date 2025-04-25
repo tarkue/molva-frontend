@@ -1,4 +1,4 @@
-import Stars from '@/shared/ui/stars';
+import { Stars } from '@/shared/ui/stars/stars';
 import { Review } from '@/shared/api';
 import Button from '@/shared/ui/button';
 import Icon from '@/shared/ui/icon';
