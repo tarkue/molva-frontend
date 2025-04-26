@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSearchParams } from 'react-router';
 
 type Param<T> = [value: T | undefined, update: (value: T) => void];
@@ -17,21 +17,26 @@ export function useParam<T>(
     : (el?: string) => el as T;
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const [value, setValue] = useState<T | undefined>(
-    searchParams.has(key)
-      ? validator(searchParams.get(key) as string)
-      : options.default,
-  );
+  const value = searchParams.has(key)
+    ? validator(searchParams.get(key) as string)
+    : options.default;
 
   useEffect(() => {
     if (options.default !== undefined) {
-      setSearchParams((prev) => {
-        console.log(key, prev.toString());
-        prev.set(key, String(options.default));
-        return prev;
-      });
+      if (!searchParams.has(key)) {
+        setTimeout(() =>
+          setSearchParams((prev) => {
+            prev.set(key, String(options.default));
+            return prev;
+          }),
+        );
+      }
     }
-  }, [options.default]);
+  }, [options]);
 
-  return [value, setValue];
+  return [
+    value,
+    (value: T) =>
+      setSearchParams((prev) => ({ ...prev, [key]: String(value) })),
+  ];
 }

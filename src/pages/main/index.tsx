@@ -3,7 +3,6 @@ import DisciplineList from '@/widgets/discipline-list';
 import { DescParam } from '@/features/desc-param';
 import { FormatParam } from '@/features/format-param';
 import { ModuleParam } from '@/features/module-param';
-import { OffsetParam } from '@/features/offset-param';
 import { SearchParam } from '@/features/search-param';
 import { SortParam } from '@/features/sort-param';
 
@@ -31,7 +30,6 @@ const MainPage = () => {
           </div>
         </form>
         <DisciplineList />
-        <OffsetParam />
       </article>
     </Container>
   );

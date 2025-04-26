@@ -6,7 +6,16 @@ export const OffsetParam = () => {
     validator: (el) => Number(el),
     default: 1,
   });
+
+  const offsetClickHandler = (el: number) => {
+    setOffset(el);
+    window.scrollTo(0, 0);
+  };
   return (
-    <Pagination total={10} selected={offset} onSelect={setOffset} />
+    <Pagination
+      total={10}
+      selected={offset}
+      onSelect={offsetClickHandler}
+    />
   );
 };

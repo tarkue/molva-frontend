@@ -16,7 +16,7 @@ export const SortParam = () => {
     validator: (el?: string) => el as Sort,
   });
   return (
-    <fieldset className="w-[200px]">
+    <fieldset className="w-[235px]">
       <Select
         placeholder="Сортировать по"
         options={SortPair}
