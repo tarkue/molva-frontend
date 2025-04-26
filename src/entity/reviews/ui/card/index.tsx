@@ -6,12 +6,15 @@ import { cn } from '@/shared/lib/utils';
 import { getColorClassByLikes } from './utils/color';
 import { getTeacherNames } from './utils/names';
 import { useMemo } from 'react';
+import { reviewCardVariants } from './variant';
+import { VariantProps } from 'class-variance-authority';
 
-interface ReviewCardProps {
+interface ReviewCardProps
+  extends VariantProps<typeof reviewCardVariants> {
   review: Review;
 }
 
-const ReviewCard = ({ review }: ReviewCardProps) => {
+const ReviewCard = ({ review, type }: ReviewCardProps) => {
   const teacherNames = useMemo(
     () => getTeacherNames([review.lector_name, review.practic_name]),
     [review.lector_name, review.practic_name],
@@ -23,8 +26,8 @@ const ReviewCard = ({ review }: ReviewCardProps) => {
   );
 
   return (
-    <article className="flex flex-col gap-2.5 p-6 rounded-3xl bg-base-03">
-      <div className="flex items-center justify-between w-full">
+    <article className={reviewCardVariants({ type })}>
+      <div className="flex items-center justify-between w-full md:flex-col-reverse">
         <p className="text-subhead text-contrast">
           {review.user_name}
         </p>
@@ -32,7 +35,7 @@ const ReviewCard = ({ review }: ReviewCardProps) => {
       </div>
       <data className="flex flex-col gap-3">
         <p className="text-body">{review.comment}</p>
-        <div className="flex justify-between items-center w-full">
+        <div className="flex justify-between items-center w-full md:flex-col md:justify-start md:gap-2">
           <span className="text-caption text-gray">
             {teacherNames}
           </span>

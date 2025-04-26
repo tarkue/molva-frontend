@@ -25,6 +25,8 @@ export const oldPasspword = basePassword('Старый пароль');
 export const newPasswpord = basePassword('Новый пароль');
 export const confirmPassword = basePassword('Подтверждение пароля');
 
-export const name = z.string({ message: 'Имя обязательно' });
+export const firstName = z.string({ message: 'Имя обязательно' });
 export const surname = z.string({ message: 'Фамилия обязательна' });
 export const patronymic = z.optional(z.string());
+
+export const code = z.string({ message: 'Код обязателен' });

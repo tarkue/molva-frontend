@@ -3,6 +3,10 @@ import type { Config } from 'tailwindcss';
 const config: Config = {
   theme: {
     extend: {
+      screens: {
+        md: '972px',
+        lg: '1100px',
+      },
       colors: {
         yellow: 'var(--color-yellow)',
         green: 'var(--color-green)',

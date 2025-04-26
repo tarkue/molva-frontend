@@ -34,15 +34,15 @@ const Surname = <T extends FieldValues>({
   />
 );
 
-const Name = <T extends FieldValues>({
+const FirstName = <T extends FieldValues>({
   form,
   withPlaceholder,
 }: DefaultFormFieldProps<T>) => (
   <DefaultFormField
     required
     name="name"
-    label={withPlaceholder ? undefined : FieldLabel.Name}
-    placeholder={withPlaceholder ? FieldLabel.Name : undefined}
+    label={withPlaceholder ? undefined : FieldLabel.FirstName}
+    placeholder={withPlaceholder ? FieldLabel.FirstName : undefined}
     type="text"
     form={form}
   />
@@ -95,13 +95,32 @@ const ConfirmPassword = <T extends FieldValues>(
   />
 );
 
+const Code = <T extends FieldValues>({
+  form,
+  withPlaceholder,
+}: DefaultFormFieldProps<T>) => (
+  <DefaultFormField
+    required
+    name="code"
+    label={
+      withPlaceholder
+        ? undefined
+        : 'Вам на почту был выслан код для восстановления пароля. Введите его в поле ниже.'
+    }
+    placeholder={withPlaceholder ? 'Код' : undefined}
+    type="text"
+    form={form}
+  />
+);
+
 export {
   Email,
   Password,
   OldPassword,
   NewPassword,
   ConfirmPassword,
-  Name,
+  FirstName,
   Surname,
   Patronymic,
+  Code,
 };

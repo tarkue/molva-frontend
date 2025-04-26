@@ -4,3 +4,4 @@ export {
   useChangePasswordForm,
   changePasswordFormSchema,
 } from './change-password';
+export * from './recovery-password';

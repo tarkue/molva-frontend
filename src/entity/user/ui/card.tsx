@@ -10,7 +10,11 @@ interface UserCardProps {
 export const UserCard = (props: UserCardProps) => {
   const name = useMemo(
     () => getName(props.user),
-    [props.user.name, props.user.surname, props.user.patronymic],
+    [
+      props.user.first_name,
+      props.user.surname,
+      props.user.patronymic,
+    ],
   );
 
   return (

@@ -4,7 +4,7 @@ export enum FieldLabel {
   OldPassword = 'Старый пароль',
   NewPassword = 'Новый пароль',
   ConfirmPassword = 'Подтверждение пароля',
-  Name = 'Имя',
+  FirstName = 'Имя',
   Surname = 'Фамилия',
   Patronymic = 'Отчество',
 }

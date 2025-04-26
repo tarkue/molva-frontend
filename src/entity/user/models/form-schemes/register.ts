@@ -6,7 +6,7 @@ import { scheme } from '@/shared/api';
 const registerFormSchema = z.object({
   email: scheme.user.email,
   surname: scheme.user.surname,
-  name: scheme.user.name,
+  firstName: scheme.user.firstName,
   patronymic: scheme.user.patronymic,
   password: scheme.user.password,
   confirmPassword: scheme.user.confirmPassword,
@@ -19,7 +19,7 @@ const useRegisterForm = () =>
       email: '',
       password: '',
       confirmPassword: '',
-      name: '',
+      firstName: '',
       surname: '',
       patronymic: '',
     },

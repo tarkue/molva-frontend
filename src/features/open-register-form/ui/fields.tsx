@@ -9,7 +9,7 @@ export const RegisterFormFields = <T extends FieldValues>({
   <>
     <UserFormField.Email form={form.control} />
     <UserFormField.Surname form={form.control} />
-    <UserFormField.Name form={form.control} />
+    <UserFormField.FirstName form={form.control} />
     <UserFormField.Patronymic form={form.control} />
     <UserFormField.Password form={form.control} />
     <UserFormField.ConfirmPassword form={form.control} />

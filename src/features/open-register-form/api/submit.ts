@@ -11,7 +11,13 @@ export const useRegisterSubmit = () => {
     data: z.infer<typeof UserForms.registerFormSchema>,
   ) => {
     try {
-      await api.auth.register(data);
+      await api.auth.register({
+        email: data.email,
+        password: data.password,
+        first_name: data.firstName,
+        surname: data.surname,
+        patronymic: data.patronymic,
+      });
       await api.auth.login({
         email: data.email,
         password: data.password,
