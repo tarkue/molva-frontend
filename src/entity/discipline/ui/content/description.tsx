@@ -1,5 +1,5 @@
 import Link from '@/shared/ui/link';
-import { Discipline } from '../../models/discipline';
+import { Discipline } from '@/shared/api';
 
 type DisciplineContentDescriptionProps = Pick<
   Discipline,

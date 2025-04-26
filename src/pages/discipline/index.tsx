@@ -1,15 +1,14 @@
 import { DisciplineContent } from '@/entity/discipline';
 import Container from '@/shared/ui/сontainer';
-import { useParams } from 'react-router';
-import getDiscipline from './api';
+//import { useParams } from 'react-router';
 import NotFoundPage from '../not-found';
 import ReviewList from '@/widgets/review-list';
 import { Select } from '@/shared/ui/select';
 import Pagination from '@/shared/ui/pagination';
 
 const DisciplinePage = () => {
-  const params = useParams();
-  const discipline = getDiscipline(params.id);
+  //const params = useParams();
+  const discipline = undefined;
 
   if (discipline === undefined) {
     return <NotFoundPage />;

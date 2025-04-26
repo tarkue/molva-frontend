@@ -24,22 +24,14 @@ export function useParam<T>(
   );
 
   useEffect(() => {
-    if (value !== undefined) {
+    if (options.default !== undefined) {
       setSearchParams((prev) => {
-        const t = (value as object).toString();
-        if (prev.has(key)) {
-          prev.set(key, t);
-        } else {
-          prev.append(key, t);
-        }
-        prev.forEach((value, key) => {
-          console.log(key, value);
-        });
-        console.log('----');
+        console.log(key, prev.toString());
+        prev.set(key, String(options.default));
         return prev;
       });
     }
-  }, [value]);
+  }, [options.default]);
 
   return [value, setValue];
 }

@@ -1,10 +1,5 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
-import { api, User } from '@/shared/api';
+import { createContext, useContext, useState } from 'react';
+import { User } from '@/shared/api';
 
 type UserContextType = {
   user: User | undefined;
@@ -22,14 +17,15 @@ export const UserProvider = ({
 }) => {
   const [user, setUser] = useState<User | undefined>(undefined);
 
-  useEffect(() => {
-    if (!user) {
-      api.auth
-        .check()
-        .then(setUser)
-        .catch(() => setUser(undefined));
-    }
-  }, []);
+  /* useEffect(() => {
+   * if (!user) {
+   *   api.auth
+   *     .check()
+   *     .then(setUser)
+   *     .catch(() => setUser(undefined));
+   * }
+   * }, []);
+   */
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

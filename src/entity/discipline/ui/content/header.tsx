@@ -1,5 +1,5 @@
 import Button from '@/shared/ui/button';
-import { Discipline } from '../../models/discipline';
+import { Discipline } from '@/shared/api';
 import Icon from '@/shared/ui/icon';
 
 type DisciplineContentHeaderProps = Pick<

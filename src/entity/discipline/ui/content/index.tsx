@@ -1,4 +1,4 @@
-import { Discipline } from '../../models/discipline';
+import { Discipline } from '@/shared/api';
 import DisciplineContentDescription from './description';
 import DisciplineContentHeader from './header';
 import DisciplineContentStatistics from './statistics';
