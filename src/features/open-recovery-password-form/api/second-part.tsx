@@ -5,12 +5,12 @@ import { z } from 'zod';
 import { useOpenRecoveryPasswordThirdPart } from '../hooks/open-third-part';
 
 export const useRecoveryPasswordSubmitSecondPart = () => {
+  const open = useOpenRecoveryPasswordThirdPart();
   return async (
     data: z.infer<
       typeof UserForms.recoveryPasswordFormSchemaSecondPart
     >,
   ) => {
-    const open = useOpenRecoveryPasswordThirdPart();
     try {
       console.log(data.code);
       open();
