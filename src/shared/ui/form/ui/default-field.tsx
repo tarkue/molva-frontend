@@ -11,6 +11,7 @@ import Input from '@/shared/ui/input';
 interface DefaultFormFieldProps<T extends FieldValues> {
   form: Control<T, string, T>;
   name: string;
+  value?: string;
   required?: boolean | undefined;
   type?: React.HTMLInputTypeAttribute | undefined;
   label?: string | undefined;
@@ -36,15 +37,18 @@ const DefaultFormField = <T extends FieldValues>(
             </FormLabel>
           )}
           <FormControl aria-required={props.required}>
-            <Input
-              required={props.required}
-              type={props.type}
-              placeholder={props.placeholder}
-              aria-describedby={props.name}
-              {...field}
-              fieldState={fieldState}
-              autoCapitalize="off"
-            />
+            {
+              <Input
+                required={props.required}
+                type={props.type}
+                placeholder={props.placeholder}
+                aria-describedby={props.name}
+                {...field}
+                value={props.value ? props.value : field.value}
+                fieldState={fieldState}
+                autoCapitalize="off"
+              />
+            }
           </FormControl>
           <FormMessage />
         </FormItem>

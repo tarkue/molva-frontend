@@ -1,4 +1,4 @@
-import { Format, scheme } from '@/shared/api';
+import { scheme } from '@/shared/api';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';

@@ -4,6 +4,12 @@ import {
 } from '@/shared/ui/form';
 import { FieldLabel } from '../../models/field-label';
 import { FieldValues } from 'react-hook-form';
+import { Select } from '@/shared/ui/select';
+import { Format as FormatEnum } from '@/shared/api';
+import { getValue, enumToPair } from '@/shared/lib/enum-utils';
+import { useState } from 'react';
+
+const FormatPair = enumToPair(FormatEnum);
 
 export const Name = <T extends FieldValues>({
   form,
@@ -80,13 +86,29 @@ export const Module = <T extends FieldValues>({
 export const Format = <T extends FieldValues>({
   form,
   withPlaceholder,
-}: DefaultFormFieldProps<T>) => (
-  <DefaultFormField
-    required
-    name="module"
-    label={withPlaceholder ? undefined : FieldLabel.Format}
-    placeholder={withPlaceholder ? FieldLabel.Format : undefined}
-    type="text"
-    form={form}
-  />
-);
+}: DefaultFormFieldProps<T>) => {
+  const [format, setFormat] = useState<FormatEnum>();
+  return (
+    <>
+      <Select
+        placeholder={withPlaceholder ? FieldLabel.Format : undefined}
+        defaultInputValue={getValue(FormatEnum, format)}
+        onChange={(e) => setFormat(e?.value as FormatEnum)}
+        options={FormatPair}
+      />
+      <fieldset className="sr-only">
+        <DefaultFormField
+          required
+          value={format}
+          name="module"
+          label={withPlaceholder ? undefined : FieldLabel.Format}
+          placeholder={
+            withPlaceholder ? FieldLabel.Format : undefined
+          }
+          type="text"
+          form={form}
+        />
+      </fieldset>
+    </>
+  );
+};

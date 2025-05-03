@@ -5,8 +5,12 @@ import { FormatParam } from '@/features/format-param';
 import { ModuleParam } from '@/features/module-param';
 import { SearchParam } from '@/features/search-param';
 import { SortParam } from '@/features/sort-param';
+import { useEffect } from 'react';
+import { useOpenAddDisciplineForm } from '@/features/open-add-discipline-form';
 
 const MainPage = () => {
+  const openModal = useOpenAddDisciplineForm();
+  useEffect(() => openModal(), []);
   return (
     <Container className="flex flex-col gap-8 pt-8 pb-8">
       <div className="flex flex-col gap-3">

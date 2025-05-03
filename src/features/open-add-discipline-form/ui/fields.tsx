@@ -7,11 +7,20 @@ export const AddDisciplineFormFields = <T extends FieldValues>({
   form: UseFormReturn<T, any>;
 }) => (
   <>
-    <DisciplineFormField.Name form={form.control} />
-    <DisciplineFormField.Module form={form.control} />
-    <DisciplineFormField.Format form={form.control} />
-    <DisciplineFormField.Description form={form.control} />
-    <DisciplineFormField.PresentationLink form={form.control} />
-    <DisciplineFormField.ModeusLink form={form.control} />
+    <DisciplineFormField.Name form={form.control} withPlaceholder />
+    <DisciplineFormField.Module form={form.control} withPlaceholder />
+    <DisciplineFormField.Format form={form.control} withPlaceholder />
+    <DisciplineFormField.Description
+      form={form.control}
+      withPlaceholder
+    />
+    <DisciplineFormField.PresentationLink
+      form={form.control}
+      withPlaceholder
+    />
+    <DisciplineFormField.ModeusLink
+      form={form.control}
+      withPlaceholder
+    />
   </>
 );
