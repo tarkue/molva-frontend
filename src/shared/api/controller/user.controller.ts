@@ -1,14 +1,16 @@
 import client from '../base';
 import {
+  RegisterDTO,
+  SafeUser,
+  SignInDTO,
   User,
   UserUpdateDTO,
   UserUpdatePasswordDTO,
 } from '../dto/user.dto';
-import { LoginDTO, RegisterDTO } from '../dto/user';
 
 const BASE_URL = 'users';
 
-const login = async (dto: LoginDTO) =>
+const login = async (dto: SignInDTO) =>
   await client
     .post(`${BASE_URL}/authorization`, {
       body: JSON.stringify(dto),
@@ -45,10 +47,10 @@ const changePassword = async (dto: UserUpdatePasswordDTO) =>
     .json<any>();
 
 const get = async (id: string) =>
-  await client.get(`${BASE_URL}/user/${id}`).json<User>();
+  await client.get(`${BASE_URL}/user/${id}`).json<SafeUser>();
 
 const getAll = async () =>
-  await client.get(`${BASE_URL}/users`).json<User[]>();
+  await client.get(`${BASE_URL}/users`).json<SafeUser[]>();
 
 export {
   login,

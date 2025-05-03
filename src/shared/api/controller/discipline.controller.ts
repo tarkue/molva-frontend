@@ -2,9 +2,9 @@ import client from '../base';
 import {
   CreateDisciplineDTO,
   Discipline,
-  OnlyDisciplineId,
   UpdateDisciplineDTO,
 } from '../dto/discipline.dto';
+import { OnlyId } from '../dto/shared.dto';
 
 const BASE_URL = '/discipline';
 
@@ -26,18 +26,18 @@ export const update = async (dto: UpdateDisciplineDTO) =>
     body: JSON.stringify(dto),
   });
 
-export const remove = async (dto: OnlyDisciplineId) =>
+export const remove = async (dto: OnlyId) =>
   await client.delete(`${BASE_URL}/remove/`, {
     body: JSON.stringify(dto),
   });
 
 export const favorite = {
-  add: async (dto: OnlyDisciplineId) =>
+  add: async (dto: OnlyId) =>
     await client.post(`${BASE_URL}/favorite/add`, {
       body: JSON.stringify(dto),
     }),
 
-  remove: async (dto: OnlyDisciplineId) =>
+  remove: async (dto: OnlyId) =>
     await client.delete(`${BASE_URL}/favorite/remove`, {
       body: JSON.stringify(dto),
     }),

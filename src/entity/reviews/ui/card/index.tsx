@@ -4,7 +4,7 @@ import Button from '@/shared/ui/button';
 import Icon from '@/shared/ui/icon';
 import { cn } from '@/shared/lib/utils';
 import { getColorClassByLikes } from './utils/color';
-import { getTeacherNames } from './utils/names';
+import { getTeacherName, getTeacherNames } from './utils/names';
 import { useMemo } from 'react';
 import { reviewCardVariants } from './variant';
 import { VariantProps } from 'class-variance-authority';
@@ -16,21 +16,25 @@ interface ReviewCardProps
 
 const ReviewCard = ({ review, type }: ReviewCardProps) => {
   const teacherNames = useMemo(
-    () => getTeacherNames([review.lector_name, review.practic_name]),
-    [review.lector_name, review.practic_name],
+    () =>
+      review.lector && review.practic
+        ? getTeacherNames([
+            getTeacherName(review.lector),
+            getTeacherName(review.practic),
+          ])
+        : '',
+    [review.lector, review.practic],
   );
 
   const like_text_color = useMemo(
-    () => getColorClassByLikes(review.likes_count),
-    [review.likes_count],
+    () => getColorClassByLikes(review.offensive_score),
+    [review.offensive_score],
   );
 
   return (
     <article className={reviewCardVariants({ type })}>
       <div className="flex items-center justify-between w-full md:flex-col-reverse">
-        <p className="text-subhead text-contrast">
-          {review.user_name}
-        </p>
+        <p className="text-subhead text-contrast">{review.comment}</p>
         <Stars value={review.grade} />
       </div>
       <data className="flex flex-col gap-3">
@@ -50,7 +54,7 @@ const ReviewCard = ({ review, type }: ReviewCardProps) => {
               <Icon glyph="like" />
             </Button>
             <p className={cn('text-body', like_text_color)}>
-              {review.likes_count}
+              {review.offensive_score}
             </p>
             <Button variant="icon">
               <Icon glyph="dislike" />

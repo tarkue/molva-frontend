@@ -1,10 +1,9 @@
-export interface OnlyModuleId {
-  module_id: string;
-}
-export interface Module extends OnlyModuleId {
+import { OnlyId } from './shared.dto';
+
+export interface Module extends OnlyId {
   name: string;
 }
 
-export interface UpdateModuleDTO extends OnlyModuleId {
+export interface UpdateModuleDTO extends OnlyId {
   new_name: string;
 }

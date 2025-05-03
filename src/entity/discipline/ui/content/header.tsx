@@ -4,11 +4,11 @@ import Icon from '@/shared/ui/icon';
 
 type DisciplineContentHeaderProps = Pick<
   Discipline,
-  'name' | 'module_name'
+  'name' | 'module'
 >;
 const DisciplineContentHeader = ({
   name,
-  module_name,
+  module,
 }: DisciplineContentHeaderProps) => {
   return (
     <div className="bg-base-03 flex flex-col gap-8 p-6 rounded-3xl">
@@ -19,7 +19,7 @@ const DisciplineContentHeader = ({
             <Icon glyph="heart" />
           </Button>
         </div>
-        <p className="text-body text-gray">{module_name}</p>
+        <p className="text-body text-gray">{module.name}</p>
       </data>
       <Button size="large">Написать отзыв</Button>
     </div>

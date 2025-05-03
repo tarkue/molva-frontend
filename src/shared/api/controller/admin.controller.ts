@@ -1,9 +1,6 @@
 import client from '../base';
-import {
-  Module,
-  OnlyModuleId,
-  UpdateModuleDTO,
-} from '../dto/module.dto';
+import { Module, UpdateModuleDTO } from '../dto/module.dto';
+import { OnlyId } from '../dto/shared.dto';
 
 const BASE_URL = '/admin';
 
@@ -30,7 +27,7 @@ export const module = {
     await client.patch(`${BASE_URL}/module/edit`, {
       body: JSON.stringify(module),
     }),
-  remove: async (module: OnlyModuleId) =>
+  remove: async (module: OnlyId) =>
     await client.post(`${BASE_URL}/module/remove`, {
       body: JSON.stringify(module),
     }),

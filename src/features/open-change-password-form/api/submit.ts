@@ -10,7 +10,7 @@ export const useChangePasswordSubmit = () => {
     const { user } = useUser();
     try {
       await api.auth.changePassword({
-        user_id: user?.user_id as string,
+        id: user?.id as string,
         old_password: data.oldPassword,
         password: data.password,
       });

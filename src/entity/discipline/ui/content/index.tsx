@@ -14,12 +14,12 @@ const DisciplineContent = ({
     <section className="flex flex-col gap-3 w-full">
       <DisciplineContentHeader
         name={discipline.name}
-        module_name={discipline.module_name}
+        module={discipline.module}
       />
       <DisciplineContentStatistics
-        rating={discipline.rating}
-        likes_count={discipline.likes_count}
-        reviews_count={discipline.reviews_count}
+        rating={discipline.avg_rating}
+        likes_count={discipline.favorites_count}
+        reviews_count={discipline.review_count}
       />
       <DisciplineContentDescription
         description={discipline.description}

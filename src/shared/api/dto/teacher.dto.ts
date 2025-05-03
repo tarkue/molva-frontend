@@ -1,6 +1,4 @@
-export interface OnlyTeacherId {
-  teacher_id: string;
-}
+import { OnlyId } from './shared.dto';
 
 export interface CreateTeacherDTO {
   first_name: string;
@@ -8,17 +6,16 @@ export interface CreateTeacherDTO {
   patronymic?: string;
 }
 
-export type UpdateTeacherDTO = Partial<CreateTeacherDTO> &
-  OnlyTeacherId;
+export type UpdateTeacherDTO = Partial<CreateTeacherDTO> & OnlyId;
 
-export type RemoveTeacherDTO = OnlyTeacherId;
+export type RemoveTeacherDTO = OnlyId;
 
-export interface AppointDisciplineDTO extends OnlyTeacherId {
+export interface AppointDisciplineDTO extends OnlyId {
   discipline_ids: string[];
 }
 
-export interface RemoveDisciplineDTO extends OnlyTeacherId {
+export interface RemoveDisciplineDTO extends OnlyId {
   discipline_id: string;
 }
 
-export type Teacher = CreateTeacherDTO & OnlyTeacherId;
+export type Teacher = CreateTeacherDTO & OnlyId;

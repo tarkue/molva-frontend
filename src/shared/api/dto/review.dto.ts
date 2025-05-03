@@ -1,6 +1,6 @@
-export interface OnlyReviewId {
-  review_id: string;
-}
+import { OnlyId } from './shared.dto';
+import { Teacher } from './teacher.dto';
+import { User } from './user.dto';
 
 export interface CreateReviewDTO {
   discipline_id: string;
@@ -11,16 +11,17 @@ export interface CreateReviewDTO {
   practic_id: string;
 }
 
-interface ReviewNames {
-  user_name?: string;
-  lector_name?: string;
-  practic_name?: string;
-}
+export type ReviewStatus = 'published' | 'pending' | 'rejected';
 
-export type Review = CreateReviewDTO &
-  OnlyReviewId &
-  ReviewNames & {
+export type Review = Omit<
+  CreateReviewDTO,
+  'lector_id' | 'practic_id'
+> &
+  OnlyId & {
+    author: Omit<User, 'email'>;
+    lector?: Teacher;
+    practic?: Teacher;
+    status: ReviewStatus;
     created_at: string;
-    rating: number;
-    likes_count: number;
+    offensive_score: number;
   };
