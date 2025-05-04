@@ -96,7 +96,9 @@ export const IsAnonymous = <T extends FieldValues>({
     <>
       <fieldset className="flex justify-center">
         <Checkbox checked={checked} onChange={toggleChecked} />
-        <Label onClick={toggleChecked}>{FieldLabel.Anonymous}</Label>
+        <Label onClick={toggleChecked} className="text-contrast">
+          {FieldLabel.Anonymous}
+        </Label>
       </fieldset>
       <fieldset className="sr-only">
         <DefaultFormField

@@ -14,7 +14,7 @@ export const addReviewFormSchema = z.object({
     .number()
     .min(0, { message: 'Оценка должна быть больше 0' })
     .max(5, { message: 'Оценка не может быть больше 5' }),
-  comment: z.string().max(5000),
+  comment: z.string().max(2000),
   is_anonymous: z.boolean(),
   lector_id: teacherZType,
   practic_id: teacherZType,

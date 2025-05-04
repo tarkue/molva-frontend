@@ -10,21 +10,22 @@ export const useRegisterSubmit = () => {
   return async (
     data: z.infer<typeof UserForms.registerFormSchema>,
   ) => {
-    try {
-      await api.auth.register({
-        email: data.email,
-        password: data.password,
-        first_name: data.firstName,
-        surname: data.surname,
-        patronymic: data.patronymic,
+    if (data.password != data.confirmPassword) {
+      toast({
+        title: 'Пароли не совпадают',
+        description: 'Попробуйте ещё раз',
+        variant: 'destructive',
       });
+      return;
+    }
+    try {
+      await api.auth.register(data);
       await api.auth.login({
         email: data.email,
         password: data.password,
       });
       navigate('/profile');
     } catch (error) {
-      console.log(error);
       toast({
         title: 'Пользователь с такой почтой уже существует',
         description:

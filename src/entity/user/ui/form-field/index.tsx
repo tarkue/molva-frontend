@@ -40,7 +40,7 @@ const FirstName = <T extends FieldValues>({
 }: DefaultFormFieldProps<T>) => (
   <DefaultFormField
     required
-    name="name"
+    name="first_name"
     label={withPlaceholder ? undefined : FieldLabel.FirstName}
     placeholder={withPlaceholder ? FieldLabel.FirstName : undefined}
     type="text"
