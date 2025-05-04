@@ -5,27 +5,8 @@ import { FormatParam } from '@/features/format-param';
 import { ModuleParam } from '@/features/module-param';
 import { SearchParam } from '@/features/search-param';
 import { SortParam } from '@/features/sort-param';
-import { useEffect } from 'react';
-import { useOpenAddReviewForm } from '@/features/open-add-review-form';
-import { Format } from '@/shared/api';
 
 const MainPage = () => {
-  const openModal = useOpenAddReviewForm({
-    name: 'Дискретная математка и основы математической логики',
-    description: '',
-    format: Format.offline,
-    presentation_link: '',
-    modeus_link: '',
-    module: {
-      name: 'Естественнонаучное мировоззрение',
-      id: '',
-    },
-    avg_rating: 0,
-    review_count: 0,
-    favorites_count: 0,
-    id: '',
-  });
-  useEffect(() => openModal(), []);
   return (
     <Container className="flex flex-col gap-8 pt-8 pb-8">
       <div className="flex flex-col gap-3">

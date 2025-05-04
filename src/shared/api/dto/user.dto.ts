@@ -6,6 +6,7 @@ export interface User extends OnlyId {
   patronymic?: string;
   password: string;
   email: string;
+  role: 'USER' | 'ADMIN' | 'SUPERUSER';
 }
 
 export type SafeUser = Omit<User, 'password'>;

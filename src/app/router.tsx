@@ -15,7 +15,7 @@ export default function Router() {
             path="/discipline/:id"
             element={<DisciplinePage />}
           />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile/:panel" element={<ProfilePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AppLayout>
