@@ -7,7 +7,7 @@ export const getPanels = () => {
   const { user } = useUser();
 
   const panels = useMemo(() => {
-    switch (user?.role) {
+    switch (user?.roles[0]) {
       case 'ADMIN':
         return AdminPanel;
       case 'SUPERUSER':
@@ -17,7 +17,7 @@ export const getPanels = () => {
       default:
         return undefined;
     }
-  }, [user?.role]);
+  }, [user?.roles[0]]);
 
   if (panels) {
     return Object.values(panels);

@@ -6,15 +6,13 @@ import {
 } from '../dto/discipline.dto';
 import { OnlyId } from '../dto/shared.dto';
 
-const BASE_URL = '/discipline';
+const BASE_URL = 'disciplines';
 
 export const get = async (id: string) =>
   await client.get<Discipline>(`${BASE_URL}/${id}`).json();
 
 export const getAll = async () =>
-  await client
-    .get<Discipline[]>(`${BASE_URL}/disciplines/get`)
-    .json();
+  await client.get<Discipline[]>(`${BASE_URL}/get`).json();
 
 export const create = async (dto: CreateDisciplineDTO) =>
   await client.post(`${BASE_URL}/create`, {

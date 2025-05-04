@@ -1,8 +1,14 @@
-import { createContext, useContext, useState } from 'react';
-import { User } from '@/shared/api';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
+import { api, User } from '@/shared/api';
 
 type UserContextType = {
   user: User | undefined;
+  isAuthorized: boolean;
   setUser: (user: User) => void;
 };
 
@@ -16,19 +22,25 @@ export const UserProvider = ({
   children?: React.ReactNode;
 }) => {
   const [user, setUser] = useState<User | undefined>(undefined);
+  const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
 
-  /* useEffect(() => {
-   * if (!user) {
-   *   api.auth
-   *     .check()
-   *     .then(setUser)
-   *     .catch(() => setUser(undefined));
-   * }
-   * }, []);
-   */
+  useEffect(() => {
+    if (!user) {
+      api.auth
+        .check()
+        .then((user) => {
+          setUser(user);
+          setIsAuthorized(true);
+        })
+        .catch(() => {
+          setUser(undefined);
+          setIsAuthorized(false);
+        });
+    }
+  }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ isAuthorized, user, setUser }}>
       {children}
     </UserContext.Provider>
   );

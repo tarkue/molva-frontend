@@ -1,14 +1,18 @@
-import { useAuth } from '@/entity/user';
 import OpenSignIn from './open-signin';
 import NavigateToNotification from './navigate-to-notification';
 import NavigateToProfile from './navigate-to-profile';
 import { ToggleTheme } from './toggle-theme';
+import { useUser } from '@/entity/user';
+import { userHasNotificationWithRole } from '../lib/grants';
 
 const HeaderActions = () => {
-  const { isAuthorized } = useAuth();
+  const { isAuthorized, user } = useUser();
+
   const actions = isAuthorized ? (
     <>
-      <NavigateToNotification />
+      {userHasNotificationWithRole(user?.roles[0]) && (
+        <NavigateToNotification />
+      )}
       <NavigateToProfile />
     </>
   ) : (

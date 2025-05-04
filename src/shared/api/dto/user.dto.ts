@@ -1,12 +1,14 @@
 import { OnlyId } from './shared.dto';
 
+export type Role = 'USER' | 'ADMIN' | 'SUPERUSER';
+
 export interface User extends OnlyId {
   first_name: string;
   surname: string;
   patronymic?: string;
   password: string;
   email: string;
-  role: 'USER' | 'ADMIN' | 'SUPERUSER';
+  roles: [Role];
 }
 
 export type SafeUser = Omit<User, 'password'>;
