@@ -4,11 +4,11 @@ import { User } from './user.dto';
 
 export interface CreateReviewDTO {
   discipline_id: string;
-  grade: 1 | 2 | 3 | 4 | 5;
+  grade: number;
   comment: string;
-  is_anonymous: boolean;
-  lector_id: string;
-  practic_id: string;
+  is_anonymous?: boolean;
+  lector_id?: string;
+  practic_id?: string;
 }
 
 export type ReviewStatus = 'published' | 'pending' | 'rejected';

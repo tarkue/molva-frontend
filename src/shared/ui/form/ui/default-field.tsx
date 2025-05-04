@@ -12,6 +12,7 @@ interface DefaultFormFieldProps<T extends FieldValues> {
   form: Control<T, string, T>;
   name: string;
   value?: string;
+  checked?: boolean;
   required?: boolean | undefined;
   type?: React.HTMLInputTypeAttribute | undefined;
   label?: string | undefined;
@@ -43,6 +44,7 @@ const DefaultFormField = <T extends FieldValues>(
                 type={props.type}
                 placeholder={props.placeholder}
                 aria-describedby={props.name}
+                checked={props.checked}
                 {...field}
                 value={props.value ? props.value : field.value}
                 fieldState={fieldState}

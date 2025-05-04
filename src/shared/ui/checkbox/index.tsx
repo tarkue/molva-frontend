@@ -27,8 +27,8 @@ const Checkbox = forwardRef<HTMLInputElement, CheckBoxType>(
           className="cursor-pointer w-full h-full absolute"
         ></label>
         <input
-          id={id}
           {...props}
+          id={id}
           ref={ref}
           type="checkbox"
           className="hidden"

@@ -1,4 +1,4 @@
-import { ReviewCard } from '@/entity/reviews';
+import { ReviewCard } from '@/entity/review';
 import { useGetDisciplineReviews } from './api/reviews';
 import { Spinner } from '@/shared/ui/spinner';
 import { ContentNotFound } from '@/shared/ui/content-not-found';
