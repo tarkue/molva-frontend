@@ -1,8 +1,8 @@
-import { useParam } from '@/shared/models/search-params';
+import { useSearchParam } from '@/shared/models/search-params';
 import Input from '@/shared/ui/input';
 
 export const SearchParam = () => {
-  const [search, setSearch] = useParam<string>('q');
+  const [search, setSearch] = useSearchParam<string>('q');
   return (
     <fieldset>
       <Input

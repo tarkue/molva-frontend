@@ -1,8 +1,8 @@
-import { useParam } from '@/shared/models/search-params';
+import { useSearchParam } from '@/shared/models/search-params';
 import { Desc } from '@/shared/ui/desc';
 
 export const DescParam = () => {
-  const [desc, setDesc] = useParam<0 | 1>('desc', {
+  const [desc, setDesc] = useSearchParam<0 | 1>('desc', {
     default: 0,
     validator: (el?: string) => {
       if (el === '0' || el === '1') {

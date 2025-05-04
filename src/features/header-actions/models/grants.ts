@@ -1,1 +1,0 @@
-export const ROLES_WITH_NOTIFICATION = ['SUPERUSER', 'ADMIN'];

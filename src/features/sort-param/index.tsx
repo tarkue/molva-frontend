@@ -1,5 +1,5 @@
 import { enumToPair, getValue } from '@/shared/lib/enum-utils';
-import { useParam } from '@/shared/models/search-params';
+import { useSearchParam } from '@/shared/models/search-params';
 import { Select } from '@/shared/ui/select';
 
 enum Sort {
@@ -11,7 +11,7 @@ enum Sort {
 const SortPair = enumToPair(Sort);
 
 export const SortParam = () => {
-  const [sort, setSort] = useParam<string>('sort', {
+  const [sort, setSort] = useSearchParam<string>('sort', {
     default: 'rating',
     validator: (el?: string) => el as Sort,
   });

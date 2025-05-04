@@ -3,7 +3,7 @@ import NavigateToNotification from './navigate-to-notification';
 import NavigateToProfile from './navigate-to-profile';
 import { ToggleTheme } from './toggle-theme';
 import { useUser } from '@/entity/user';
-import { userHasNotificationWithRole } from '../lib/grants';
+import { userHasNotificationWithRole } from '@/entity/user';
 
 const HeaderActions = () => {
   const { isAuthorized, user } = useUser();
