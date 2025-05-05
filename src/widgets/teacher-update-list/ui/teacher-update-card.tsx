@@ -1,4 +1,6 @@
 import { getFullName } from '@/entity/user';
+import { DeleteTeacher } from '@/features/delete-teacher';
+import { EditTeacher } from '@/features/edit-teacher';
 import { Teacher } from '@/shared/api';
 
 interface TeacherUpdateCardProps {
@@ -13,7 +15,10 @@ export const TeacherUpdateCard = ({
       <span className="text-headline text-contrast w-full">
         {name}
       </span>
-      <div className="flex gap-3"></div>
+      <div className="flex gap-3">
+        <EditTeacher teacher={teacher} />
+        <DeleteTeacher teacher={teacher} />
+      </div>
     </div>
   );
 };

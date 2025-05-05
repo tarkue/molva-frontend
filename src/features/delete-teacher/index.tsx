@@ -4,5 +4,5 @@ import { Teacher } from '@/shared/api';
 
 export const DeleteTeacher = ({ teacher }: { teacher: Teacher }) => {
   const onSubmit = useDeleteTeacherSubmit(teacher);
-  return <Icon glyph="trash" onClick={onSubmit} />;
+  return <Icon glyph="trash" stroke="red" onClick={onSubmit} />;
 };
