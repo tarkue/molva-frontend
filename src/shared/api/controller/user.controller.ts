@@ -1,4 +1,5 @@
 import client from '../base';
+import { OnlyId } from '../dto/shared.dto';
 import {
   RegisterDTO,
   SafeUser,
@@ -52,6 +53,8 @@ const get = async (id: string) =>
 const getAll = async () =>
   await client.get(`${BASE_URL}/users`).json<SafeUser[]>();
 
+const remove = async (dto: OnlyId) => {};
+
 export {
   login,
   register,
@@ -61,4 +64,5 @@ export {
   logout,
   get,
   getAll,
+  remove,
 };

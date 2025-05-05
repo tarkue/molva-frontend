@@ -1,10 +1,10 @@
-import { api, Teacher } from '@/shared/api';
+import { api, User } from '@/shared/api';
 import { toast } from '@/shared/ui/toast';
 
-export const useDeleteTeacherSubmit = (teacher: Teacher) => {
+export const useDeleteUserSubmit = (user: User) => {
   return async () => {
     try {
-      await api.teacher.remove(teacher);
+      await api.user.remove(user);
     } catch {
       toast({
         title: 'Произошла ошибка при удалении',

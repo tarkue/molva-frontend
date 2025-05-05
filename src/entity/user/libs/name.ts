@@ -1,5 +1,10 @@
-import { Teacher, User } from '@/shared/api';
+import { User } from '@/shared/api';
 
-export const getFullName = (user: User | Teacher) => {
+export type OnlyUserName = Pick<
+  User,
+  'first_name' | 'patronymic' | 'surname'
+>;
+
+export const getFullName = (user: OnlyUserName) => {
   return `${user.first_name} ${user.surname} ${user.patronymic}`;
 };
