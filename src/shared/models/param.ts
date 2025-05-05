@@ -12,7 +12,6 @@ const NAVIGATE_OPTIONS: NavigateOptions = {
 } as const;
 
 const RELATIVE_PATH = './' as const;
-const BACK_RELATIVE_PATH = '../' as const;
 
 interface useParamOptions {
   default?: string;
@@ -43,7 +42,10 @@ export function useParam(
   }, [key]);
 
   useEffect(() => {
-    if (!params[key] || !validator(params[key])) {
+    if (
+      (!params[key] && params[key] != '') ||
+      !validator(params[key])
+    ) {
       if (options.default || options.default == '') {
         navigate(RELATIVE_PATH + options.default, NAVIGATE_OPTIONS);
         setValue(options.default);
@@ -55,7 +57,7 @@ export function useParam(
     value,
     (value: string) => {
       setWithValidation(value);
-      navigate(BACK_RELATIVE_PATH + value, NAVIGATE_OPTIONS);
+      navigate(RELATIVE_PATH + value, NAVIGATE_OPTIONS);
     },
   ];
 }

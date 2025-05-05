@@ -1,10 +1,10 @@
 import { api } from '@/shared/api';
 import { useSearchParam } from '@/shared/models/search-params';
 import { useQuery } from '@tanstack/react-query';
-import { useSearchParams } from 'react-router';
+import { useParams } from 'react-router';
 
 export const useGetDisciplineReviews = () => {
-  const { id } = useSearchParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>();
   const [teacherId] = useSearchParam<string>('teacher_id');
   const [sort] = useSearchParam<string>('sort');
 

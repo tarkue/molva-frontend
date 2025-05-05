@@ -4,7 +4,6 @@ import MainPage from '@/pages/main';
 import NotFoundPage from '@/pages/not-found';
 import DisciplinePage from '@/pages/discipline';
 import ProfilePage from '@/pages/profile';
-import { RedirectToProfileWithParam } from '@/pages/redirect-to-profile';
 
 export default function Router() {
   return (
@@ -16,11 +15,9 @@ export default function Router() {
             path="/discipline/:id"
             element={<DisciplinePage />}
           />
-          <Route
-            path="/profile/"
-            element={<RedirectToProfileWithParam />}
-          />
-          <Route path="/profile/:panel" element={<ProfilePage />} />
+          <Route path="/profile/" element={<ProfilePage />}>
+            <Route path="/profile/:panel" />
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AppLayout>
