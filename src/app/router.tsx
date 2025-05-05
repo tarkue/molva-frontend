@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router';
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router';
 import AppLayout from './layouts/app';
 import MainPage from '@/pages/main';
 import NotFoundPage from '@/pages/not-found';
@@ -16,7 +16,7 @@ export default function Router() {
             element={<DisciplinePage />}
           />
           <Route path="/profile/" element={<ProfilePage />}>
-            <Route path="/profile/:panel" />
+            <Route path="/profile/:panel" element={<Outlet />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
