@@ -7,16 +7,16 @@ import { Spinner } from '@/shared/ui/spinner';
 import { ProfileTabsWithPanel } from '@/widgets/profile-tabs';
 
 const ProfilePage = () => {
-  const { user } = useUser();
+  const { isAuthorized, isLoading, user } = useUser();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user) {
+    if (!isLoading && !isAuthorized) {
       navigate('/');
     }
-  }, []);
+  }, [isLoading, isAuthorized]);
 
-  if (!user) return <Spinner />;
+  if (isLoading || !user) return <Spinner />;
 
   return (
     <Container className="flex flex-col gap-8 py-8">

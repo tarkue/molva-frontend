@@ -1,15 +1,11 @@
 import { Tabs } from '@/shared/ui/tabs';
-import { useState } from 'react';
 import { getPanels } from '../api/get-panels';
 import { Spinner } from '@/shared/ui/spinner';
-import { useParams } from 'react-router';
+import { usePanelParam } from '../lib/panel-param';
 
 export const ProfileTabsWithPanel = () => {
   const panels = getPanels();
-  const params = useParams();
-  const panelState = useState<string>(
-    params.panel ? params.panel : panels[0],
-  );
+  const panelParam = usePanelParam(panels);
 
   if (panels.length == 0) {
     return <Spinner />;
@@ -17,7 +13,7 @@ export const ProfileTabsWithPanel = () => {
 
   return (
     <section>
-      <Tabs panels={panels} state={panelState} />
+      <Tabs panels={panels} state={panelParam} />
     </section>
   );
 };

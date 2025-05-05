@@ -1,6 +1,7 @@
 import { AdminPanel } from '@/entity/admin';
 import { SuperUserPanel } from '@/entity/super-user';
 import { UserPanel, useUser } from '@/entity/user';
+import { enumToPair } from '@/shared/lib/enum-utils';
 import { useMemo } from 'react';
 
 export const getPanels = () => {
@@ -20,7 +21,7 @@ export const getPanels = () => {
   }, [user?.roles[0]]);
 
   if (panels) {
-    return Object.values(panels);
+    return enumToPair(panels);
   } else {
     return [];
   }

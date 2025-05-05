@@ -1,8 +1,9 @@
+import { Pair } from '../select/pair';
 import Tab from '../tab';
 
 interface TabsProps {
-  panels: string[];
-  state: [string, React.Dispatch<React.SetStateAction<string>>];
+  panels: Pair[];
+  state: [string, (value: string) => void];
 }
 
 export const Tabs = (props: TabsProps) => {
@@ -11,10 +12,10 @@ export const Tabs = (props: TabsProps) => {
       {props.panels.map((el, key) => (
         <li key={key}>
           <Tab
-            active={props.state[0] == el}
-            onClick={() => props.state[1](el)}
+            active={props.state[0] == el.value}
+            onClick={() => props.state[1](el.value)}
           >
-            {el}
+            {el.label}
           </Tab>
         </li>
       ))}

@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router';
 
-type Param<T> = [value: T | undefined, update: (value: T) => void];
+type SearchParam<T> = [
+  value: T | undefined,
+  update: (value: T) => void,
+];
 
 interface useSearchParamOptions<T> {
   default?: T;
@@ -11,7 +14,7 @@ interface useSearchParamOptions<T> {
 export function useSearchParam<T>(
   key: string,
   options: useSearchParamOptions<T> = {},
-): Param<T> {
+): SearchParam<T> {
   const validator = options.validator
     ? options.validator
     : (el?: string) => el as T;

@@ -12,7 +12,7 @@ export const RedirectToProfileWithParam = () => {
       if (panels.length == 0) {
         navigate('/');
       } else {
-        navigate(`/profile/${panels[0]}`);
+        navigate(`/profile/${panels[0].value}`);
       }
     }
   }, [panels]);
