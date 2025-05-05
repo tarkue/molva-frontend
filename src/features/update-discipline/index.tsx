@@ -1,13 +1,13 @@
 import { Discipline } from '@/shared/api';
-import { useOpenEditDisciplineForm } from '../open-edit-discipline-form';
+import { useOpenUpdateDisciplineForm } from '../open-update-discipline-form';
 import Icon from '@/shared/ui/icon';
 
-export const EditDiscipline = ({
+export const UpdateDiscipline = ({
   discipline,
 }: {
   discipline: Discipline;
 }) => {
-  const openForm = useOpenEditDisciplineForm(discipline);
+  const openForm = useOpenUpdateDisciplineForm(discipline);
 
   return <Icon glyph="edit" onClick={openForm} />;
 };
