@@ -12,7 +12,6 @@ export const useSignInSubmit = () => {
       await api.auth.login(data);
       navigate('/profile');
     } catch (error) {
-      console.log(error);
       toast({
         title: 'Неправильная почта или пароль',
         description: 'Попробуйте еще раз',

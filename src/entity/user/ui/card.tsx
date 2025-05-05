@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { User } from '@/shared/api';
-import { getName } from '../libs/name';
+import { getFullName } from '../libs/name';
 
 interface UserCardProps {
   user: User;
@@ -9,7 +9,7 @@ interface UserCardProps {
 
 export const UserCard = (props: UserCardProps) => {
   const name = useMemo(
-    () => getName(props.user),
+    () => getFullName(props.user),
     [
       props.user.first_name,
       props.user.surname,

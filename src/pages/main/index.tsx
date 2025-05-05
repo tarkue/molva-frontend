@@ -17,7 +17,7 @@ const MainPage = () => {
       </div>
       <article className="flex flex-col gap-6">
         <form className="flex flex-col w-full gap-2">
-          <SearchParam />
+          <SearchParam placeholder="Название дисциплины" />
           <div className="flex w-full justify-between">
             <div className="flex gap-2">
               <ModuleParam />

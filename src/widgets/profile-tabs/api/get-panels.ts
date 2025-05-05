@@ -1,5 +1,5 @@
 import { AdminPanel } from '@/entity/admin';
-import { SuperUserPanel } from '@/entity/super-user';
+import { SuperAdminPanel } from '@/entity/super-admin';
 import { UserPanel, useUser } from '@/entity/user';
 import { enumToPair } from '@/shared/lib/enum-utils';
 import { useMemo } from 'react';
@@ -11,8 +11,8 @@ export const getPanels = () => {
     switch (user?.roles[0]) {
       case 'ADMIN':
         return AdminPanel;
-      case 'SUPERUSER':
-        return SuperUserPanel;
+      case 'SUPER-ADMIN':
+        return SuperAdminPanel;
       case 'USER':
         return UserPanel;
       default:

@@ -1,5 +1,5 @@
-import { User } from '@/shared/api';
+import { Teacher, User } from '@/shared/api';
 
-export const getName = (user: User) => {
+export const getFullName = (user: User | Teacher) => {
   return `${user.first_name} ${user.surname} ${user.patronymic}`;
 };

@@ -1,3 +1,4 @@
+import { Discipline } from './discipline.dto';
 import { OnlyId } from './shared.dto';
 
 export interface CreateTeacherDTO {
@@ -18,4 +19,7 @@ export interface RemoveDisciplineDTO extends OnlyId {
   discipline_id: string;
 }
 
-export type Teacher = CreateTeacherDTO & OnlyId;
+export type Teacher = CreateTeacherDTO &
+  OnlyId & {
+    disciplines: Discipline[];
+  };

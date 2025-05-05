@@ -1,14 +1,18 @@
 import { useSearchParam } from '@/shared/models/search-params';
 import Input from '@/shared/ui/input';
 
-export const SearchParam = () => {
+export const SearchParam = ({
+  placeholder,
+}: {
+  placeholder?: string;
+}) => {
   const [search, setSearch] = useSearchParam<string>('q');
   return (
-    <fieldset>
+    <fieldset className="w-full">
       <Input
         name="q"
         alt="Поисковая строка"
-        placeholder="Название дисциплины"
+        placeholder={placeholder}
         type="seach"
         value={search}
         onChange={(e) => setSearch(e.currentTarget.value)}

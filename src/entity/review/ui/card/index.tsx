@@ -4,10 +4,11 @@ import Button from '@/shared/ui/button';
 import Icon from '@/shared/ui/icon';
 import { cn } from '@/shared/lib/utils';
 import { getColorClassByLikes } from './utils/color';
-import { getTeacherName, getTeacherNames } from './utils/names';
+import { getTeacherNames } from './utils/names';
 import { useMemo } from 'react';
 import { reviewCardVariants } from './variant';
 import { VariantProps } from 'class-variance-authority';
+import { getFullName } from '@/entity/user';
 
 interface ReviewCardProps
   extends VariantProps<typeof reviewCardVariants> {
@@ -19,8 +20,8 @@ const ReviewCard = ({ review, type }: ReviewCardProps) => {
     () =>
       review.lector && review.practic
         ? getTeacherNames([
-            getTeacherName(review.lector),
-            getTeacherName(review.practic),
+            getFullName(review.lector),
+            getFullName(review.practic),
           ])
         : '',
     [review.lector, review.practic],

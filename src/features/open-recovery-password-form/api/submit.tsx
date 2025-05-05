@@ -10,7 +10,6 @@ export const useRecoveryPasswordSubmit = () => {
     >,
   ) => {
     try {
-      console.log(data);
       /* await api.auth.recoveryPassword({
        *  email: data.email,
        * });

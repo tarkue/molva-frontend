@@ -12,7 +12,6 @@ export const useRecoveryPasswordSubmitFirstPart = () => {
     >,
   ) => {
     try {
-      console.log(data.email);
       open();
     } catch (error) {
       toast({

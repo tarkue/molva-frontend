@@ -1,6 +1,6 @@
 import { OnlyId } from './shared.dto';
 
-export type Role = 'USER' | 'ADMIN' | 'SUPERUSER';
+export type Role = 'USER' | 'ADMIN' | 'SUPER-ADMIN';
 
 export interface User extends OnlyId {
   first_name: string;
