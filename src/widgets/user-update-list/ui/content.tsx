@@ -1,10 +1,10 @@
 import { Spinner } from '@/shared/ui/spinner';
-import { useGetTeacherList } from '../api/teachers';
+import { useGetUserList } from '../api/users';
 import { ContentNotFound } from '@/shared/ui/content-not-found';
-import { TeacherUpdateCard } from './card';
+import { UserCard } from './card';
 
-export const TeacherUpdateListContent = () => {
-  const { data, isLoading, isError } = useGetTeacherList();
+export const UserUpdateListContent = () => {
+  const { data, isLoading, isError } = useGetUserList();
 
   if (isLoading) return <Spinner />;
 
@@ -15,7 +15,7 @@ export const TeacherUpdateListContent = () => {
     <ul className="flex flex-col gap-6">
       {data.map((el, key) => (
         <li key={key}>
-          <TeacherUpdateCard teacher={el} />
+          <UserCard user={el} />
         </li>
       ))}
     </ul>

@@ -1,6 +1,7 @@
 import client from '../base';
 import { Module, UpdateModuleDTO } from '../dto/module.dto';
 import { OnlyId } from '../dto/shared.dto';
+import { User } from '../dto/user.dto';
 
 const BASE_URL = '/admin';
 
@@ -15,6 +16,9 @@ export const remove = async (dto: TargetUser) =>
   await client.patch(`${BASE_URL}/admin/remove`, {
     body: JSON.stringify(dto),
   });
+
+export const getAll = async () =>
+  await client.get(`${BASE_URL}/admin/get`).json<User[]>();
 
 export const module = {
   get: async () =>
