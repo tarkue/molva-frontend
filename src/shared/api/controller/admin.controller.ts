@@ -5,14 +5,12 @@ import { User } from '../dto/user.dto';
 
 const BASE_URL = '/admin';
 
-type TargetUser = { target_user_id: string };
-
-export const add = async (dto: TargetUser) =>
+export const add = async (dto: OnlyId) =>
   await client.patch(`${BASE_URL}/add`, {
     body: JSON.stringify(dto),
   });
 
-export const remove = async (dto: TargetUser) =>
+export const remove = async (dto: OnlyId) =>
   await client.patch(`${BASE_URL}/admin/remove`, {
     body: JSON.stringify(dto),
   });

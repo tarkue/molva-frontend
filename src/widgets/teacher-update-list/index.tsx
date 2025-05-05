@@ -6,7 +6,7 @@ export const TeacherUpdateList = () => {
   return (
     <>
       <div className="flex gap-3 w-full">
-        <SearchParam placeholder="Найти" />
+        <SearchParam placeholder="Найти преподавателя" />
         <AddTeacher />
       </div>
       <TeacherUpdateListContent />
