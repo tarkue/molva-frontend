@@ -4,7 +4,7 @@ import { Spinner } from '@/shared/ui/spinner';
 import { DisciplineCard } from '@/entity/discipline';
 import { OffsetParam } from '@/features/offset-param';
 
-export const FavoritesList = () => {
+export const FavoriteList = () => {
   const { data, isLoading, isError } = useGetFavorites();
 
   if (isLoading) return <Spinner />;
