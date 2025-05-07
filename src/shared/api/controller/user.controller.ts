@@ -31,7 +31,8 @@ const check = async () => {
     .json<SafeUser>();
 };
 
-const logout = async () => await client.post(`${BASE_URL}/logout`);
+const logout = async () =>
+  await client.post(`${BASE_URL}/user/logout`);
 
 const edit = async (dto: UserUpdateDTO) =>
   await client

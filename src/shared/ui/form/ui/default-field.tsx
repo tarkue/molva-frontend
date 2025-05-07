@@ -38,19 +38,17 @@ const DefaultFormField = <T extends FieldValues>(
             </FormLabel>
           )}
           <FormControl aria-required={props.required}>
-            {
-              <Input
-                required={props.required}
-                type={props.type}
-                placeholder={props.placeholder}
-                aria-describedby={props.name}
-                checked={props.checked}
-                {...field}
-                value={props.value ? props.value : field.value}
-                fieldState={fieldState}
-                autoCapitalize="off"
-              />
-            }
+            <Input
+              required={props.required}
+              type={props.type}
+              placeholder={props.placeholder}
+              aria-describedby={props.name}
+              checked={props.checked}
+              {...field}
+              value={props.value ? props.value : field.value}
+              fieldState={fieldState}
+              autoCapitalize="off"
+            />
           </FormControl>
           <FormMessage />
         </FormItem>

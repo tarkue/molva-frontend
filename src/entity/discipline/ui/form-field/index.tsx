@@ -93,7 +93,7 @@ export const Format = <T extends FieldValues>({
       <Select
         placeholder={withPlaceholder ? FieldLabel.Format : undefined}
         defaultInputValue={getValue(FormatEnum, format)}
-        onChange={(e) => setFormat(e?.value as FormatEnum)}
+        onChange={(e) => setFormat(e?.label as FormatEnum)}
         options={FormatPair}
       />
       <fieldset className="sr-only">
