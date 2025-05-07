@@ -5,40 +5,62 @@ import {
   UpdateDisciplineDTO,
 } from '../dto/discipline.dto';
 import { OnlyId } from '../dto/shared.dto';
+import { DisciplineSearchOptions } from '../types/search';
 
 const BASE_URL = 'disciplines';
 
+export const create = async (dto: CreateDisciplineDTO) =>
+  await client
+    .post(`${BASE_URL}/admin/discipline/create`, {
+      body: JSON.stringify(dto),
+    })
+    .json<Discipline>();
+
+export const update = async (dto: UpdateDisciplineDTO) =>
+  await client
+    .patch(`${BASE_URL}/admin/discipline/update`, {
+      body: JSON.stringify(dto),
+    })
+    .json<Discipline>();
+
+export const remove = async (dto: OnlyId) =>
+  await client
+    .delete(`${BASE_URL}/admin/discipline/delete`, {
+      body: JSON.stringify(dto),
+    })
+    .json<Discipline>();
+
 export const get = async (id: string) =>
-  await client.get<Discipline>(`${BASE_URL}/${id}`).json();
+  await client
+    .get<Discipline>(`${BASE_URL}/discipline/${id}`)
+    .json<Discipline>();
 
 export const getAll = async () =>
   await client.get<Discipline[]>(`${BASE_URL}/get`).json();
 
-export const create = async (dto: CreateDisciplineDTO) =>
-  await client.post(`${BASE_URL}/create`, {
-    body: JSON.stringify(dto),
-  });
-
-export const update = async (dto: UpdateDisciplineDTO) =>
-  await client.patch(`${BASE_URL}/update`, {
-    body: JSON.stringify(dto),
-  });
-
-export const remove = async (dto: OnlyId) =>
-  await client.delete(`${BASE_URL}/remove/`, {
-    body: JSON.stringify(dto),
-  });
+export const search = async (params: DisciplineSearchOptions) => {
+  const cleanParams = Object.fromEntries(
+    Object.entries(params).filter(([_, v]) => v != null),
+  );
+  return await client
+    .get(`${BASE_URL}/search`, { searchParams: cleanParams })
+    .json<Discipline[]>();
+};
 
 export const favorite = {
   add: async (dto: OnlyId) =>
-    await client.post(`${BASE_URL}/favorite/add`, {
-      body: JSON.stringify(dto),
-    }),
+    await client
+      .post(`${BASE_URL}/favorite/add`, {
+        body: JSON.stringify(dto),
+      })
+      .json<Discipline>(),
 
   remove: async (dto: OnlyId) =>
-    await client.delete(`${BASE_URL}/favorite/remove`, {
-      body: JSON.stringify(dto),
-    }),
+    await client
+      .delete(`${BASE_URL}/favorite/remove`, {
+        body: JSON.stringify(dto),
+      })
+      .json<Discipline>(),
 
   get: async () =>
     await client.get(`${BASE_URL}/favorite/my`).json<Discipline[]>(),

@@ -1,27 +1,22 @@
+import { SortBy } from '@/shared/api';
 import { enumToPair, getValue } from '@/shared/lib/enum-utils';
 import { useSearchParam } from '@/shared/models/search-params';
 import { Select } from '@/shared/ui/select';
 
-enum Sort {
-  newerGrade = 'По свежести оценок',
-  reviewCount = 'По количеству отзывов',
-  rating = 'По рейтингу',
-}
-
-const SortPair = enumToPair(Sort);
+const SortPair = enumToPair(SortBy);
 
 export const SortParam = () => {
   const [sort, setSort] = useSearchParam<string>('sort', {
     default: 'rating',
-    validator: (el?: string) => el as Sort,
+    validator: (el?: string) => el as SortBy,
   });
   return (
     <fieldset className="w-[235px]">
       <Select
         placeholder="Сортировать по"
         options={SortPair}
-        defaultInputValue={getValue(Sort, sort)}
-        onChange={(e) => setSort(e?.value as Sort)}
+        defaultInputValue={getValue(SortBy, sort)}
+        onChange={(e) => setSort(e?.value as SortBy)}
       />
     </fieldset>
   );

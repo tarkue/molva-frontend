@@ -1,6 +1,6 @@
 import Container from '@/shared/ui/сontainer';
 import DisciplineList from '@/widgets/discipline-list';
-import { DescParam } from '@/features/desc-param';
+import { OrderParam } from '@/features/order-param';
 import { FormatParam } from '@/features/format-param';
 import { ModuleParam } from '@/features/module-param';
 import { SearchParam } from '@/features/search-param';
@@ -24,7 +24,7 @@ const MainPage = () => {
               <FormatParam />
             </div>
             <div className="flex gap-2">
-              <DescParam />
+              <OrderParam />
               <SortParam />
             </div>
           </div>

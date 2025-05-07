@@ -1,4 +1,4 @@
-import { DescParam } from '@/features/desc-param';
+import { OrderParam } from '@/features/order-param';
 import { FormatParam } from '@/features/format-param';
 import { ModuleParam } from '@/features/module-param';
 import { SearchParam } from '@/features/search-param';
@@ -15,7 +15,7 @@ export const DisciplineUpdateList = () => (
           <FormatParam />
         </div>
         <div className="flex gap-2">
-          <DescParam />
+          <OrderParam />
           <SortParam />
         </div>
       </div>
