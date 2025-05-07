@@ -24,11 +24,9 @@ export const update = async (dto: UpdateDisciplineDTO) =>
     .json<Discipline>();
 
 export const remove = async (dto: OnlyId) =>
-  await client
-    .delete(`${BASE_URL}/admin/discipline/delete`, {
-      body: JSON.stringify(dto),
-    })
-    .json<Discipline>();
+  await client.delete(`${BASE_URL}/admin/discipline/delete`, {
+    body: JSON.stringify(dto),
+  });
 
 export const get = async (id: string) =>
   await client
