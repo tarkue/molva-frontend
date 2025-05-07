@@ -24,6 +24,11 @@ export const edit = async (dto: UpdateReviewDTO) =>
     body: JSON.stringify(dto),
   });
 
+export const remove = async (dto: OnlyId) =>
+  await client.delete(`${BASE_URL}/delete`, {
+    body: JSON.stringify(dto),
+  });
+
 export const vote = async (dto: VoteReviewDTO) =>
   await client.patch(`${BASE_URL}/vote`, {
     body: JSON.stringify(dto),

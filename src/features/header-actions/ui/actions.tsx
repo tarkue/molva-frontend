@@ -10,7 +10,7 @@ const HeaderActions = () => {
 
   const actions = isAuthorized ? (
     <>
-      {userHasNotificationWithRole(user?.roles[0]) && (
+      {userHasNotificationWithRole(user?.role) && (
         <NavigateToCheckReview />
       )}
       <NavigateToProfile />

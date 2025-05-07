@@ -8,7 +8,7 @@ export const getPanels = () => {
   const { user } = useUser();
 
   const panels = useMemo(() => {
-    switch (user?.roles[0]) {
+    switch (user?.role) {
       case 'ADMIN':
         return AdminPanel;
       case 'SUPER-ADMIN':
@@ -18,7 +18,7 @@ export const getPanels = () => {
       default:
         return undefined;
     }
-  }, [user?.roles[0]]);
+  }, [user?.role]);
 
   if (panels) {
     return enumToPair(panels);

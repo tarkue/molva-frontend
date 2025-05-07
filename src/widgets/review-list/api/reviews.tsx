@@ -11,7 +11,7 @@ export const useGetDisciplineReviews = () => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ['reviews', id, teacherId, sort],
     queryFn: () =>
-      id ? api.review.get(id, { teacherId, sort }) : [],
+      id ? api.review.get({ id }, { teacherId, sort }) : [],
   });
 
   return { data, isLoading, isError };
