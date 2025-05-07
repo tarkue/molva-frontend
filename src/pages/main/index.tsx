@@ -1,10 +1,6 @@
 import Container from '@/shared/ui/сontainer';
 import DisciplineList from '@/widgets/discipline-list';
-import { OrderParam } from '@/features/order-param';
-import { FormatParam } from '@/features/format-param';
-import { ModuleParam } from '@/features/module-param';
-import { SearchParam } from '@/features/search-param';
-import { SortParam } from '@/features/sort-param';
+import DisciplineFilters from '@/widgets/discipline-filters';
 
 const MainPage = () => {
   return (
@@ -16,19 +12,7 @@ const MainPage = () => {
         </p>
       </div>
       <article className="flex flex-col gap-6">
-        <form className="flex flex-col w-full gap-2">
-          <SearchParam placeholder="Название дисциплины" />
-          <div className="flex w-full justify-between">
-            <div className="flex gap-2">
-              <ModuleParam />
-              <FormatParam />
-            </div>
-            <div className="flex gap-2">
-              <OrderParam />
-              <SortParam />
-            </div>
-          </div>
-        </form>
+        <DisciplineFilters />
         <DisciplineList />
       </article>
     </Container>
