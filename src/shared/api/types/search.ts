@@ -5,7 +5,7 @@ import { SortBy } from './sort';
 export interface DisciplineSearchOptions {
   name_search?: string;
   module_search?: string;
-  format_filter: Format;
-  sort_by: SortBy;
-  sort_order: SortOrder;
+  format_filter?: Format;
+  sort_by?: SortBy;
+  sort_order?: SortOrder;
 }

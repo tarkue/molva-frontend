@@ -3,6 +3,7 @@ import { useGetReviewOnCheck } from './api/review-on-check';
 import { Spinner } from '@/shared/ui/spinner';
 import { OffsetParam } from '@/features/offset-param';
 import { ReviewCard } from '@/entity/review';
+import { DeleteReview } from '@/features/review-actions';
 
 const ReviewOnCheckList = () => {
   const { data, isLoading, isError } = useGetReviewOnCheck();
@@ -18,7 +19,10 @@ const ReviewOnCheckList = () => {
       <ul className="flex flex-col gap-3">
         {data.map((el, key) => (
           <li key={key}>
-            <ReviewCard review={el} />
+            <ReviewCard
+              review={el}
+              actions={<DeleteReview review={el} />}
+            />
           </li>
         ))}
       </ul>

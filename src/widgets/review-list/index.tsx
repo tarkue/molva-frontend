@@ -3,6 +3,7 @@ import { useGetDisciplineReviews } from './api/reviews';
 import { Spinner } from '@/shared/ui/spinner';
 import { ContentNotFound } from '@/shared/ui/content-not-found';
 import { OffsetParam } from '@/features/offset-param';
+import { ReviewActions } from '@/features/review-actions';
 
 const ReviewList = () => {
   const { data, isLoading, isError } = useGetDisciplineReviews();
@@ -17,7 +18,10 @@ const ReviewList = () => {
       <ul className="flex flex-col gap-6">
         {data.map((el, key) => (
           <li key={key}>
-            <ReviewCard review={el} />
+            <ReviewCard
+              review={el}
+              actions={<ReviewActions review={el} />}
+            />
           </li>
         ))}
       </ul>

@@ -1,5 +1,5 @@
 export enum Format {
-  offline = 'оффлайн',
+  offline = 'традиционный',
   online = 'онлайн',
   mixed = 'смешанный',
 }

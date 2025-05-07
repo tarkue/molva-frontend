@@ -1,10 +1,10 @@
 import { UserCard, useUser } from '@/entity/user';
 import Container from '@/shared/ui/сontainer';
-import { ChangePassword } from './ui/change-password';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { Spinner } from '@/shared/ui/spinner';
 import { ProfileTabsWithPanel } from '@/widgets/profile-tabs';
+import { UserActions } from './ui/actions';
 
 const ProfilePage = () => {
   const { isAuthorized, isLoading, user } = useUser();
@@ -20,7 +20,7 @@ const ProfilePage = () => {
 
   return (
     <Container className="flex flex-col gap-8 py-8">
-      <UserCard user={user} actions={<ChangePassword />} />
+      <UserCard user={user} actions={<UserActions />} />
       <ProfileTabsWithPanel />
     </Container>
   );

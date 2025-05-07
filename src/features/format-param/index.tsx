@@ -7,12 +7,13 @@ const FormatPair = enumToPair(Format);
 
 export const FormatParam = () => {
   const [format, setFormat] = useSearchParam<Format>('format');
+  console.log(format);
   return (
     <fieldset className="w-[230px]">
       <Select
         placeholder="Формат проведения"
         defaultInputValue={getValue(Format, format)}
-        onChange={(e) => setFormat(e?.value as Format)}
+        onChange={(e) => setFormat(e?.label)}
         options={FormatPair}
       />
     </fieldset>

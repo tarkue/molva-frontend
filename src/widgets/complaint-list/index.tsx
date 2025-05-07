@@ -3,6 +3,7 @@ import { useGetComplaints } from './api/complaints';
 import { Spinner } from '@/shared/ui/spinner';
 import { OffsetParam } from '@/features/offset-param';
 import { ReviewCard } from '@/entity/review';
+import { ReviewActionsForResolveComplaint } from '@/features/review-actions';
 
 const ComplaintList = () => {
   const { data, isLoading, isError } = useGetComplaints();
@@ -18,7 +19,12 @@ const ComplaintList = () => {
       <ul className="flex flex-col gap-3">
         {data.map((el, key) => (
           <li key={key}>
-            <ReviewCard review={el} />
+            <ReviewCard
+              review={el}
+              actions={
+                <ReviewActionsForResolveComplaint review={el} />
+              }
+            />
           </li>
         ))}
       </ul>
