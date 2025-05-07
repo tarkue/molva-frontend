@@ -41,7 +41,7 @@ export const get = async (
 };
 
 export const getForModerate = async (
-  options: Partial<Status> & PageOffsetOptions,
+  options: Partial<Status> & PageOffsetOptions = {},
 ) => {
   const cleanParams = Object.fromEntries(
     Object.entries(options).filter(([_, v]) => v != null),
