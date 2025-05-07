@@ -1,4 +1,6 @@
+import { ResolveAction } from '../types/resolve';
 import { ReviewStatus } from '../types/review_status';
+import { Vote } from '../types/vote';
 import { OnlyId } from './shared.dto';
 import { Teacher } from './teacher.dto';
 import { User } from './user.dto';
@@ -30,3 +32,5 @@ export interface Status {
 }
 
 export type UpdateReviewDTO = OnlyId & Status;
+export type VoteReviewDTO = OnlyId & { vote: Vote };
+export type ResolveComplaintDTO = OnlyId & { action: ResolveAction };
