@@ -2,6 +2,7 @@ import { Spinner } from '@/shared/ui/spinner';
 import { useGetAdminList } from '../api/admins';
 import { ContentNotFound } from '@/shared/ui/content-not-found';
 import { AdminUpdateCard } from './card';
+import { OffsetParam } from '@/features/offset-param';
 
 export const AdminUpdateListContent = () => {
   const { data, isLoading, isError } = useGetAdminList();
@@ -12,12 +13,15 @@ export const AdminUpdateListContent = () => {
     return <ContentNotFound name="Преподаватели" />;
 
   return (
-    <ul className="flex flex-col gap-6">
-      {data.map((el, key) => (
-        <li key={key}>
-          <AdminUpdateCard admin={el} />
-        </li>
-      ))}
-    </ul>
+    <>
+      <ul className="flex flex-col gap-6">
+        {data.map((el, key) => (
+          <li key={key}>
+            <AdminUpdateCard admin={el} />
+          </li>
+        ))}
+      </ul>
+      {data?.length > 0 && <OffsetParam />}
+    </>
   );
 };
