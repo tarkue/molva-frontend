@@ -8,7 +8,9 @@ import { DisciplineUpdateListContent } from './ui/content';
 export const DisciplineUpdateList = () => (
   <>
     <form className="flex flex-col w-full gap-2">
-      <SearchParam placeholder="Название дисциплины" />
+      <div className="flex w-full justify-between">
+        <SearchParam placeholder="Название дисциплины" />
+      </div>
       <div className="flex w-full justify-between">
         <div className="flex gap-2">
           <ModuleParam />
