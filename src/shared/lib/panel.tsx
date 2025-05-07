@@ -1,3 +1,5 @@
+import { zip } from './array-utils';
+
 type Panel = {
   name: string;
   element: React.ReactNode;
@@ -15,3 +17,12 @@ export const usePanelSwitcher = (
 
   return panel.element;
 };
+
+export const createPanelList = (
+  en: object,
+  nodes: React.ReactNode[],
+) =>
+  zip(Object.keys(en), nodes).map((e) => ({
+    name: e[0],
+    element: e[1],
+  }));

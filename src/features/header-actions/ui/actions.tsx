@@ -1,5 +1,5 @@
 import OpenSignIn from './open-signin';
-import NavigateToNotification from './navigate-to-notification';
+import NavigateToCheckReview from './navigate-to-notification';
 import NavigateToProfile from './navigate-to-profile';
 import { ToggleTheme } from './toggle-theme';
 import { useUser } from '@/entity/user';
@@ -11,7 +11,7 @@ const HeaderActions = () => {
   const actions = isAuthorized ? (
     <>
       {userHasNotificationWithRole(user?.roles[0]) && (
-        <NavigateToNotification />
+        <NavigateToCheckReview />
       )}
       <NavigateToProfile />
     </>

@@ -13,9 +13,10 @@ import { getFullName } from '@/entity/user';
 interface ReviewCardProps
   extends VariantProps<typeof reviewCardVariants> {
   review: Review;
+  actions?: React.ReactNode;
 }
 
-const ReviewCard = ({ review, type }: ReviewCardProps) => {
+const ReviewCard = ({ review, actions, type }: ReviewCardProps) => {
   const teacherNames = useMemo(
     () =>
       review.lector && review.practic
@@ -61,9 +62,7 @@ const ReviewCard = ({ review, type }: ReviewCardProps) => {
               <Icon glyph="dislike" />
             </Button>
           </div>
-          <Button variant="icon">
-            <Icon glyph="trash" stroke="red" />
-          </Button>
+          {actions}
         </div>
       </data>
     </article>

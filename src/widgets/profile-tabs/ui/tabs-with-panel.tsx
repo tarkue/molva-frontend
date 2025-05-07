@@ -1,7 +1,7 @@
 import { Tabs } from '@/shared/ui/tabs';
 import { getPanels } from '../api/get-panels';
 import { Spinner } from '@/shared/ui/spinner';
-import { usePanelParam } from '../lib/panel-param';
+import { usePanelParam } from '@/shared/lib/panel-param';
 import { usePanelSwitcher } from '@/shared/lib/panel';
 import { allPanels } from '../models/panels';
 
