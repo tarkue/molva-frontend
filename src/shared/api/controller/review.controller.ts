@@ -1,28 +1,55 @@
 import client from '../base';
-import { CreateReviewDTO, Review } from '../dto/review.dto';
+import {
+  CreateReviewDTO,
+  Review,
+  Status,
+  UpdateReviewDTO,
+} from '../dto/review.dto';
+import { OnlyId } from '../dto/shared.dto';
+import { PageOffsetOptions } from '../types/page';
 
-interface GetOptions {
-  teacherId?: string;
-  sort?: string;
-}
+const BASE_URL = 'reviews';
+
+export const add = async (dto: CreateReviewDTO) =>
+  await client
+    .post(`${BASE_URL}/add`, {
+      body: JSON.stringify(dto),
+    })
+    .json<Review>();
+
+export const edit = async (dto: UpdateReviewDTO) =>
+  await client.patch(`${BASE_URL}/admin/review/status/edit`, {
+    body: JSON.stringify(dto),
+  });
 
 export const get = async (
-  id: string,
-  options: GetOptions = {},
-): Promise<Review[]> => {
-  const searchParams = new URLSearchParams();
-
-  searchParams.set('teacher_id', options.teacherId || '');
-  searchParams.set('sort', options.sort || '');
+  dto: OnlyId,
+  options: PageOffsetOptions,
+) => {
+  const cleanParams = Object.fromEntries(
+    Object.entries(options).filter(([_, v]) => v != null),
+  );
 
   return await client
-    .get(`/reviews/${id}`, {
-      searchParams,
+    .get(`${BASE_URL}`, {
+      searchParams: {
+        discipline_id: dto.id,
+        ...cleanParams,
+      },
     })
     .json<Review[]>();
 };
 
-export const create = async (dto: CreateReviewDTO) =>
-  await client.post(`/reviews/create`, {
-    body: JSON.stringify(dto),
-  });
+export const getForModerate = async (
+  options: Partial<Status> & PageOffsetOptions,
+) => {
+  const cleanParams = Object.fromEntries(
+    Object.entries(options).filter(([_, v]) => v != null),
+  );
+
+  return await client
+    .get(`${BASE_URL}/review/admin/moderation`, {
+      searchParams: cleanParams,
+    })
+    .json<Review[]>();
+};
