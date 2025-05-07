@@ -1,4 +1,4 @@
-export interface Pair {
-  value: string;
-  label: string;
+export interface Pair<T, V> {
+  label: T;
+  value: V;
 }

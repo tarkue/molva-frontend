@@ -6,17 +6,17 @@ import { Select } from '@/shared/ui/select';
 const SortPair = enumToPair(SortBy);
 
 export const SortParam = () => {
-  const [sort, setSort] = useSearchParam<string>('sort', {
-    default: 'rating',
-    validator: (el?: string) => el as SortBy,
-  });
+  const [sort, setSort] = useSearchParam<keyof typeof SortBy>(
+    'sort',
+    { default: 'rating' },
+  );
   return (
     <fieldset className="w-[235px]">
       <Select
         placeholder="Сортировать по"
         options={SortPair}
         defaultInputValue={getValue(SortBy, sort)}
-        onChange={(e) => setSort(e?.value as SortBy)}
+        onChange={(e) => setSort(e?.value)}
       />
     </fieldset>
   );

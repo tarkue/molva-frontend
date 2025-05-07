@@ -8,7 +8,7 @@ export const useGetDisciplines = () => {
   const [module] = useSearchParam<string>('module');
   const [offset] = useSearchParam<string>('offset');
   const [search] = useSearchParam<string>('search');
-  const [sort] = useSearchParam<SortBy>('sort');
+  const [sort] = useSearchParam<keyof typeof SortBy>('sort');
 
   const { data, isLoading, isError } = useQuery({
     queryKey: [

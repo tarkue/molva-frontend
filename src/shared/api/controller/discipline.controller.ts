@@ -37,6 +37,7 @@ export const getAll = async () =>
   await client.get<Discipline[]>(`${BASE_URL}/get`).json();
 
 export const search = async (params: DisciplineSearchOptions) => {
+  params.sort_by;
   const cleanParams = Object.fromEntries(
     Object.entries(params).filter(([_, v]) => v != null),
   );

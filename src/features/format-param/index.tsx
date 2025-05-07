@@ -1,5 +1,5 @@
 import { Format } from '@/shared/api';
-import { enumToPair, getValue } from '@/shared/lib/enum-utils';
+import { enumToPair } from '@/shared/lib/enum-utils';
 import { useSearchParam } from '@/shared/models/search-params';
 import { Select } from '@/shared/ui/select';
 
@@ -11,7 +11,7 @@ export const FormatParam = () => {
     <fieldset className="w-[230px]">
       <Select
         placeholder="Формат проведения"
-        defaultInputValue={getValue(Format, format)}
+        defaultInputValue={format}
         onChange={(e) => setFormat(e?.label as Format)}
         options={FormatPair}
       />

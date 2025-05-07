@@ -1,8 +1,10 @@
 import { Pair } from '../ui/select/pair';
 import { zip } from './array-utils';
 
-export function enumToPair<T extends object>(obj: T): Pair[] {
-  const keys = Object.keys(obj);
+export function enumToPair<T extends object>(
+  obj: T,
+): Pair<string, keyof T>[] {
+  const keys = Object.keys(obj) as (keyof T)[];
   const values = Object.values(obj);
 
   return zip(keys, values).map((el) => ({
