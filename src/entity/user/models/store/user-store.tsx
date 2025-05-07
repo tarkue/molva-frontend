@@ -10,7 +10,7 @@ type UserContextType = {
   user: User | undefined;
   isAuthorized: boolean;
   isLoading: boolean;
-  setUser: (user: User) => void;
+  setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
 };
 
 const UserContext = createContext<UserContextType>(
