@@ -4,12 +4,18 @@ import {
   RegisterDTO,
   SafeUser,
   SignInDTO,
-  User,
   UserUpdateDTO,
   UserUpdatePasswordDTO,
 } from '../dto/user.dto';
 
 const BASE_URL = 'users';
+
+const register = async (dto: RegisterDTO) =>
+  await client
+    .post(`${BASE_URL}/registration`, {
+      body: JSON.stringify(dto),
+    })
+    .json<SafeUser>();
 
 const login = async (dto: SignInDTO) =>
   await client
@@ -17,43 +23,40 @@ const login = async (dto: SignInDTO) =>
       body: JSON.stringify(dto),
       credentials: 'include',
     })
-    .json();
+    .json<SafeUser>();
 
-const check = async (): Promise<User> => {
-  return await client.get(`${BASE_URL}/authorization/check`).json();
+const check = async () => {
+  return await client
+    .get(`${BASE_URL}/authorization/check`)
+    .json<SafeUser>();
 };
 
-const register = async (dto: RegisterDTO) =>
-  await client
-    .post(`${BASE_URL}/registration`, {
-      body: JSON.stringify(dto),
-    })
-    .json();
-
-const logout = async () =>
-  await client.post(`${BASE_URL}/logout`).json<any>();
+const logout = async () => await client.post(`${BASE_URL}/logout`);
 
 const edit = async (dto: UserUpdateDTO) =>
   await client
     .patch(`${BASE_URL}/edit}`, {
       body: JSON.stringify(dto),
     })
-    .json<any>();
+    .json<SafeUser>();
 
 const changePassword = async (dto: UserUpdatePasswordDTO) =>
   await client
     .patch(`${BASE_URL}/edit/password`, {
       body: JSON.stringify(dto),
     })
-    .json<any>();
+    .json<SafeUser>();
 
 const get = async (id: string) =>
   await client.get(`${BASE_URL}/user/${id}`).json<SafeUser>();
 
 const getAll = async () =>
-  await client.get(`${BASE_URL}/users`).json<SafeUser[]>();
+  await client.get(`${BASE_URL}/`).json<SafeUser[]>();
 
-const remove = async (dto: OnlyId) => {};
+const remove = async (dto: OnlyId) =>
+  await client
+    .delete(`${BASE_URL}/user/${dto.id}/delete`)
+    .json<SafeUser>();
 
 export {
   login,

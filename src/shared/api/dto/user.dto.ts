@@ -14,7 +14,8 @@ export interface User extends OnlyId {
 export type SafeUser = Omit<User, 'password'>;
 export type SignInDTO = Pick<User, 'email' | 'password'>;
 export type RegisterDTO = Omit<User, 'id' | 'roles'>;
-export type UserUpdateDTO = Partial<User>;
-export type UserUpdatePasswordDTO = Pick<User, 'id' | 'password'> & {
+export type UserUpdateDTO = Omit<Partial<User>, 'roles' | 'password'>;
+export type UserUpdatePasswordDTO = OnlyId & {
   old_password: string;
+  new_password: string;
 };
