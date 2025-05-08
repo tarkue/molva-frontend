@@ -4,11 +4,14 @@ import { useSearchParam } from '@/shared/models/search-params';
 import { Select } from '@/shared/ui/select';
 
 const SortPair = enumToPair(SortBy);
+const SortKeys = Object.keys(SortBy);
 
 export const SortParam = () => {
   const [sort, setSort] = useSearchParam<keyof typeof SortBy>(
     'sort',
-    { default: 'rating' },
+    {
+      default: 'rating',
+    },
   );
   return (
     <fieldset className="w-[235px]">

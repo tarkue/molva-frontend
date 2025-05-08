@@ -7,6 +7,7 @@ export const SearchParam = ({
   placeholder?: string;
 }) => {
   const [search, setSearch] = useSearchParam<string>('q');
+
   return (
     <fieldset className="w-full">
       <Input

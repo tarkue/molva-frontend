@@ -55,7 +55,7 @@ const getAll = async () =>
   await client.get(`${BASE_URL}/`).json<SafeUser[]>();
 
 const remove = async (dto: OnlyId) =>
-  await client.delete(`${BASE_URL}/user/${dto.id}/delete`);
+  await client.delete(`$/admin/{BASE_URL}/user/${dto.id}/delete`);
 
 export {
   login,

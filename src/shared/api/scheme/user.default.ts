@@ -3,8 +3,8 @@ import { z } from 'zod';
 const basePassword = (name: string = '') =>
   z
     .string({ message: `${name} обязателен` })
-    .min(8, 'Пароль должен быть не менее 8 символов')
-    .max(20, 'Пароль должен быть не более 20 символов')
+    .min(8, { message: 'Пароль должен быть не менее 8 символов' })
+    .max(20, { message: 'Пароль должен быть не более 20 символов' })
     .refine(
       (value) =>
         /[A-Z]+/.test(value) &&

@@ -1,10 +1,13 @@
-import { UserForms } from '@/entity/user';
+import { UserForms, useUser } from '@/entity/user';
 import { api } from '@/shared/api';
+import { useModals } from '@/shared/ui/modal';
 import { toast } from '@/shared/ui/toast';
 import { useNavigate } from 'react-router';
 import { z } from 'zod';
 
 export const useRegisterSubmit = () => {
+  const { signIn } = useUser();
+  const { clear } = useModals();
   const navigate = useNavigate();
 
   return async (
@@ -19,12 +22,10 @@ export const useRegisterSubmit = () => {
       return;
     }
     try {
-      await api.auth.register(data);
-      await api.auth.login({
-        email: data.email,
-        password: data.password,
-      });
-      navigate('/profile');
+      const user = await api.auth.register(data);
+      signIn(user);
+      clear();
+      navigate('profile');
     } catch (error) {
       toast({
         title: 'Пользователь с такой почтой уже существует',

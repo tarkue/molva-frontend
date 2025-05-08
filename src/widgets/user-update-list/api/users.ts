@@ -6,10 +6,10 @@ export const useGetUserList = () => {
   const offset = useParam('offset');
   const q = useParam('q');
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ['users', offset, q],
     queryFn: () => api.user.getAll(),
   });
 
-  return { data, isLoading, isError };
+  return { data, isLoading, isError, refetch };
 };

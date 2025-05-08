@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router';
 
 export const useLogoutSubmit = () => {
   const navigate = useNavigate();
-  const { setUser } = useUser();
+  const { logout } = useUser();
   return async () => {
     await api.auth.logout();
+    logout();
     navigate('/');
-    setUser(undefined);
   };
 };

@@ -10,7 +10,8 @@ type UserContextType = {
   user: User | undefined;
   isAuthorized: boolean;
   isLoading: boolean;
-  setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
+  signIn: (user: User) => void;
+  logout: () => void;
 };
 
 const UserContext = createContext<UserContextType>(
@@ -43,9 +44,19 @@ export const UserProvider = ({
     }
   }, []);
 
+  const signIn = (user: User) => {
+    setUser(user);
+    setIsAuthorized(true);
+  };
+
+  const logout = () => {
+    setUser(undefined);
+    setIsAuthorized(false);
+  };
+
   return (
     <UserContext.Provider
-      value={{ isAuthorized, isLoading, user, setUser }}
+      value={{ isAuthorized, isLoading, user, signIn, logout }}
     >
       {children}
     </UserContext.Provider>
