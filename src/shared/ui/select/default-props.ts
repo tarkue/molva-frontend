@@ -18,7 +18,7 @@ const selectClassNames = {
   option: () =>
     'flex px-[14px] py-[6px] text-body rounded-xl hover:bg-base-06',
   menu: () =>
-    'flex flex-col w-full rounded-2xl bg-base-03 p-[10px] mt-1',
+    'flex flex-col w-full rounded-2xl bg-base-03 p-[10px] mt-1 elevation',
   singleValue: () => 'text-body',
   input: () => 'text-body text-contrast',
   placeholder: () => 'text-body text-gray',
