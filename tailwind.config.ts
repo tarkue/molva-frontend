@@ -4,6 +4,7 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
+        sm: '380px',
         md: '972px',
         lg: '1100px',
       },
@@ -27,6 +28,7 @@ const config: Config = {
         white: 'var(--color-white)',
         black: 'var(--color-black)',
         contrast: 'var(--text-color)',
+        modal: 'var(--color-modal)',
       },
     },
   },

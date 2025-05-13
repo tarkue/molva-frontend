@@ -13,7 +13,7 @@ export const useOpenAddReviewForm = (discipline: Discipline) => {
   return () => {
     addModal({
       form: form,
-      className: 'w-[808px]',
+      className: 'max-w-[808px]',
       title: discipline.name,
       onSubmit: onSubmit,
       fields: (

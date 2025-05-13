@@ -15,7 +15,7 @@ export const useOpenUpdateDisciplineForm = (
   return () => {
     addModal({
       form: form,
-      className: 'w-[514px]',
+      className: 'max-w-[514px]',
       title: 'Добавить новую дисциплину',
       onSubmit: onSubmit,
       fields: <UpdateDisciplineFormFields form={form} />,

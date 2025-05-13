@@ -12,7 +12,7 @@ export const useOpenAddDisciplineForm = () => {
   return () => {
     addModal({
       form: form,
-      className: 'w-[514px]',
+      className: 'max-w-[514px]',
       title: 'Добавить новую дисциплину',
       onSubmit: onSubmit,
       fields: <AddDisciplineFormFields form={form} />,

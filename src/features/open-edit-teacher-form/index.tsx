@@ -13,7 +13,7 @@ export const useOpenEditTeacherForm = (teacher: Teacher) => {
   return () => {
     addModal({
       form: form,
-      className: 'w-[513px]',
+      className: 'max-w-[513px]',
       title: 'Преподаватель',
       onSubmit: onSubmit,
       fields: <EditTeacherFormFields form={form} />,

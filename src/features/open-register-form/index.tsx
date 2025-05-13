@@ -13,7 +13,7 @@ export const useOpenRegister = () => {
     clear();
     addModal({
       form: form,
-      className: 'w-[360px]',
+      className: 'max-w-[360px]',
       title: 'Регистрация',
       onSubmit: onSubmit,
       fields: <RegisterFormFields form={form} />,

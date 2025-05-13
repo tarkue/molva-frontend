@@ -63,4 +63,6 @@ html[data-theme='dark'] {
   --color-base-02: var(--base-color-base-02);
   --color-base-01: var(--base-color-base-01);
   --color-gray: var(--base-color-gray);
+
+  --color-modal: rgba(0, 0, 0, 0.2);
 }

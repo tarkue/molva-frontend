@@ -12,7 +12,7 @@ export const useOpenChangePassword = () => {
   return () => {
     addModal({
       form: form,
-      className: 'w-[343px]',
+      className: 'max-w-[343px]',
       title: 'Сменить пароль',
       onSubmit: onSubmit,
       fields: <ChangePasswordFormFields form={form} />,

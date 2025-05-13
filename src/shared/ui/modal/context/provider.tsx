@@ -5,6 +5,7 @@ import { DefaultFormModalProps } from '../models/form-modal-props';
 import { ModalContext } from './context';
 import { ModalContainer } from '../ui/container';
 import { DefaultFormModal } from '../ui/form';
+import clsx from 'clsx';
 
 const MAX_MODALS = 2 as const;
 
@@ -55,7 +56,11 @@ export const ModalProvider = ({
       {children}
       {modals.map((modal, key) => (
         <ModalContainer key={key} id={modal.id}>
-          <DefaultFormModal id={modal.id} {...modal.form} />
+          <DefaultFormModal
+            id={modal.id}
+            {...modal.form}
+            className={clsx('w-full', modal.form.className)}
+          />
         </ModalContainer>
       ))}
     </ModalContext.Provider>

@@ -12,7 +12,7 @@ export const useOpenAddTeacherForm = () => {
   return () => {
     addModal({
       form: form,
-      className: 'w-[513px]',
+      className: 'max-w-[513px]',
       title: 'Добавить преподавателя',
       onSubmit: onSubmit,
       fields: <AddTeacherFormFields form={form} />,

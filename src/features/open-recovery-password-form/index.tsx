@@ -12,7 +12,7 @@ export const useOpenRecoveryPasswordForm = () => {
   return () => {
     addModal({
       form: form,
-      className: 'w-[400px]',
+      className: 'max-w-[400px]',
       title: 'Восстановление пароля',
       onSubmit: onSubmit,
       fields: <FirstPartFields form={form} />,

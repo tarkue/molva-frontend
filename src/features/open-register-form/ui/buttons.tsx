@@ -4,7 +4,7 @@ import Button from '@/shared/ui/button';
 export const RegisterFormButtons = () => {
   const openSignIn = useOpenSignIn();
   return (
-    <>
+    <div className="flex w-full gap-3 justify-between flex-row">
       <Button type="submit" variant="primary" size="medium">
         Регистрация
       </Button>
@@ -14,6 +14,6 @@ export const RegisterFormButtons = () => {
           Войти
         </a>
       </span>
-    </>
+    </div>
   );
 };

@@ -12,7 +12,7 @@ export const useOpenAddAdminForm = () => {
   return () => {
     addModal({
       form: form,
-      className: 'w-[808px]',
+      className: 'max-w-[808px]',
       title: 'Добавить нового администратора',
       fields: <AddAdminFormFields />,
       buttons: <AddAdminFormButtons />,

@@ -13,7 +13,7 @@ export const useOpenSignIn = () => {
     clear();
     addModal({
       form: form,
-      className: 'w-[343px]',
+      className: 'max-w-[343px]',
       title: 'Вход',
       onSubmit: onSubmit,
       fields: <SignInFormFields form={form} />,
