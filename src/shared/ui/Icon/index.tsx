@@ -21,4 +21,5 @@ const Icon = forwardRef<HTMLElement, IconProps>(
 );
 Icon.displayName = 'Icon';
 
+export type { glyphs } from './props';
 export default Icon;
