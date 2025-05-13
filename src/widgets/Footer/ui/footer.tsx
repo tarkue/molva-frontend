@@ -5,8 +5,11 @@ import NavigateToMain from '@/features/navigate-to-main';
 
 export default function Footer() {
   return (
-    <footer className="w-full flex items-center justify-between p-3">
-      <Container className="flex items-center justify-between">
+    <footer className="w-full flex items-center justify-between px-3 py-4 lg:py-3">
+      <Container
+        className="flex items-center justify-between"
+        withoutPadding
+      >
         <NavigateToMain />
         <LinkList links={Links} />
       </Container>

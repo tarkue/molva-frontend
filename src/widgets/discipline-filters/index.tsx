@@ -15,8 +15,8 @@ const DisciplineFilters = () => {
         <SearchParam placeholder="Название дисциплины" />
         {canCreateDiscipline(user?.role) && <AddDiscipline />}
       </div>
-      <div className="flex w-full justify-between">
-        <div className="flex gap-2">
+      <div className="flex w-full justify-between flex-col lg:flex-row gap-3 lg:gap-0">
+        <div className="flex gap-2 flex-col gap-3 lg:gap-2 lg:flex-row">
           <ModuleParam />
           <FormatParam />
         </div>

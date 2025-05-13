@@ -4,7 +4,6 @@ import { useSearchParam } from '@/shared/models/search-params';
 import { Select } from '@/shared/ui/select';
 
 const SortPair = enumToPair(SortBy);
-const SortKeys = Object.keys(SortBy);
 
 export const SortParam = () => {
   const [sort, setSort] = useSearchParam<keyof typeof SortBy>(
@@ -14,7 +13,7 @@ export const SortParam = () => {
     },
   );
   return (
-    <fieldset className="w-[235px]">
+    <fieldset className="w-full lg:w-[235px]">
       <Select
         placeholder="Сортировать по"
         options={SortPair}

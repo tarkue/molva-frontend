@@ -8,7 +8,7 @@ const FormatPair = enumToPair(Format);
 export const FormatParam = () => {
   const [format, setFormat] = useSearchParam<Format>('format');
   return (
-    <fieldset className="w-[230px]">
+    <fieldset className="w-full lg:w-[230px]">
       <Select
         placeholder="Формат проведения"
         defaultInputValue={format}
