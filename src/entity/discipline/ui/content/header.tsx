@@ -11,7 +11,7 @@ const DisciplineContentHeader = ({
   module,
 }: DisciplineContentHeaderProps) => {
   return (
-    <div className="bg-base-03 flex flex-col gap-8 p-6 rounded-3xl">
+    <div className="bg-base-03 flex flex-col gap-8 p-6 rounded-3xl shadow">
       <data className="flex flex-col gap-0.5">
         <div className="flex justify-between w-full">
           <h1 className="text-subhead text-contrast">{name}</h1>

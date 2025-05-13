@@ -10,7 +10,7 @@ const DisciplineContentDescription = (
   props: DisciplineContentDescriptionProps,
 ) => {
   return (
-    <div className="flex flex-col gap-4 p-6 rounded-3xl bg-base-03">
+    <div className="flex flex-col gap-4 p-6 rounded-3xl bg-base-03 shadow">
       <p className="text-body text-contrast w-full">
         {props.description}
       </p>

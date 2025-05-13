@@ -35,7 +35,7 @@ const ReviewCard = ({ review, actions, type }: ReviewCardProps) => {
 
   return (
     <article className={reviewCardVariants({ type })}>
-      <div className="flex items-center justify-between w-full md:flex-col-reverse">
+      <div className="flex items-center justify-between w-full shadow md:flex-col-reverse">
         <p className="text-subhead text-contrast">{review.comment}</p>
         <Stars value={review.grade} />
       </div>

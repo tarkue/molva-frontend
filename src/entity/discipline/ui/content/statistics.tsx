@@ -14,7 +14,7 @@ const DisciplineContentStatistics = (props: StatisticProps) => {
       {statistics.map(([title, el], key) => (
         <li
           key={key}
-          className="flex px-6 py-5 rounded-3xl bg-base-03 w-full justify-between items-center"
+          className="flex px-6 py-5 rounded-3xl bg-base-03 shadow w-full justify-between items-center"
         >
           <span className="text-body text-contrast">
             {title}: {el.value}
