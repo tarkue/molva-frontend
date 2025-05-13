@@ -30,5 +30,8 @@ export type glyphs =
   | 'sort-asc'
   | 'sort-desc'
   | 'star'
+  | 'telegram'
+  | 'theme'
   | 'trash'
-  | 'theme';
+  | 'vk'
+  | 'whatsapp';
