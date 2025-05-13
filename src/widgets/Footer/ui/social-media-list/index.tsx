@@ -9,6 +9,7 @@ export const SocialMediaList = () => (
           glyph={el.icon}
           to={el.href}
           target="_blank"
+          alt={el.icon}
         />
       </li>
     ))}
