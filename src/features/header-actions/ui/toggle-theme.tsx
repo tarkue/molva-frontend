@@ -6,7 +6,12 @@ export const ToggleTheme = () => {
   const { toggleTheme } = useTheme();
 
   return (
-    <Button variant="icon" size="small" onClick={toggleTheme}>
+    <Button
+      variant="icon"
+      size="small"
+      onClick={toggleTheme}
+      aria-label="toggle theme"
+    >
       <Icon glyph="theme" stroke="white" />
     </Button>
   );

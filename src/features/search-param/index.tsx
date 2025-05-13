@@ -14,6 +14,7 @@ export const SearchParam = ({
         name="q"
         alt="Поисковая строка"
         placeholder={placeholder}
+        aria-label="Поисковая строка"
         type="seach"
         value={search}
         onChange={(e) => setSearch(e.currentTarget.value)}

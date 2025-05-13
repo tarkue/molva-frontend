@@ -2,7 +2,7 @@ import NavigateToIcon from '@/shared/ui/navigate-to-Icon';
 import { SocialMedia } from '../../models/icons';
 
 export const SocialMediaList = () => (
-  <li className="flex gap-2 list-none">
+  <ul className="flex gap-2 list-none">
     {SocialMedia.map((el, key) => (
       <li key={key}>
         <NavigateToIcon
@@ -13,5 +13,5 @@ export const SocialMediaList = () => (
         />
       </li>
     ))}
-  </li>
+  </ul>
 );

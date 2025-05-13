@@ -19,10 +19,13 @@ const ProfilePage = () => {
   if (isLoading || !user) return <Spinner />;
 
   return (
-    <Container className="flex flex-col gap-8 py-8">
-      <UserCard user={user} actions={<UserActions />} />
-      <ProfileTabsWithPanel />
-    </Container>
+    <>
+      <title>Профиль</title>
+      <Container className="flex flex-col gap-8 py-8">
+        <UserCard user={user} actions={<UserActions />} />
+        <ProfileTabsWithPanel />
+      </Container>
+    </>
   );
 };
 

@@ -17,6 +17,7 @@ const SortOrderCircle = forwardRef<HTMLButtonElement, DescProps>(
         variant="circle"
         onClick={clickHandler}
         ref={ref}
+        aria-label="change sort order"
         {...props}
       >
         <Icon

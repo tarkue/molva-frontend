@@ -16,6 +16,7 @@ export const SortParam = () => {
     <fieldset className="w-full lg:w-[235px]">
       <Select
         placeholder="Сортировать по"
+        aria-label="Выбрать параметр сортировки"
         options={SortPair}
         defaultInputValue={getValue(SortBy, sort)}
         onChange={(e) => setSort(e?.value as keyof typeof SortBy)}

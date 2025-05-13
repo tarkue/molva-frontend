@@ -3,7 +3,10 @@ import { AsyncSelect } from '@/shared/ui/select';
 export const ModuleParam = () => {
   return (
     <fieldset className="w-full lg:w-[250px]">
-      <AsyncSelect placeholder="Наименование модуля" />
+      <AsyncSelect
+        placeholder="Наименование модуля"
+        aria-label="Выберите наименование модуля"
+      />
     </fieldset>
   );
 };

@@ -3,5 +3,7 @@ import { useOpenAddDisciplineForm } from '../open-add-discipline-form';
 
 export const AddDiscipline = () => {
   const openForm = useOpenAddDisciplineForm();
-  return <AddButton onClick={openForm} />;
+  return (
+    <AddButton onClick={openForm} aria-label="Добавить дисциплину" />
+  );
 };

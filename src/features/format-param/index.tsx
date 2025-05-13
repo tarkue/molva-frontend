@@ -11,6 +11,7 @@ export const FormatParam = () => {
     <fieldset className="w-full lg:w-[230px]">
       <Select
         placeholder="Формат проведения"
+        aria-label="Выберите формат проведения"
         defaultInputValue={format}
         onChange={(e) => setFormat(e?.label as Format)}
         options={FormatPair}
