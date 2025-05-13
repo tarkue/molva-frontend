@@ -16,7 +16,8 @@ export const Practic = <T extends FieldValues>({
   form,
   withPlaceholder,
 }: DefaultFormFieldProps<T>) => {
-  const [value, setValue] = useState<SingleValue<Pair>>();
+  const [value, setValue] =
+    useState<SingleValue<Pair<string, string>>>();
   return (
     <>
       <AsyncSelect
@@ -45,7 +46,8 @@ export const Lector = <T extends FieldValues>({
   form,
   withPlaceholder,
 }: DefaultFormFieldProps<T>) => {
-  const [value, setValue] = useState<SingleValue<Pair>>();
+  const [value, setValue] =
+    useState<SingleValue<Pair<string, string>>>();
   return (
     <>
       <AsyncSelect

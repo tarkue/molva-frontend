@@ -9,13 +9,13 @@ export const useOpenRecoveryPasswordSecondPart = () => {
   const onSubmit = useRecoveryPasswordSubmitSecondPart();
   const { addModal, clear } = useModals();
 
-  return () => {
+  return (email: string) => {
     clear();
     addModal({
       form: form,
       className: 'w-[400px]',
       title: 'Восстановление пароля',
-      onSubmit: onSubmit,
+      onSubmit: async () => await onSubmit(email),
       fields: <SecondPartFields form={form} />,
       buttons: <ContinueButton />,
     });

@@ -3,11 +3,11 @@ import { useSearchParam } from '@/shared/models/search-params';
 import { useQuery } from '@tanstack/react-query';
 
 export const useGetOurReview = () => {
-  const [offset] = useSearchParam('offset');
+  const [offset] = useSearchParam<number>('offset');
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['ourReview', offset],
-    queryFn: () => api.review.get(''),
+    queryFn: () => api.review.getMy({ page: offset }),
   });
 
   return { data, isError, isLoading };

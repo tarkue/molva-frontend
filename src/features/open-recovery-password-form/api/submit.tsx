@@ -1,25 +1,24 @@
-import { UserForms } from '@/entity/user';
 // import { api } from '@/shared/api';
 import { toast } from '@/shared/ui/toast';
-import { z } from 'zod';
 
 export const useRecoveryPasswordSubmit = () => {
-  return async (
-    data: z.infer<
-      typeof UserForms.recoveryPasswordFormSchemaThirdPart
-    >,
-  ) => {
-    try {
-      /* await api.auth.recoveryPassword({
-       *  email: data.email,
-       * });
-       */
-    } catch (error) {
-      toast({
-        title: 'Почта не найдена',
-        description: 'Попробуйте другую почту',
-        variant: 'destructive',
-      });
-    }
-  };
+  return async () =>
+    /* data: z.infer<
+     *typeof UserForms.recoveryPasswordFormSchemaThirdPart
+     *>,
+     */
+    {
+      try {
+        /* await api.auth.recoveryPassword({
+         *  email: data.email,
+         * });
+         */
+      } catch (error) {
+        toast({
+          title: 'Почта не найдена',
+          description: 'Попробуйте другую почту',
+          variant: 'destructive',
+        });
+      }
+    };
 };

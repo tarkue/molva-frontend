@@ -9,7 +9,7 @@ export const useSubmit = () => {
   ) => {
     try {
       await api.admin.add({
-        target_user_id: data.userId,
+        id: data.userId,
       });
     } catch {
       toast({

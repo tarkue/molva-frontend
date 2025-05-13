@@ -18,7 +18,7 @@ export const SortParam = () => {
         placeholder="Сортировать по"
         options={SortPair}
         defaultInputValue={getValue(SortBy, sort)}
-        onChange={(e) => setSort(e?.value)}
+        onChange={(e) => setSort(e?.value as keyof typeof SortBy)}
       />
     </fieldset>
   );

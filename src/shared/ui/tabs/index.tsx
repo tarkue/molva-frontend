@@ -2,7 +2,7 @@ import { Pair } from '../select/pair';
 import Tab from '../tab';
 
 interface TabsProps {
-  panels: Pair[];
+  panels: Pair<string, string>[];
   state: [string, (value: string) => void];
 }
 

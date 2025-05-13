@@ -3,6 +3,9 @@ import Container from '@/shared/ui/сontainer';
 export const AboutPage = () => (
   <Container className="flex flex-col justify-center py-6 gap-3 lg:gap-0 lg:flex-row lg:justify-between items-center">
     <img
+      width={420}
+      height={336}
+      loading="lazy"
       src="/about.webp"
       alt="molva icon"
       className="w-full h-auto max-w-[420px] max-h-[336px] object-cover"

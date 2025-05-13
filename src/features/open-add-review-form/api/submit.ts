@@ -8,7 +8,7 @@ export const useAddReviewSubmit = () => {
     data: z.infer<typeof ReviewForms.addReviewFormSchema>,
   ) => {
     try {
-      await api.review.create(data);
+      await api.review.add(data);
     } catch (error) {
       toast({
         title: 'Что-то пошло не так',

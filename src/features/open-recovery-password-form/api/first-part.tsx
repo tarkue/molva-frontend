@@ -12,7 +12,7 @@ export const useRecoveryPasswordSubmitFirstPart = () => {
     >,
   ) => {
     try {
-      open();
+      open(data.email);
     } catch (error) {
       toast({
         title: 'Почта не найдена',

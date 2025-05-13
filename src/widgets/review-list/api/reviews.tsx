@@ -6,12 +6,12 @@ import { useParams } from 'react-router';
 export const useGetDisciplineReviews = () => {
   const { id } = useParams<{ id: string }>();
   const [teacherId] = useSearchParam<string>('teacher_id');
+  const [page] = useSearchParam<number>('offset');
   const [sort] = useSearchParam<string>('sort');
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['reviews', id, teacherId, sort],
-    queryFn: () =>
-      id ? api.review.get({ id }, { teacherId, sort }) : [],
+    queryFn: () => (id ? api.review.get({ id }, { page }) : []),
   });
 
   return { data, isLoading, isError };
