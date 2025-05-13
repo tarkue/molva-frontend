@@ -1,13 +1,13 @@
 import Container from '@/shared/ui/сontainer';
 
 export const AboutPage = () => (
-  <Container className="flex justify-between items-center">
+  <Container className="flex flex-col justify-center py-6 gap-3 lg:gap-0 lg:flex-row lg:justify-between items-center">
     <img
       src="/about.webp"
       alt="molva icon"
       className="w-full h-auto max-w-[420px] max-h-[336px] object-cover"
     />
-    <data className="flex flex-col gap-3 w-[630px]">
+    <data className="flex flex-col gap-3 w-full max-w-[630px]">
       <h1 className="text-h1 text-contrast">О нас</h1>
       <span className="text-body text-contrast">
         <p>
