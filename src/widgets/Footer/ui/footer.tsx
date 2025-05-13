@@ -2,6 +2,7 @@ import LinkList from './link-list';
 import { Links } from '../models/links';
 import Container from '@/shared/ui/сontainer';
 import NavigateToMain from '@/features/navigate-to-main';
+import { SocialMediaList } from './social-media-list';
 
 export default function Footer() {
   return (
@@ -11,7 +12,10 @@ export default function Footer() {
         withoutPadding
       >
         <NavigateToMain />
-        <LinkList links={Links} />
+        <div className="flex gap-6 items-center">
+          <LinkList links={Links} />
+          <SocialMediaList />
+        </div>
       </Container>
     </footer>
   );

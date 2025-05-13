@@ -5,7 +5,7 @@ interface Icon {
   href: string;
 }
 
-export const Icons: Icon[] = [
+export const SocialMedia: Icon[] = [
   {
     icon: 'vk',
     href: 'https://vk.com',

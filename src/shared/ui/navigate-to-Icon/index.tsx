@@ -6,15 +6,17 @@ import { glyphs } from '../icon/';
 interface NavigateToIconProps {
   to: string;
   glyph: glyphs;
+  target?: React.HTMLAttributeAnchorTarget;
   size?: '24' | 'logo';
 }
 
 const NavigateToIcon = ({
   to,
   glyph,
+  target = '_self',
   size = '24',
 }: NavigateToIconProps) => (
-  <Link to={to} target="_self">
+  <Link to={to} target={target}>
     <Button variant="icon">
       <Icon glyph={glyph} size={size} stroke="white" />
     </Button>
