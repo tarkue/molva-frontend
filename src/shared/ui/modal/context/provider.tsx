@@ -54,7 +54,7 @@ export const ModalProvider = ({
     >
       {children}
       {modals.map((modal, key) => (
-        <ModalContainer key={key}>
+        <ModalContainer key={key} id={modal.id}>
           <DefaultFormModal id={modal.id} {...modal.form} />
         </ModalContainer>
       ))}
