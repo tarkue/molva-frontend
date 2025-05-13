@@ -5,6 +5,7 @@ import NotFoundPage from '@/pages/not-found';
 import DisciplinePage from '@/pages/discipline';
 import ProfilePage from '@/pages/profile';
 import { CheckReviewPage } from '@/pages/check-review';
+import { AboutPage } from '@/pages/about';
 
 export default function Router() {
   return (
@@ -22,6 +23,7 @@ export default function Router() {
           <Route path="/check" element={<CheckReviewPage />}>
             <Route path="/check/:panel" element={<Outlet />} />
           </Route>
+          <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AppLayout>
