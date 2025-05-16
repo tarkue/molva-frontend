@@ -10,12 +10,12 @@ export const ModalContainer = ({
   const { close } = useModal(id);
 
   return (
-    <div className="flex justify-center items-center fixed scroll-auto snap-y overflow-y-scroll overflow-x-hidden top-0 left-0 w-dvw h-dvh backdrop-filter backdrop-blur-xs bg-modal">
+    <div className="flex justify-center items-center fixed scroll-auto snap-y overflow-y-scroll overflow-x-hidden top-0 left-0 backdrop-filter backdrop-blur-xs bg-modal w-dvw h-dvh">
       <dialog
         role="dialog"
         aria-modal="true"
         open={true}
-        className="sticky z-20 bg-transparent top-0 rounded-3xl m-auto px-4 md:px-0 w-full max-w-min"
+        className="flex justify-center items-center sticky z-20 bg-transparent top-0 rounded-3xl m-auto px-4 md:px-0 w-full"
       >
         {children}
       </dialog>
