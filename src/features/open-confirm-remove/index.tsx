@@ -9,12 +9,12 @@ interface ConfirmButtonProps {
 
 const ConfirmButton = ({ text, type }: ConfirmButtonProps) => {
   return (
-    <>
-      <span className="text-body text-contrast w-full">{text}</span>
-      <Button size="medium" type="submit">
+    <div className="flex gap-6 flex-col w-full">
+      <p className="text-body text-contrast w-full">{text}</p>
+      <Button size="medium" type="submit" className="w-full">
         {type === 'DELETE' ? 'Удалить' : 'Пожаловаться'}
       </Button>
-    </>
+    </div>
   );
 };
 

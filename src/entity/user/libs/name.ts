@@ -6,5 +6,9 @@ export type OnlyUserName = Pick<
 >;
 
 export const getFullName = (user: OnlyUserName) => {
-  return `${user.first_name} ${user.surname} ${user.patronymic ? user.patronymic : ''}`;
+  return [
+    user.surname,
+    user.first_name,
+    user.patronymic ? user.patronymic : '',
+  ].join(' ');
 };
