@@ -1,9 +1,5 @@
 import { Stars } from '@/shared/ui/stars/stars';
 import { Review } from '@/shared/api';
-import Button from '@/shared/ui/button';
-import Icon from '@/shared/ui/icon';
-import { cn } from '@/shared/lib/utils';
-import { getColorClassByLikes } from './utils/color';
 import { getTeacherNames } from './utils/names';
 import { useMemo } from 'react';
 import { reviewCardVariants } from './variant';
@@ -28,20 +24,15 @@ const ReviewCard = ({ review, actions, type }: ReviewCardProps) => {
     [review.lector, review.practic],
   );
 
-  const like_text_color = useMemo(
-    () => getColorClassByLikes(review.offensive_score),
-    [review.offensive_score],
-  );
-
   return (
     <article className={reviewCardVariants({ type })}>
-      <div className="flex items-center justify-between w-full shadow md:flex-col-reverse">
+      <div className="flex items-center justify-between w-full shadow flex-col-reverse sm:flex-row">
         <p className="text-subhead text-contrast">{review.comment}</p>
         <Stars value={review.grade} />
       </div>
       <data className="flex flex-col gap-3">
         <p className="text-body">{review.comment}</p>
-        <div className="flex justify-between items-center w-full md:flex-col md:justify-start md:gap-2">
+        <div className="flex items-center w-full flex-col sm:flex-row justify-start sm:justify-between gap-2 sm:gap-0">
           <span className="text-caption text-gray truncate">
             {teacherNames}
           </span>
@@ -51,17 +42,6 @@ const ReviewCard = ({ review, actions, type }: ReviewCardProps) => {
         </div>
         <span className="h-[1px] bg-gray w-full"></span>
         <div className="flex items-center justify-between w-full">
-          <div className="flex gap-3">
-            <Button variant="icon">
-              <Icon glyph="like" />
-            </Button>
-            <p className={cn('text-body truncate', like_text_color)}>
-              {review.offensive_score}
-            </p>
-            <Button variant="icon">
-              <Icon glyph="dislike" />
-            </Button>
-          </div>
           {actions}
         </div>
       </data>

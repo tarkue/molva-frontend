@@ -15,7 +15,7 @@ const ReviewList = () => {
 
   return (
     <>
-      <ul className="flex flex-col gap-6">
+      <ul className="flex flex-col gap-6 w-full">
         {data.data.map((el, key) => (
           <li key={key}>
             <ReviewCard

@@ -41,9 +41,6 @@ const DisciplinePage = () => {
           </fieldset>
         </div>
         <ReviewList />
-        <fieldset className="flex justify-center items-center w-full pt-6">
-          <Pagination total={10} />
-        </fieldset>
       </Container>
     </>
   );
