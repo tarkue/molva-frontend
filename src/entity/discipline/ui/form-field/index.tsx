@@ -1,15 +1,14 @@
 import {
   DefaultFormField,
   DefaultFormFieldProps,
+  FormField,
 } from '@/shared/ui/form';
 import { FieldLabel } from '../../models/field-label';
-import { FieldValues } from 'react-hook-form';
+import { FieldValues, Path } from 'react-hook-form';
 import { Select } from '@/shared/ui/select';
 import { Format as FormatEnum } from '@/shared/api';
-import { getValue, enumToPair } from '@/shared/lib/enum-utils';
 import { useState } from 'react';
-
-const FormatPair = enumToPair(FormatEnum);
+import { Pair } from '@/shared/ui/select/pair';
 
 export const Name = <T extends FieldValues>({
   form,
@@ -83,32 +82,42 @@ export const Module = <T extends FieldValues>({
   />
 );
 
+const formatList = Object.values(FormatEnum).map((el) => ({
+  label: el,
+  value: el,
+}));
+
 export const Format = <T extends FieldValues>({
   form,
   withPlaceholder,
 }: DefaultFormFieldProps<T>) => {
-  const [format, setFormat] = useState<FormatEnum>();
+  const [selected, setSelected] = useState<Pair<string, string>>({
+    label: formatList[0].label,
+    value: formatList[0].value,
+  });
   return (
     <>
-      <Select
-        placeholder={withPlaceholder ? FieldLabel.Format : undefined}
-        defaultInputValue={getValue(FormatEnum, format)}
-        onChange={(e) => setFormat(e?.label as FormatEnum)}
-        options={FormatPair}
+      <FormField
+        name={'format' as Path<T>}
+        control={form}
+        render={({ field, fieldState }) => (
+          <Select
+            placeholder={
+              withPlaceholder ? FieldLabel.Format : undefined
+            }
+            {...field}
+            value={selected}
+            invalid={fieldState.invalid}
+            onChange={(e) => {
+              if (!e) return;
+              console.log(fieldState);
+              field.onChange(e.value);
+              setSelected(e);
+            }}
+            options={formatList}
+          />
+        )}
       />
-      <fieldset className="sr-only">
-        <DefaultFormField
-          required
-          value={format}
-          name="module"
-          label={withPlaceholder ? undefined : FieldLabel.Format}
-          placeholder={
-            withPlaceholder ? FieldLabel.Format : undefined
-          }
-          type="text"
-          form={form}
-        />
-      </fieldset>
     </>
   );
 };

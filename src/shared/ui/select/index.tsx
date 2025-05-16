@@ -6,10 +6,22 @@ import {
 import { defaultProps } from './default-props';
 import { Pair } from './pair';
 
-export const Select = (props: Props<Pair<string, string>, false>) => (
+type SelectPropsType = Props<Pair<string, string>, false> & {
+  invalid?: boolean;
+};
+
+type AsyncSelectPropsType = AsyncProps<
+  Pair<string, string>,
+  false,
+  any
+> & {
+  invalid?: boolean;
+};
+
+export const Select = (props: SelectPropsType) => (
   <ReactSelect unstyled {...defaultProps} {...props} />
 );
 
-export const AsyncSelect = (
-  props: AsyncProps<Pair<string, string>, false, any>,
-) => <ReactSelectAsync unstyled {...defaultProps} {...props} />;
+export const AsyncSelect = (props: AsyncSelectPropsType) => (
+  <ReactSelectAsync unstyled {...defaultProps} {...props} />
+);

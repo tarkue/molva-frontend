@@ -9,7 +9,7 @@ export const updateDisciplineFormSchema = z.object({
   description: scheme.discipline.description,
   modeus_link: scheme.discipline.modeusLink,
   presentation_link: scheme.discipline.presentationLink,
-  module_id: z.string(),
+  module: z.string(),
 });
 
 export const useUpdateDisciplineForm = (discipline: Discipline) => {
@@ -21,7 +21,7 @@ export const useUpdateDisciplineForm = (discipline: Discipline) => {
       description: discipline.description,
       modeus_link: discipline.modeus_link,
       presentation_link: discipline.presentation_link,
-      module_id: discipline.module.id,
+      module: discipline.module.name,
     },
   });
 };

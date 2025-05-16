@@ -30,7 +30,7 @@ export const module = {
     await client
       .get(`${BASE_URL}/modules/public/get`)
       .json<Module[]>(),
-  add: async (module: Module) =>
+  add: async (module: Pick<Module, 'name'>) =>
     await client
       .post(`${BASE_URL}/module/add`, {
         body: JSON.stringify(module),

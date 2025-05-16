@@ -1,4 +1,4 @@
-import { scheme } from '@/shared/api';
+import { Format, scheme } from '@/shared/api';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -9,7 +9,7 @@ export const addDisciplineFormSchema = z.object({
   description: scheme.discipline.description,
   modeus_link: scheme.discipline.modeusLink,
   presentation_link: scheme.discipline.presentationLink,
-  module_id: z.string(),
+  module: scheme.discipline.module,
 });
 
 export const useAddDisciplineForm = () => {
@@ -17,11 +17,11 @@ export const useAddDisciplineForm = () => {
     resolver: zodResolver(addDisciplineFormSchema),
     defaultValues: {
       name: '',
-      format: undefined,
+      format: Format.mixed,
       description: '',
       modeus_link: '',
       presentation_link: '',
-      module_id: '',
+      module: '',
     },
   });
 };

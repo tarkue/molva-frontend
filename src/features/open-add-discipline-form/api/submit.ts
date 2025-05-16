@@ -6,16 +6,21 @@ import { toast } from '@/shared/ui/toast';
 import { z } from 'zod';
 
 export const useAddDisciplineSubmit = () => {
+  const refresh = useRefresh();
+  const { clear } = useModals();
+
   return async (
     data: z.infer<typeof DisciplineForms.addDisciplineFormSchema>,
   ) => {
-    const refresh = useRefresh();
-    const { clear } = useModals();
+    console.log(data);
     try {
-      await api.discipline.create(data);
+      const module = await api.admin.module.add({
+        name: data.module,
+      });
+      await api.discipline.create({ ...data, module_id: module.id });
       refresh();
       clear();
-    } catch (error) {
+    } catch {
       toast({
         title: 'Что-то пошло не так',
         description: 'Попробуйте еще раз',
