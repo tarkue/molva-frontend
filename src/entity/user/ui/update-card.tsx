@@ -11,7 +11,7 @@ export const UserUpdateCard = ({
   const name = getFullName(user);
   return (
     <div className="flex justify-between gap-4 w-full">
-      <span className="text-headline text-contrast w-full">
+      <span className="text-headline text-contrast w-full truncate">
         {name}
       </span>
       <div className="flex gap-3">{actions}</div>

@@ -42,10 +42,10 @@ const ReviewCard = ({ review, actions, type }: ReviewCardProps) => {
       <data className="flex flex-col gap-3">
         <p className="text-body">{review.comment}</p>
         <div className="flex justify-between items-center w-full md:flex-col md:justify-start md:gap-2">
-          <span className="text-caption text-gray">
+          <span className="text-caption text-gray truncate">
             {teacherNames}
           </span>
-          <span className="text-caption text-gray">
+          <span className="text-caption text-gray truncate">
             {review.created_at}
           </span>
         </div>
@@ -55,7 +55,7 @@ const ReviewCard = ({ review, actions, type }: ReviewCardProps) => {
             <Button variant="icon">
               <Icon glyph="like" />
             </Button>
-            <p className={cn('text-body', like_text_color)}>
+            <p className={cn('text-body truncate', like_text_color)}>
               {review.offensive_score}
             </p>
             <Button variant="icon">
