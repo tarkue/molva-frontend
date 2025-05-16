@@ -14,7 +14,7 @@ export const add = async (dto: OnlyId) =>
     .json<SafeUser>();
 
 export const remove = async (dto: OnlyId) =>
-  await client.patch(`${BASE_URL}/admin/remove`, {
+  await client.patch(`${BASE_URL}/remove`, {
     body: JSON.stringify(dto),
   });
 

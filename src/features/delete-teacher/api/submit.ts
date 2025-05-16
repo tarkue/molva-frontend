@@ -4,7 +4,7 @@ import { toast } from '@/shared/ui/toast';
 export const useDeleteTeacherSubmit = (teacher: Teacher) => {
   return async () => {
     try {
-      await api.teacher.remove(teacher);
+      await api.teacher.remove({ id: teacher.id });
     } catch {
       toast({
         title: 'Произошла ошибка при удалении',

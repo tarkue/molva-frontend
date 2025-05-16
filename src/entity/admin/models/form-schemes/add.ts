@@ -3,14 +3,14 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 export const addAdminFormSchema = z.object({
-  userId: z.string(),
+  id: z.string(),
 });
 
 export const useAddAdminForm = () => {
   return useForm<z.infer<typeof addAdminFormSchema>>({
     resolver: zodResolver(addAdminFormSchema),
     defaultValues: {
-      userId: '',
+      id: '',
     },
   });
 };

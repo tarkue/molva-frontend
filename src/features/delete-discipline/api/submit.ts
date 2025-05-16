@@ -4,7 +4,7 @@ import { toast } from '@/shared/ui/toast';
 export const useDeleteDisciplineSubmit = (discipline: Discipline) => {
   return async () => {
     try {
-      await api.discipline.remove(discipline);
+      await api.discipline.remove({ id: discipline.id });
     } catch {
       toast({
         title: 'Произошла ошибка при удалении',
