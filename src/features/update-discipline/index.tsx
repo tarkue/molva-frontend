@@ -1,6 +1,6 @@
 import { Discipline } from '@/shared/api';
 import { useOpenUpdateDisciplineForm } from '../open-update-discipline-form';
-import Icon from '@/shared/ui/icon';
+import { UpdateButton } from '@/shared/ui/update-button';
 
 export const UpdateDiscipline = ({
   discipline,
@@ -9,5 +9,5 @@ export const UpdateDiscipline = ({
 }) => {
   const openForm = useOpenUpdateDisciplineForm(discipline);
 
-  return <Icon glyph="edit" onClick={openForm} />;
+  return <UpdateButton onClick={openForm} />;
 };
