@@ -4,6 +4,7 @@ import { EditTeacherFormButtons } from './ui/buttons';
 import { EditTeacherFormFields } from './ui/fields';
 import { TeacherForms } from '@/entity/teacher';
 import { Teacher } from '@/shared/api';
+import { getDefaultDisciplines } from './models';
 
 export const useOpenEditTeacherForm = (teacher: Teacher) => {
   const form = TeacherForms.useUpdateTeacherForm(teacher);
@@ -16,7 +17,12 @@ export const useOpenEditTeacherForm = (teacher: Teacher) => {
       className: 'max-w-[513px]',
       title: 'Преподаватель',
       onSubmit: onSubmit,
-      fields: <EditTeacherFormFields form={form} />,
+      fields: (
+        <EditTeacherFormFields
+          form={form}
+          defaultDisciplines={getDefaultDisciplines(teacher)}
+        />
+      ),
       buttons: <EditTeacherFormButtons />,
     });
   };

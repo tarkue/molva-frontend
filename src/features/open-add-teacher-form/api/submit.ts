@@ -12,7 +12,14 @@ export const useAddTeacherSubmit = () => {
     data: z.infer<typeof TeacherForms.addTeacherFormSchema>,
   ) => {
     try {
-      await api.teacher.create(data);
+      const teacher = await api.teacher.create(data);
+
+      if (data.disciplines && data.disciplines.length > 0) {
+        await api.teacher.discipline.appoint({
+          id: teacher.id,
+          discipline_ids: data.disciplines,
+        });
+      }
       refresh();
       clear();
     } catch (error) {

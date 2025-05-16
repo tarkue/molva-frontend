@@ -16,11 +16,11 @@ export const AddReviewFormFieldsAndHeader = <T extends FieldValues>({
     <ReviewFormField.Star form={form.control} />
     <ReviewFormField.Lector
       form={form.control}
-      loadTeachers={loadTeachers}
+      loadTeachers={loadTeachers(discipline)}
     />
     <ReviewFormField.Practic
       form={form.control}
-      loadTeachers={loadTeachers}
+      loadTeachers={loadTeachers(discipline)}
     />
     <ReviewFormField.Comment form={form.control} withPlaceholder />
     <ReviewFormField.IsAnonymous form={form.control} />

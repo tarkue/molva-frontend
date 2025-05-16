@@ -37,9 +37,23 @@ export const getAll = async (search: string, page: number) =>
     })
     .json<GetResponse<Teacher[]>>();
 
-export const getByDiscipline = async (discipline_id: string) =>
+export const getByDiscipline = async (
+  discipline_id: string,
+  {
+    search = '',
+    page = 1,
+  }: {
+    search?: string;
+    page?: number;
+  },
+) =>
   await client
-    .get(`${BASE_URL}/discipline/${discipline_id}/get-by-discipline`)
+    .get(
+      `${BASE_URL}/discipline/${discipline_id}/get-by-discipline`,
+      {
+        searchParams: { search, page },
+      },
+    )
     .json<GetResponse<Teacher[]>>();
 
 export const discipline = {

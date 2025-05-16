@@ -16,6 +16,19 @@ export const useUpdateTeacherSubmit = (teacher: Teacher) => {
         id: teacher.id,
         ...data,
       });
+
+      teacher.disciplines.map(
+        async (e) =>
+          await api.teacher.discipline.remove({
+            id: teacher.id,
+            discipline_id: e.id,
+          }),
+      );
+      await api.teacher.discipline.appoint({
+        id: teacher.id,
+        discipline_ids: data.disciplines,
+      });
+
       refresh();
       clear();
     } catch {

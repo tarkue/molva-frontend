@@ -1,11 +1,15 @@
 import { getFullName } from '@/entity/user';
-import { api } from '@/shared/api';
+import { api, Discipline } from '@/shared/api';
 
-export const loadTeachers = async (search: string) => {
-  const { data } = await api.teacher.getAll(search, 1);
+export const loadTeachers =
+  (discipline: Discipline) => async (search: string) => {
+    const { data } = await api.teacher.getByDiscipline(
+      discipline.id,
+      { search },
+    );
 
-  return data.map((user) => ({
-    value: user.id,
-    label: getFullName(user),
-  }));
-};
+    return data.map((user) => ({
+      value: user.id,
+      label: getFullName(user),
+    }));
+  };
