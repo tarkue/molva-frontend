@@ -12,7 +12,6 @@ const DisciplineList = () => {
   if (!data || data.data.length === 0 || isError) {
     return <ContentNotFound name="Дисциплины" />;
   }
-  console.log(data);
 
   return (
     <>

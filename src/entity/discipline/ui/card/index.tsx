@@ -9,7 +9,7 @@ interface DisciplineCardProps {
 const DisciplineCard = ({ discipline }: DisciplineCardProps) => {
   return (
     <Link
-      className="flex justify-between items-center text-contrast elevation px-4 sm:px-6 py-4 rounded-3xl bg-base-03 flex-col sm:flex-row gap-3 sm:gap-0"
+      className="flex justify-between w-full items-center text-contrast elevation px-4 sm:px-6 py-4 rounded-3xl bg-base-03 flex-col sm:flex-row gap-3 sm:gap-0"
       to={`/discipline/${discipline.id}`}
     >
       <div>

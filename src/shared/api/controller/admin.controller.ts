@@ -28,7 +28,7 @@ export const getAll = async (search: string, page: number) =>
 export const module = {
   get: async () =>
     await client
-      .get(`${BASE_URL}/modules/public/get`)
+      .get(`${BASE_URL}/public/modules/get`)
       .json<Module[]>(),
   add: async (module: Pick<Module, 'name'>) =>
     await client
