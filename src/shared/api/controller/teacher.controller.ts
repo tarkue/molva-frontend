@@ -30,8 +30,12 @@ export const remove = async (dto: RemoveTeacherDTO) =>
     body: JSON.stringify(dto),
   });
 
-export const getAll = async () =>
-  await client.get(`${BASE_URL}/get`).json<GetResponse<Teacher[]>>();
+export const getAll = async (search: string, page: number) =>
+  await client
+    .get(`${BASE_URL}/get`, {
+      searchParams: { search, page },
+    })
+    .json<GetResponse<Teacher[]>>();
 
 export const getByDiscipline = async (discipline_id: string) =>
   await client

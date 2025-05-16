@@ -18,8 +18,12 @@ export const remove = async (dto: OnlyId) =>
     body: JSON.stringify(dto),
   });
 
-export const getAll = async () =>
-  await client.get(`${BASE_URL}/admins`).json<GetResponse<User[]>>();
+export const getAll = async (search: string, page: number) =>
+  await client
+    .get(`${BASE_URL}/admins`, {
+      searchParams: { search, page },
+    })
+    .json<GetResponse<User[]>>();
 
 export const module = {
   get: async () =>

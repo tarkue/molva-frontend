@@ -3,12 +3,12 @@ import { useSearchParam } from '@/shared/models/search-params';
 import { useQuery } from '@tanstack/react-query';
 
 export const useGetAdminList = () => {
-  const q = useSearchParam('q');
-  const offset = useSearchParam('offset');
+  const [q] = useSearchParam<string>('q');
+  const [offset] = useSearchParam<number>('offset');
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['admins', q, offset],
-    queryFn: () => api.admin.getAll(),
+    queryFn: () => api.admin.getAll(q ? q : '', offset ? offset : 1),
   });
 
   return { data, isError, isLoading };

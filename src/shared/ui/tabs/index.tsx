@@ -8,17 +8,25 @@ interface TabsProps {
 
 export const Tabs = (props: TabsProps) => {
   return (
-    <ul className="flex gap-3 justify-center w-full">
-      {props.panels.map((el, key) => (
-        <li key={key}>
-          <Tab
-            active={props.state[0] == el.value}
-            onClick={() => props.state[1](el.value)}
-          >
-            {el.label}
-          </Tab>
-        </li>
-      ))}
-    </ul>
+    <div className="relative h-9 w-full">
+      <div className="max-[660px]:-left-4 max-[660px]:absolute overflow-hidden max-[660px]:w-dvw max-w-dvw max-h-9">
+        <div className="flex justify-center items-center overflow-y-hidden w-full overfow-x-auto scroll-smooth box-content">
+          <div className="max-[660px]:px-6">
+            <ul className="flex gap-3 w-fit m-auto">
+              {props.panels.map((el, key) => (
+                <li key={key}>
+                  <Tab
+                    active={props.state[0] == el.value}
+                    onClick={() => props.state[1](el.value)}
+                  >
+                    {el.label}
+                  </Tab>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };

@@ -52,8 +52,12 @@ const changePassword = async (dto: UserUpdatePasswordDTO) =>
 const get = async (id: string) =>
   await client.get(`${BASE_URL}/user/${id}`).json<SafeUser>();
 
-const getAll = async () =>
-  await client.get(`${BASE_URL}/`).json<GetResponse<SafeUser[]>>();
+const getAll = async (search: string, page: number) =>
+  await client
+    .get(`${BASE_URL}/`, {
+      searchParams: { search, page },
+    })
+    .json<GetResponse<SafeUser[]>>();
 
 const remove = async (dto: OnlyId) =>
   await client.delete(`${BASE_URL}/admin/user/${dto.id}/delete`);
