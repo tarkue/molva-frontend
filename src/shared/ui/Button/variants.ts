@@ -13,7 +13,7 @@ const buttonVariants = cva(
       },
       size: {
         large: 'px-6 py-4 rounded-3xl w-full',
-        medium: 'px-6 py-2 rounded-xl w-fit',
+        medium: 'px-6 py-2 rounded-xl w-fit max-h-[38px]',
         small: 'w-fit',
       },
     },
