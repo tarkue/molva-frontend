@@ -62,10 +62,10 @@ export const favorite = {
       })
       .json<Discipline>(),
 
-  get: async (page: number) =>
+  get: async (page: number, search: string = '') =>
     await client
       .get(`${BASE_URL}/favorite/my`, {
-        searchParams: { page },
+        searchParams: { page, search },
       })
       .json<GetResponse<Discipline[]>>(),
 };

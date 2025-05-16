@@ -5,16 +5,22 @@ import DisciplineContentStatistics from './statistics';
 
 interface DisciplineContentProps {
   discipline: Discipline;
+  headerTopRightAction?: React.ReactNode;
+  headerMainAction?: React.ReactNode;
 }
 
 const DisciplineContent = ({
   discipline,
+  headerMainAction,
+  headerTopRightAction,
 }: DisciplineContentProps) => {
   return (
     <section className="flex flex-col gap-3 w-full">
       <DisciplineContentHeader
         name={discipline.name}
         module={discipline.module}
+        topRightAction={headerTopRightAction}
+        mainAction={headerMainAction}
       />
       <DisciplineContentStatistics
         rating={discipline.avg_rating}
