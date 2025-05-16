@@ -7,8 +7,10 @@ export const addTeacherFormSchema = z.object({
   first_name: scheme.user.firstName,
   surname: scheme.user.surname,
   patronymic: scheme.user.patronymic,
-  disciplines: z.array(
-    z.string().uuid({ message: 'Одна из дисциплин не найдена' }),
+  disciplines: z.optional(
+    z.array(
+      z.string().uuid({ message: 'Одна из дисциплин не найдена' }),
+    ),
   ),
 });
 

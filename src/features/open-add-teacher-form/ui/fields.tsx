@@ -1,6 +1,7 @@
 import { DisciplineListField } from '@/entity/teacher';
 import { UserFormField } from '@/entity/user';
 import { FieldValues, UseFormReturn } from 'react-hook-form';
+import { loadDisciplines } from '../api/load';
 
 export const AddTeacherFormFields = <T extends FieldValues>({
   form,
@@ -11,6 +12,9 @@ export const AddTeacherFormFields = <T extends FieldValues>({
     <UserFormField.Surname form={form.control} withPlaceholder />
     <UserFormField.FirstName form={form.control} withPlaceholder />
     <UserFormField.Patronymic form={form.control} withPlaceholder />
-    <DisciplineListField form={form.control} />
+    <DisciplineListField
+      form={form.control}
+      loadDisciplines={loadDisciplines}
+    />
   </>
 );

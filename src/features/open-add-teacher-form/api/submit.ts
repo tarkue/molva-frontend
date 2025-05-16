@@ -6,11 +6,11 @@ import { toast } from '@/shared/ui/toast';
 import { z } from 'zod';
 
 export const useAddTeacherSubmit = () => {
+  const refresh = useRefresh();
+  const { clear } = useModals();
   return async (
     data: z.infer<typeof TeacherForms.addTeacherFormSchema>,
   ) => {
-    const refresh = useRefresh();
-    const { clear } = useModals();
     try {
       await api.teacher.create(data);
       refresh();
