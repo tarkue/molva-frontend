@@ -8,6 +8,7 @@ import {
   VoteReviewDTO,
 } from '../dto/review.dto';
 import { OnlyId } from '../dto/shared.dto';
+import { GetResponse } from '../types/GetResponse';
 import { PageOffsetOptions } from '../types/page';
 
 const BASE_URL = 'reviews';
@@ -49,7 +50,7 @@ export const get = async (
         ...cleanParams,
       },
     })
-    .json<Review[]>();
+    .json<GetResponse<Review[]>>();
 };
 
 export const getMy = async (options: PageOffsetOptions) => {
@@ -59,7 +60,7 @@ export const getMy = async (options: PageOffsetOptions) => {
 
   return await client
     .get(`${BASE_URL}/my`, { searchParams })
-    .json<Review[]>();
+    .json<GetResponse<Review[]>>();
 };
 
 export const getForModerate = async (
@@ -71,7 +72,7 @@ export const getForModerate = async (
 
   return await client
     .get(`${BASE_URL}/review/admin/moderation`, { searchParams })
-    .json<Review[]>();
+    .json<GetResponse<Review[]>>();
 };
 
 export const complaints = {
@@ -82,7 +83,7 @@ export const complaints = {
 
     return await client
       .get(`${BASE_URL}/review/complaint/get`, { searchParams })
-      .json<Review[]>();
+      .json<GetResponse<Review[]>>();
   },
   add: async (dto: OnlyId) =>
     await client.post(`${BASE_URL}/review/complaint/add`, {

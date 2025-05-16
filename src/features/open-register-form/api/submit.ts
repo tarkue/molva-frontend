@@ -23,6 +23,10 @@ export const useRegisterSubmit = () => {
     }
     try {
       const user = await api.auth.register(data);
+      await api.auth.login({
+        email: data.email,
+        password: data.password,
+      });
       signIn(user);
       clear();
       navigate('profile');

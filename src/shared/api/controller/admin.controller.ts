@@ -2,6 +2,7 @@ import client from '../base';
 import { Module } from '../dto/module.dto';
 import { OnlyId } from '../dto/shared.dto';
 import { SafeUser, User } from '../dto/user.dto';
+import { GetResponse } from '../types/GetResponse';
 
 const BASE_URL = 'admin';
 
@@ -18,7 +19,7 @@ export const remove = async (dto: OnlyId) =>
   });
 
 export const getAll = async () =>
-  await client.get(`${BASE_URL}/admin/get`).json<User[]>();
+  await client.get(`${BASE_URL}/admins`).json<GetResponse<User[]>>();
 
 export const module = {
   get: async () =>

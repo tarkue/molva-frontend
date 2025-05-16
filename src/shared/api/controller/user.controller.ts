@@ -7,6 +7,7 @@ import {
   UserUpdateDTO,
   UserUpdatePasswordDTO,
 } from '../dto/user.dto';
+import { GetResponse } from '../types/GetResponse';
 
 const BASE_URL = 'users';
 
@@ -52,7 +53,7 @@ const get = async (id: string) =>
   await client.get(`${BASE_URL}/user/${id}`).json<SafeUser>();
 
 const getAll = async () =>
-  await client.get(`${BASE_URL}/`).json<SafeUser[]>();
+  await client.get(`${BASE_URL}/`).json<GetResponse<SafeUser[]>>();
 
 const remove = async (dto: OnlyId) =>
   await client.delete(`${BASE_URL}/admin/user/${dto.id}/delete`);

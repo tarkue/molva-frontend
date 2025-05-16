@@ -1,7 +1,7 @@
 import { useSearchParam } from '@/shared/models/search-params';
 import Pagination from '@/shared/ui/pagination';
 
-export const OffsetParam = () => {
+export const OffsetParam = ({ total }: { total: number }) => {
   const [offset, setOffset] = useSearchParam('offset', {
     validator: (el) => Number(el),
     default: 1,
@@ -13,7 +13,7 @@ export const OffsetParam = () => {
   };
   return (
     <Pagination
-      total={10}
+      total={total}
       selected={offset}
       onSelect={offsetClickHandler}
     />

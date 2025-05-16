@@ -5,6 +5,7 @@ import {
   UpdateDisciplineDTO,
 } from '../dto/discipline.dto';
 import { OnlyId } from '../dto/shared.dto';
+import { GetResponse } from '../types/GetResponse';
 import { DisciplineSearchOptions } from '../types/search';
 
 const BASE_URL = 'disciplines';
@@ -43,7 +44,7 @@ export const search = async (params: DisciplineSearchOptions) => {
   );
   return await client
     .get(`${BASE_URL}/search`, { searchParams: cleanParams })
-    .json<Discipline[]>();
+    .json<GetResponse<Discipline[]>>();
 };
 
 export const favorite = {
@@ -62,5 +63,7 @@ export const favorite = {
       .json<Discipline>(),
 
   get: async () =>
-    await client.get(`${BASE_URL}/favorite/my`).json<Discipline[]>(),
+    await client
+      .get(`${BASE_URL}/favorite/my`)
+      .json<GetResponse<Discipline[]>>(),
 };

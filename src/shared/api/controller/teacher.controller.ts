@@ -7,6 +7,7 @@ import {
   Teacher,
   UpdateTeacherDTO,
 } from '../dto/teacher.dto';
+import { GetResponse } from '../types/GetResponse';
 
 const BASE_URL = 'teachers';
 
@@ -30,12 +31,12 @@ export const remove = async (dto: RemoveTeacherDTO) =>
   });
 
 export const getAll = async () =>
-  await client.get(`${BASE_URL}/get`).json<Teacher[]>();
+  await client.get(`${BASE_URL}/get`).json<GetResponse<Teacher[]>>();
 
 export const getByDiscipline = async (discipline_id: string) =>
   await client
     .get(`${BASE_URL}/discipline/${discipline_id}/get-by-discipline`)
-    .json<Teacher>();
+    .json<GetResponse<Teacher[]>>();
 
 export const discipline = {
   appoint: async (dto: AppointDisciplineDTO) =>
