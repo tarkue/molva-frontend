@@ -110,7 +110,6 @@ export const Format = <T extends FieldValues>({
             invalid={fieldState.invalid}
             onChange={(e) => {
               if (!e) return;
-              console.log(fieldState);
               field.onChange(e.value);
               setSelected(e);
             }}

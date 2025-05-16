@@ -1,9 +1,14 @@
 import {
   DefaultFormField,
   DefaultFormFieldProps,
+  FormField,
 } from '@/shared/ui/form';
 import { FieldLabel } from '../../models/field-label';
-import { FieldValues } from 'react-hook-form';
+import {
+  ControllerRenderProps,
+  FieldValues,
+  Path,
+} from 'react-hook-form';
 import { AsyncSelect } from '@/shared/ui/select';
 import { useState } from 'react';
 import { Pair } from '@/shared/ui/select/pair';
@@ -12,63 +17,66 @@ import { StarsInput } from '@/shared/ui/stars';
 import { Checkbox } from '@/shared/ui/checkbox';
 import { Label } from '@/shared/ui/label';
 
+type FormFieldWithLoadTeacher<T extends FieldValues> =
+  DefaultFormFieldProps<T> & {
+    loadTeachers: (
+      search: string,
+    ) => Promise<Pair<string, string>[] | []>;
+  };
+
 export const Practic = <T extends FieldValues>({
   form,
-  withPlaceholder,
-}: DefaultFormFieldProps<T>) => {
+  loadTeachers,
+}: FormFieldWithLoadTeacher<T>) => {
   const [value, setValue] =
     useState<SingleValue<Pair<string, string>>>();
   return (
-    <>
-      <AsyncSelect
-        placeholder={FieldLabel.Practic}
-        value={value}
-        onChange={(e) => setValue(e)}
-      />
-      <fieldset className="hidden">
-        <DefaultFormField
-          required
-          name="practic_id"
-          label={withPlaceholder ? undefined : FieldLabel.Practic}
-          placeholder={
-            withPlaceholder ? FieldLabel.Practic : undefined
-          }
-          value={value?.value}
-          type="text"
-          form={form}
+    <FormField
+      name={'practic_id' as Path<T>}
+      control={form}
+      render={({ field }) => (
+        <AsyncSelect
+          placeholder={FieldLabel.Practic}
+          {...field}
+          defaultOptions
+          cacheOptions
+          loadOptions={loadTeachers}
+          value={value}
+          onChange={(e) => {
+            field.onChange(e?.value);
+            setValue(e);
+          }}
         />
-      </fieldset>
-    </>
+      )}
+    />
   );
 };
 
 export const Lector = <T extends FieldValues>({
   form,
-  withPlaceholder,
-}: DefaultFormFieldProps<T>) => {
+  loadTeachers,
+}: FormFieldWithLoadTeacher<T>) => {
   const [value, setValue] =
     useState<SingleValue<Pair<string, string>>>();
   return (
-    <>
-      <AsyncSelect
-        placeholder={FieldLabel.Lector}
-        value={value}
-        onChange={(e) => setValue(e)}
-      />
-      <fieldset className="hidden">
-        <DefaultFormField
-          required
-          name="lector_id"
-          label={withPlaceholder ? undefined : FieldLabel.Lector}
-          placeholder={
-            withPlaceholder ? FieldLabel.Practic : undefined
-          }
-          value={value?.value}
-          type="text"
-          form={form}
+    <FormField
+      name={'lector_id' as Path<T>}
+      control={form}
+      render={({ field }) => (
+        <AsyncSelect
+          placeholder={FieldLabel.Practic}
+          {...field}
+          defaultOptions
+          cacheOptions
+          loadOptions={loadTeachers}
+          value={value}
+          onChange={(e) => {
+            setValue(e);
+            field.onChange(e?.value);
+          }}
         />
-      </fieldset>
-    </>
+      )}
+    />
   );
 };
 
@@ -88,56 +96,51 @@ export const Comment = <T extends FieldValues>({
 
 export const IsAnonymous = <T extends FieldValues>({
   form,
-  withPlaceholder,
 }: DefaultFormFieldProps<T>) => {
   const [checked, onClick] = useState<boolean>(false);
 
-  const toggleChecked = () => onClick((prev) => !prev);
+  const onChange = (field: ControllerRenderProps<T, any>) => () => {
+    field.onChange(!checked);
+    onClick((prev) => !prev);
+  };
 
   return (
-    <>
-      <fieldset className="flex justify-center">
-        <Checkbox checked={checked} onChange={toggleChecked} />
-        <Label onClick={toggleChecked} className="text-contrast">
-          {FieldLabel.Anonymous}
-        </Label>
-      </fieldset>
-      <fieldset className="sr-only">
-        <DefaultFormField
-          name="is_anonymous"
-          label={withPlaceholder ? undefined : FieldLabel.Anonymous}
-          placeholder={
-            withPlaceholder ? FieldLabel.Anonymous : undefined
-          }
-          checked={checked}
-          type="checkbox"
-          form={form}
-        />
-      </fieldset>
-    </>
+    <FormField
+      name={'is_anonymous' as Path<T>}
+      control={form}
+      render={({ field }) => (
+        <span className="flex justify-center gap-1">
+          <Checkbox checked={checked} onChange={onChange(field)} />
+          <Label onClick={onChange(field)} className="text-contrast">
+            {FieldLabel.Anonymous}
+          </Label>
+        </span>
+      )}
+    />
   );
 };
 
 export const Star = <T extends FieldValues>({
   form,
-  withPlaceholder,
 }: DefaultFormFieldProps<T>) => {
-  const state = useState<number>(0);
+  const [stars, setStars] = useState<number>(0);
   return (
     <fieldset className="flex justify-center w-full py-3">
-      <StarsInput state={state} />
-      <fieldset className="sr-only">
-        <DefaultFormField
-          value={state[0].toString()}
-          name="stars"
-          label={withPlaceholder ? undefined : FieldLabel.Anonymous}
-          placeholder={
-            withPlaceholder ? FieldLabel.Anonymous : undefined
-          }
-          type="checkbox"
-          form={form}
-        />
-      </fieldset>
+      <FormField
+        name={'grade' as Path<T>}
+        control={form}
+        render={({ field }) => (
+          <StarsInput
+            state={[
+              stars,
+              (new_count) => {
+                field.onChange(new_count);
+                setStars(new_count);
+              },
+            ]}
+          />
+        )}
+      />
     </fieldset>
   );
 };

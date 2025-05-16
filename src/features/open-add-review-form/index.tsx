@@ -7,7 +7,7 @@ import { Discipline } from '@/shared/api';
 
 export const useOpenAddReviewForm = (discipline: Discipline) => {
   const form = ReviewForms.useAddReviewForm();
-  const onSubmit = useAddReviewSubmit();
+  const onSubmit = useAddReviewSubmit(discipline);
   const { addModal } = useModals();
 
   return () => {

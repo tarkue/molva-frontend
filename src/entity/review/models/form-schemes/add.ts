@@ -7,9 +7,6 @@ const teacherZType = z.optional(
 );
 
 export const addReviewFormSchema = z.object({
-  discipline_id: z
-    .string()
-    .uuid({ message: 'Дисциплина не найдена' }),
   grade: z
     .number()
     .min(0, { message: 'Оценка должна быть больше 0' })
@@ -24,7 +21,6 @@ export const useAddReviewForm = () => {
   return useForm<z.infer<typeof addReviewFormSchema>>({
     resolver: zodResolver(addReviewFormSchema),
     defaultValues: {
-      discipline_id: '',
       grade: undefined,
       comment: '',
       is_anonymous: false,

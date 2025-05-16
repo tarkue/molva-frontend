@@ -12,7 +12,6 @@ export const useAddDisciplineSubmit = () => {
   return async (
     data: z.infer<typeof DisciplineForms.addDisciplineFormSchema>,
   ) => {
-    console.log(data);
     try {
       const module = await api.admin.module.add({
         name: data.module,
