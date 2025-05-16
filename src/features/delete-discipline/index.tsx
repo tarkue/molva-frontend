@@ -1,6 +1,7 @@
-import Icon from '@/shared/ui/icon';
 import { useDeleteDisciplineSubmit } from './api/submit';
 import { Discipline } from '@/shared/api';
+import { useOpenConfirmRemoveForm } from '../open-confirm-remove';
+import { DeleteButton } from '@/shared/ui/delete-button';
 
 export const DeleteDiscipline = ({
   discipline,
@@ -8,5 +9,11 @@ export const DeleteDiscipline = ({
   discipline: Discipline;
 }) => {
   const onSubmit = useDeleteDisciplineSubmit(discipline);
-  return <Icon glyph="trash" stroke="red" onClick={onSubmit} />;
+  const open = useOpenConfirmRemoveForm({
+    onSubmit,
+    type: 'DELETE',
+    text: `Вы уверены, что хотите удалить дисциплину ${discipline.name}? Это действие нельзя будет отменить.`,
+  });
+
+  return <DeleteButton onClick={open} />;
 };
