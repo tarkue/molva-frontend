@@ -1,4 +1,4 @@
-# Molva Frontend | (https://github.com/tarkue/molva-frontend/blob/main/README_EN.md)[EN]
+# Molva Frontend | [en](https://github.com/tarkue/molva-frontend/blob/main/README_EN.md)
 
 ## 🇷🇺 Описание проекта
 
