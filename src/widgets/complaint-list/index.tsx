@@ -11,7 +11,7 @@ const ComplaintList = () => {
   if (isLoading) return <Spinner />;
 
   if (!data || data.data.length === 0 || isError) {
-    return <ContentNotFound name="Дисциплины" />;
+    return <ContentNotFound name="Отзывы" />;
   }
 
   return (
@@ -20,6 +20,7 @@ const ComplaintList = () => {
         {data.data.map((el, key) => (
           <li key={key}>
             <ReviewCard
+              type="rejected"
               review={el}
               actions={
                 <ReviewActionsForResolveComplaint review={el} />

@@ -11,7 +11,7 @@ const FormPrompt = ({
     <div
       id={id}
       className={cn(
-        'text-xs text-gray-500 px-[18px]',
+        'text-xs text-gray-500 pl-6',
         error && 'text-destructive',
         className,
       )}

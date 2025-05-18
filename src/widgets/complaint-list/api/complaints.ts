@@ -7,8 +7,7 @@ export const useGetComplaints = () => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ['complaints', offset],
     queryFn: () =>
-      api.review.getForModerate({
-        status: 'rejected',
+      api.review.complaints.get({
         page: offset,
       }),
   });

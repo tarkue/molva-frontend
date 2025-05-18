@@ -13,7 +13,7 @@ export const useRecoveryPasswordSubmitSecondPart = () => {
       try {
         console.log(email);
         open();
-      } catch (error) {
+      } catch {
         toast({
           title: 'Почта не найдена',
           description: 'Попробуйте другую почту',

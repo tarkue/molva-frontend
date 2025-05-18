@@ -25,7 +25,7 @@ const Dismiss = ({ review }: ReviewProps) => {
 
   return (
     <Button variant="icon" onClick={onSubmit}>
-      <Icon glyph="check" stroke="red" />
+      <Icon glyph="publish" />
     </Button>
   );
 };

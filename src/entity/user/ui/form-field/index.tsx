@@ -75,16 +75,6 @@ const OldPassword = <T extends FieldValues>(
   />
 );
 
-const NewPassword = <T extends FieldValues>(
-  props: DefaultFormFieldProps<T>,
-) => (
-  <BasePassword
-    label={FieldLabel.NewPassword}
-    fieldName="newPassword"
-    {...props}
-  />
-);
-
 const ConfirmPassword = <T extends FieldValues>(
   props: DefaultFormFieldProps<T>,
 ) => (
@@ -117,7 +107,6 @@ export {
   Email,
   Password,
   OldPassword,
-  NewPassword,
   ConfirmPassword,
   FirstName,
   Surname,

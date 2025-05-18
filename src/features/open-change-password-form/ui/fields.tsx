@@ -9,6 +9,9 @@ export const ChangePasswordFormFields = <T extends FieldValues>({
   <>
     <UserFormField.OldPassword withPlaceholder form={form.control} />
     <UserFormField.Password withPlaceholder form={form.control} />
-    <UserFormField.NewPassword withPlaceholder form={form.control} />
+    <UserFormField.ConfirmPassword
+      withPlaceholder
+      form={form.control}
+    />
   </>
 );

@@ -1,17 +1,17 @@
 import { cva } from 'class-variance-authority';
 
 export const reviewCardVariants = cva(
-  'flex flex-col gap-2.5 p-6 rounded-3xl w-full',
+  'flex flex-col gap-2.5 p-6 rounded-3xl w-full bg-base-03 shadow',
   {
     variants: {
       type: {
-        default: 'bg-base-03',
-        inspect: 'border-yellow',
-        failure: 'bg-warn-red',
+        published: '',
+        pending: 'border-yellow',
+        rejected: 'bg-warn-red',
       },
     },
     defaultVariants: {
-      type: 'default',
+      type: 'published',
     },
   },
 );
