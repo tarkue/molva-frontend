@@ -27,7 +27,7 @@ const ReviewCard = ({ review, actions, type }: ReviewCardProps) => {
 
   return (
     <article className={reviewCardVariants({ type })}>
-      <div className="flex items-center justify-between w-full shadow flex-col-reverse sm:flex-row">
+      <div className="flex items-center justify-between w-full flex-col-reverse sm:flex-row">
         <p className="text-subhead text-contrast">
           {review.author ? getFullName(review.author) : 'Аноним'}
         </p>

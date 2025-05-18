@@ -35,7 +35,7 @@ const DisciplinePage = () => {
         />
         <div className="flex w-full justify-between items-center pt-2 pb-6 flex-col gap-3 sm:gap-0 sm:flex-row">
           <TeacherParam discipline={discipline} />
-          <div className="flex gap-2">
+          <div className="flex gap-2 w-full sm:w-auto">
             <OrderParam />
             <SortForDisciplineParam />
           </div>

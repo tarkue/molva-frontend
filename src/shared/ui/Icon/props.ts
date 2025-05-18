@@ -25,6 +25,7 @@ export type glyphs =
   | 'login'
   | 'logo'
   | 'notification'
+  | 'publish'
   | 'report'
   | 'review'
   | 'sort-asc'

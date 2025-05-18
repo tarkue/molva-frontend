@@ -9,7 +9,7 @@ export const useGetReviewOnCheck = () => {
     queryKey: ['reviews-on-check', offset],
     queryFn: () =>
       api.review.getForModerate({
-        status: 'pending',
+        status: 'published',
         page: offset,
       }),
   });

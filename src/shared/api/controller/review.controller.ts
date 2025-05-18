@@ -80,7 +80,7 @@ export const complaints = {
     );
 
     return await client
-      .get(`${BASE_URL}/review/complaint/get`, { searchParams })
+      .get(`${BASE_URL}/admin/complaints/get`, { searchParams })
       .json<GetResponse<Review[]>>();
   },
   add: async (dto: OnlyId) =>
@@ -88,7 +88,10 @@ export const complaints = {
       body: JSON.stringify(dto),
     }),
   resolve: async (dto: ResolveComplaintDTO) =>
-    await client.post(`${BASE_URL}/review/admin/moderation`, {
-      body: JSON.stringify(dto),
-    }),
+    await client.post(
+      `${BASE_URL}/admin/complaints/complaint/review/resolve`,
+      {
+        body: JSON.stringify(dto),
+      },
+    ),
 };
