@@ -17,7 +17,7 @@ const DisciplineContentDescription = (
       <p className="text-body text-contrast">
         Формат: {props.format}
       </p>
-      <ul className="flex justify-between items-center">
+      <ul className="flex justify-between items-flex-start sm:items-center flex-col sm:flex-row gap-2">
         <li>
           <Link href={props.presentation_link} target="_blank">
             Посмотреть презентацию модуля
