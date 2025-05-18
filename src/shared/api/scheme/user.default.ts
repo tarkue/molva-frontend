@@ -21,8 +21,7 @@ export const email = z
   .email('Неверная почта');
 
 export const password = basePassword('Пароль');
-export const oldPasspword = basePassword('Старый пароль');
-export const newPasswpord = basePassword('Новый пароль');
+export const oldPassword = basePassword('Старый пароль');
 export const confirmPassword = basePassword('Подтверждение пароля');
 
 export const firstName = z.string({ message: 'Имя обязательно' });

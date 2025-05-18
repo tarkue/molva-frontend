@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { scheme } from '@/shared/api';
 
 const changePasswordFormSchema = z.object({
-  oldPassword: scheme.user.oldPasspword,
+  oldPassword: scheme.user.oldPassword,
   password: scheme.user.password,
   confirmPassword: scheme.user.confirmPassword,
 });

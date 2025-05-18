@@ -22,7 +22,6 @@ export function useParam(
   key: string,
   options: useParamOptions = {},
 ): Param {
-  console.log(key, options);
   const validator = options.validator ?? (() => true);
   const params = useParams();
   const navigate = useNavigate();
