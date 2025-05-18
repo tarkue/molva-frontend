@@ -1,58 +1,53 @@
-## 🇬🇧 Project Description
+# Molva Frontend | (https://github.com/tarkue/molva-frontend/blob/main/README_EN.md)[EN]
 
-Molva Frontend is a modern web application developed using cutting-edge technologies and best practices in web development. The project represents the client-side application built with React and TypeScript, providing a responsive and intuitive user interface.
+## 🇷🇺 Описание проекта
 
-### Technology Stack
+Molva Frontend - это современное веб-приложение, разработанное с использованием передовых технологий и лучших практик веб-разработки. Проект представляет собой клиентскую часть приложения, построенную с использованием React и TypeScript, обеспечивающую отзывчивый и интуитивно понятный пользовательский интерфейс.
 
-- **Core**: React 19, TypeScript
-- **Build Tool**: Vite 6
-- **Styling**: Tailwind CSS 4
-- **Form Management**: React Hook Form with Zod validation
-- **HTTP Client**: ky
-- **State Management**: TanStack Query (React Query)
-- **UI Components**: Radix UI
-- **Routing**: React Router 7
-- **Linting and Formatting**: ESLint, Prettier
-- **Containerization**: Docker
+### Технологический стек
 
-### Local Development
+- **Основа**: React 19, TypeScript
+- **Сборка**: Vite 6
+- **Стилизация**: Tailwind CSS 4
+- **Управление формами**: React Hook Form с Zod валидацией
+- **HTTP-клиент**: ky
+- **Управление состоянием**: TanStack Query (React Query)
+- **UI компоненты**: Radix UI
+- **Маршрутизация**: React Router 7
+- **Линтинг и форматирование**: ESLint, Prettier
+- **Контейнеризация**: Docker
 
-1. Clone the repository:
+### Локальный запуск
+
+1. Клонируйте репозиторий:
 
 ```bash
 git clone https://github.com/tarkue/molva-frontend.git
 cd molva-frontend
 ```
 
-2. Install dependencies:
+2. Установите зависимости:
 
 ```bash
 npm install
 ```
 
-3. Specify the API URL in the `.env` file
+3. Укажите в `.env` файле ссылку на API
 
 ```env
 VITE_API_URL="http://localhost:5000/api"
 ```
 
-4. Start the development server:
+4. Запустите проект в режиме разработки:
 
 ```bash
 npm run dev
 ```
 
-5. Open your browser and navigate to `http://localhost:5173`
+5. Откройте браузер и перейдите по адресу `http://localhost:5173`
 
-To build the project:
+Для сборки проекта:
 
 ```bash
 npm run build
 ```
-
-## Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run lint` - Run ESLint
-- `npm run preview` - Preview production build
