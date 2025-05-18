@@ -10,7 +10,7 @@ export const ModalContainer = ({
   const { close } = useModal(id);
 
   return (
-    <div className="flex justify-center items-center fixed scroll-auto snap-y overflow-y-scroll overflow-x-hidden top-0 left-0 backdrop-filter backdrop-blur-xs bg-modal w-dvw h-dvh">
+    <div className="flex justify-center items-center fixed scroll-auto snap-y overflow-y-auto overflow-x-hidden top-0 left-0 backdrop-filter backdrop-blur-xs bg-modal w-dvw h-dvh">
       <dialog
         role="dialog"
         aria-modal="true"

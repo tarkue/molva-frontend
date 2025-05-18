@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal } from '../models/modal';
 import { FieldValues } from 'react-hook-form';
 import { DefaultFormModalProps } from '../models/form-modal-props';
@@ -15,6 +15,14 @@ export const ModalProvider = ({
   children?: React.ReactNode;
 }) => {
   const [modals, setModals] = useState<Modal<FieldValues>[]>([]);
+
+  useEffect(() => {
+    if (modals.length > 0) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [modals]);
 
   const genId = () => {
     const maxId = modals.reduce(
