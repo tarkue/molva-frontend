@@ -20,16 +20,34 @@ export function useSearchParam<T>(
     : (el?: string) => el as T;
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const value = searchParams.has(key)
+  const hasKeyInSearchParams = searchParams.has(key);
+  const value = hasKeyInSearchParams
     ? validator(searchParams.get(key) as string)
     : options.default;
 
-  return [
-    value,
-    (value: T) =>
-      setSearchParams((prev) => {
-        prev.set(key, String(value));
-        return prev;
-      }),
-  ];
+  const setSearchParamWithTimeout = (value?: T) => {
+    setTimeout(() => {
+      if (String(value) == '') {
+        setSearchParams((prev) => {
+          prev.set(key, options.default as string);
+          return prev;
+        });
+      } else {
+        setSearchParams((prev) => {
+          prev.set(key, String(value));
+          return prev;
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    if (options.default !== undefined) {
+      if (!hasKeyInSearchParams) {
+        setSearchParamWithTimeout(options.default);
+      }
+    }
+  }, [options]);
+
+  return [value, setSearchParamWithTimeout];
 }

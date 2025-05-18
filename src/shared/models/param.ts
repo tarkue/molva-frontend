@@ -1,67 +1,62 @@
 import { useEffect, useState } from 'react';
 import {
-  NavigateOptions,
-  useNavigate,
   useParams,
+  useNavigate,
+  useLocation,
+  NavigateOptions,
 } from 'react-router';
 
 type Param = [string, (value: string) => void];
 
 const NAVIGATE_OPTIONS: NavigateOptions = {
-  relative: 'path',
   replace: true,
   flushSync: true,
 } as const;
 
-const RELATIVE_PATH = './' as const;
-
 interface useParamOptions {
   default?: string;
-  validator?: (value: string) => boolean;
+  validator?: (value: string | undefined) => boolean;
 }
 
 export function useParam(
   key: string,
   options: useParamOptions = {},
 ): Param {
-  const validator = options.validator
-    ? options.validator
-    : (_: string) => true;
+  console.log(key, options);
+  const validator = options.validator ?? (() => true);
   const params = useParams();
   const navigate = useNavigate();
-  const [value, setValue] = useState<string>('');
+  const location = useLocation();
 
-  const setWithValidation = (value: string) => {
-    if (validator(value)) {
-      setValue(value);
-    }
+  const paramValue = params[key];
+  const [value, setValue] = useState<string>(
+    paramValue ?? options.default ?? '',
+  );
+
+  const basePath = location.pathname
+    .split('/')
+    .slice(0, -1)
+    .join('/');
+
+  const goTo = (newValue: string) => {
+    const newPath = `${basePath}/${newValue}`;
+    navigate(newPath, NAVIGATE_OPTIONS);
   };
 
   useEffect(() => {
-    if (params[key]) {
-      setWithValidation(params[key]);
+    if (paramValue && validator(paramValue)) {
+      setValue(paramValue);
+    } else if (options.default !== undefined) {
+      setValue(options.default);
+      goTo(options.default);
     }
-  }, [key]);
+  }, [paramValue]);
 
-  useEffect(() => {
-    if (
-      (!params[key] && params[key] != '') ||
-      !validator(params[key])
-    ) {
-      if (options.default || options.default == '') {
-        setTimeout(() =>
-          navigate(RELATIVE_PATH + options.default, NAVIGATE_OPTIONS),
-        );
-        setValue(options.default);
-      }
-    }
-  }, [options.default]);
+  const setParam = (newValue: string) => {
+    if (!validator(newValue)) return;
+    setValue(newValue);
+    goTo(newValue);
+  };
 
-  return [
-    value,
-    (value: string) => {
-      setWithValidation(value);
-      navigate(RELATIVE_PATH + value, NAVIGATE_OPTIONS);
-    },
-  ];
+  return [value, setParam];
 }

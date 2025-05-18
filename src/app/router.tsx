@@ -1,4 +1,10 @@
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Outlet,
+  Navigate,
+} from 'react-router';
 import AppLayout from './layouts/app';
 import MainPage from '@/pages/main';
 import NotFoundPage from '@/pages/not-found';
@@ -6,6 +12,8 @@ import DisciplinePage from '@/pages/discipline';
 import ProfilePage from '@/pages/profile';
 import { CheckReviewPage } from '@/pages/check-review';
 import { AboutPage } from '@/pages/about';
+import ProfileRedirectToDefault from '@/pages/profile-redirect-to-default';
+import CheckReviewRedirectToDefault from '@/pages/check-redirect-to-default';
 
 export default function Router() {
   return (
@@ -17,11 +25,18 @@ export default function Router() {
             path="/discipline/:id"
             element={<DisciplinePage />}
           />
-          <Route path="/profile/" element={<ProfilePage />}>
-            <Route path="/profile/:panel" element={<Outlet />} />
+          <Route
+            path="/profile"
+            element={<ProfileRedirectToDefault />}
+          >
+            <Route path=":panel" element={<ProfilePage />} />
           </Route>
-          <Route path="/check" element={<CheckReviewPage />}>
-            <Route path="/check/:panel" element={<Outlet />} />
+
+          <Route
+            path="/check"
+            element={<CheckReviewRedirectToDefault />}
+          >
+            <Route path=":panel" element={<CheckReviewPage />} />
           </Route>
           <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<NotFoundPage />} />
