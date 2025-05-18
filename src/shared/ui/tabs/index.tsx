@@ -11,15 +11,24 @@ export const Tabs = (props: TabsProps) => {
   const scrollable = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!scrollable.current) return;
-    scrollable.current?.scrollTo({
-      left: -scrollable.current.scrollWidth / 2,
-    });
+    const index = props.panels.findIndex(
+      (el) => el.value == props.state[0],
+    );
+    if (index < props.panels.length / 2) {
+      scrollable.current.scrollTo({
+        left: -scrollable.current.scrollWidth,
+      });
+    } else {
+      scrollable.current.scrollTo({
+        left: scrollable.current.scrollWidth,
+      });
+    }
   }, [scrollable.current]);
   return (
     <div className="relative h-9 w-full">
-      <div className="max-[660px]:-left-4 max-[660px]:absolute overflow-hidden max-[660px]:w-dvw max-w-dvw max-h-9">
+      <div className="max-[660px]:-left-4 max-[660px]:absolute overflow-y-hidden max-[660px]:w-dvw max-w-dvw max-h-9">
         <div
-          className="flex justify-center items-center overflow-y-hidden w-full overfow-x-auto scroll-smooth box-content"
+          className="flex sm:justify-center items-center overflow-y-hidden w-full overfow-x-auto scroll-smooth box-content"
           ref={scrollable}
         >
           <div className="max-[660px]:px-6">

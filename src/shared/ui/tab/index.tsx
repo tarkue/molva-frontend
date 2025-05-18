@@ -6,6 +6,7 @@ const Tab = forwardRef<HTMLDivElement, TabProps>(
   ({ className, active, children, ...props }, ref) => {
     return (
       <div
+        role="tab"
         className={cn(
           'flex flex-col gap-2 cursor-pointer h-9',
           className,
