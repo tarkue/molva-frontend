@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'flex justify-center items-center transition-colors duration-300 cursor-pointer text-body disabled:opacity-50 disabled:cursor-not-allowed',
+  'flex justify-center items-center transition-colors duration-300 cursor-pointer text-body disabled:opacity-50 disabled:cursor-not-allowed truncate',
   {
     variants: {
       variant: {
