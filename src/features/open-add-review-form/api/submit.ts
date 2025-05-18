@@ -16,7 +16,7 @@ export const useAddReviewSubmit = (discipline: Discipline) => {
       await api.review.add({ ...data, discipline_id: discipline.id });
       refresh();
       clear();
-    } catch (error) {
+    } catch {
       toast({
         title: 'Что-то пошло не так',
         description: 'Попробуйте еще раз',

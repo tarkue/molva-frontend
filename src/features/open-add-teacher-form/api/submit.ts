@@ -22,7 +22,7 @@ export const useAddTeacherSubmit = () => {
       }
       refresh();
       clear();
-    } catch (error) {
+    } catch {
       toast({
         title: 'Что-то пошло не так',
         description: 'Попробуйте еще раз',

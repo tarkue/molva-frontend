@@ -5,7 +5,9 @@ const useModals = () => useContext(ModalContext);
 
 const useModal = (id: number) => {
   const { removeModal } = useModals();
-  const close = () => removeModal(id);
+  const close = () => {
+    removeModal(id);
+  };
 
   return {
     close,

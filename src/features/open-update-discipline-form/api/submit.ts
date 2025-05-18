@@ -12,7 +12,7 @@ export const useUpdateDisciplineSubmit = (discipline: Discipline) => {
         id: discipline.id,
         ...data,
       });
-    } catch (error) {
+    } catch {
       toast({
         title: 'Что-то пошло не так',
         description: 'Попробуйте еще раз',

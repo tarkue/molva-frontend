@@ -16,7 +16,7 @@ export const useSignInSubmit = () => {
       signIn(user);
       clear();
       navigate('profile');
-    } catch (error) {
+    } catch {
       toast({
         title: 'Неправильная почта или пароль',
         description: 'Попробуйте еще раз',

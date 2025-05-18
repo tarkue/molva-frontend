@@ -17,7 +17,7 @@ export const useChangePasswordSubmit = () => {
         new_password: data.password,
       });
       clear();
-    } catch (error) {
+    } catch {
       toast({
         title: 'Неправильный старый пароль',
         description: 'Попробуйте еще раз',

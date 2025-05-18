@@ -30,7 +30,7 @@ export const useRegisterSubmit = () => {
       signIn(user);
       clear();
       navigate('profile');
-    } catch (error) {
+    } catch {
       toast({
         title: 'Пользователь с такой почтой уже существует',
         description:
