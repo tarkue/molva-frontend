@@ -13,7 +13,7 @@ export const Complain = ({ review }: ReviewProps) => {
   });
 
   return (
-    <Button onClick={open}>
+    <Button onClick={open} variant="icon">
       <Icon glyph="report" stroke="red" />
     </Button>
   );
