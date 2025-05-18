@@ -15,9 +15,9 @@ export const DisciplineUpdateListContent = () => {
 
   return (
     <>
-      <ul className="flex flex-col gap-3">
+      <ul className="flex flex-col gap-3 w-full">
         {data.data.map((el, key) => (
-          <li key={key}>
+          <li key={key} className="w-full">
             <DisciplineUpdateCard discipline={el} />
           </li>
         ))}

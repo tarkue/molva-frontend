@@ -9,7 +9,10 @@ const CardStatistics = (props: StatisticProps) => {
   return (
     <ul className="flex gap-6">
       {statistics.map((el, key) => (
-        <li className="flex gap-3 w-20 items-center" key={key}>
+        <li
+          className="flex gap-3 max-w-20 w-full items-center"
+          key={key}
+        >
           <Icon glyph={el.glyph} size="20" />
           <span className="text-subhead">{el.value}</span>
         </li>

@@ -2,6 +2,7 @@ import Icon from '@/shared/ui/icon';
 import { ReviewProps } from '../../models/review-props';
 import { useComplaintResolveSubmit } from '../../api/resolve';
 import { ResolveAction } from '@/shared/api';
+import Button from '@/shared/ui/button';
 
 const Delete = ({ review }: ReviewProps) => {
   const onSubmit = useComplaintResolveSubmit(
@@ -9,7 +10,11 @@ const Delete = ({ review }: ReviewProps) => {
     ResolveAction.Delete,
   );
 
-  return <Icon glyph="trash" stroke="red" onClick={onSubmit} />;
+  return (
+    <Button variant="icon" onClick={onSubmit}>
+      <Icon glyph="trash" stroke="red" />
+    </Button>
+  );
 };
 
 const Dismiss = ({ review }: ReviewProps) => {
@@ -18,7 +23,11 @@ const Dismiss = ({ review }: ReviewProps) => {
     ResolveAction.Dismiss,
   );
 
-  return <Icon glyph="check" onClick={onSubmit} />;
+  return (
+    <Button variant="icon" onClick={onSubmit}>
+      <Icon glyph="check" stroke="red" />
+    </Button>
+  );
 };
 
 export const ResolveComplaint = { Delete, Dismiss };

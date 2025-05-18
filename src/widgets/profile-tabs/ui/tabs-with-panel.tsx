@@ -7,13 +7,13 @@ import { allPanels } from '../models/panels';
 
 export const ProfileTabsWithPanel = () => {
   const panels = getPanels();
-  const panelParam = usePanelParam(panels);
-
-  const element = usePanelSwitcher(panelParam[0], allPanels);
 
   if (panels.length == 0) {
     return <Spinner />;
   }
+
+  const panelParam = usePanelParam(panels);
+  const element = usePanelSwitcher(panelParam[0], allPanels);
 
   return (
     <section className="flex flex-col gap-6 w-full">

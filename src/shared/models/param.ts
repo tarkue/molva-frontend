@@ -9,8 +9,6 @@ type Param = [string, (value: string) => void];
 
 const NAVIGATE_OPTIONS: NavigateOptions = {
   relative: 'path',
-  preventScrollReset: true,
-  replace: true,
 } as const;
 
 const RELATIVE_PATH = './' as const;
@@ -49,6 +47,7 @@ export function useParam(
       !validator(params[key])
     ) {
       if (options.default || options.default == '') {
+        console.log(options.default);
         navigate(RELATIVE_PATH + options.default, NAVIGATE_OPTIONS);
         setValue(options.default);
       }

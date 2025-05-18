@@ -8,11 +8,13 @@ export const DisciplineUpdateCard = ({
 }: {
   discipline: Discipline;
 }) => (
-  <div className="flex gap-6 w-full">
-    <DisciplineCard discipline={discipline} />
-    <span className="flex gap-3">
+  <div className="flex gap-3 sm:gap-6 w-full">
+    <div className="w-[calc(100%-30px)] sm:w-[calc(100%-96px)]">
+      <DisciplineCard discipline={discipline} />
+    </div>
+    <div className="flex gap-3 flex-col sm:flex-row justify-center sm:justfify-end">
       <UpdateDiscipline discipline={discipline} />
       <DeleteDiscipline discipline={discipline} />
-    </span>
+    </div>
   </div>
 );
