@@ -1,6 +1,7 @@
 export { Format } from './types/format';
 export { SortBy } from './types/sort';
 export { ResolveAction } from './types/resolve';
+export { SortForDiscipline } from './types/sort-for-discipine';
 export type { Discipline } from './dto/discipline.dto';
 export type { SortOrder } from './types/order';
 export type { Module } from './dto/module.dto';

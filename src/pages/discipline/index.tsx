@@ -2,13 +2,13 @@ import { DisciplineContent } from '@/entity/discipline';
 import Container from '@/shared/ui/сontainer';
 import NotFoundPage from '../not-found';
 import ReviewList from '@/widgets/review-list';
-import { Select } from '@/shared/ui/select';
-import Pagination from '@/shared/ui/pagination';
 import DisciplinePageMeta from './meta';
 import { useGetDiscipline } from './api';
 import { Spinner } from '@/shared/ui/spinner';
 import { AddToFavorites } from '@/features/toggle-favorite';
 import { AddReview } from '@/features/add-review';
+import { TeacherParam } from '@/features/teacher-param';
+import { SortForDisciplineParam } from '@/features/sort-for-discipline-param';
 
 const DisciplinePage = () => {
   const { data: discipline, isError, isLoading } = useGetDiscipline();
@@ -32,13 +32,9 @@ const DisciplinePage = () => {
             <AddToFavorites discipline={discipline} />
           }
         />
-        <div className="flex w-full justify-between items-center pt-2 pb-6">
-          <fieldset className="w-[196px]">
-            <Select placeholder="Преподаватели" />
-          </fieldset>
-          <fieldset className="w-[200px]">
-            <Select placeholder="Сортировать по" />
-          </fieldset>
+        <div className="flex w-full justify-between items-center pt-2 pb-6 flex-col gap-3 sm:gap-0 sm:flex-row">
+          <TeacherParam discipline={discipline} />
+          <SortForDisciplineParam />
         </div>
         <ReviewList />
       </Container>

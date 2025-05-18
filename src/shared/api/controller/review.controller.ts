@@ -1,6 +1,7 @@
 import client from '../base';
 import {
   CreateReviewDTO,
+  GetReviewOptions,
   ResolveComplaintDTO,
   Review,
   Status,
@@ -31,14 +32,11 @@ export const remove = async (dto: OnlyId) =>
   });
 
 export const vote = async (dto: VoteReviewDTO) =>
-  await client.patch(`${BASE_URL}/vote`, {
+  await client.post(`${BASE_URL}/review/vote`, {
     body: JSON.stringify(dto),
   });
 
-export const get = async (
-  dto: OnlyId,
-  options: PageOffsetOptions,
-) => {
+export const get = async (dto: OnlyId, options: GetReviewOptions) => {
   const cleanParams = Object.fromEntries(
     Object.entries(options).filter(([_, v]) => v != null),
   );

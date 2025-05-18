@@ -30,20 +30,20 @@ export const remove = async (dto: RemoveTeacherDTO) =>
     body: JSON.stringify(dto),
   });
 
-export const getAll = async (search: string, page: number) =>
+export const getAll = async (name_search: string, page: number) =>
   await client
     .get(`${BASE_URL}/get`, {
-      searchParams: { search, page },
+      searchParams: { name_search, page },
     })
     .json<GetResponse<Teacher[]>>();
 
 export const getByDiscipline = async (
   discipline_id: string,
   {
-    search = '',
+    name_search = '',
     page = 1,
   }: {
-    search?: string;
+    name_search?: string;
     page?: number;
   },
 ) =>
@@ -51,7 +51,7 @@ export const getByDiscipline = async (
     .get(
       `${BASE_URL}/discipline/${discipline_id}/get-by-discipline`,
       {
-        searchParams: { search, page },
+        searchParams: { name_search, page },
       },
     )
     .json<GetResponse<Teacher[]>>();

@@ -10,7 +10,7 @@ const DisciplineContentStatistics = (props: StatisticProps) => {
   const statistics = zip(statisticTitles, generateStatistic(props));
 
   return (
-    <ul className="flex gap-5 w-full">
+    <ul className="flex gap-5 w-full flex-col md:flex-row">
       {statistics.map(([title, el], key) => (
         <li
           key={key}

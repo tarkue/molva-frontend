@@ -13,12 +13,12 @@ export interface StatisticProps {
 
 const generateStatistic = (data: StatisticProps): Statistic[] => [
   {
-    glyph: 'star',
-    value: data.rating,
-  },
-  {
     glyph: 'like',
     value: data.likes_count,
+  },
+  {
+    glyph: 'star',
+    value: data.rating,
   },
   {
     glyph: 'review',

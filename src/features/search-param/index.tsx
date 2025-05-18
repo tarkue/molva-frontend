@@ -6,7 +6,9 @@ export const SearchParam = ({
 }: {
   placeholder?: string;
 }) => {
-  const [search, setSearch] = useSearchParam<string>('q');
+  const [search, setSearch] = useSearchParam<string>('q', {
+    default: '',
+  });
 
   return (
     <fieldset className="w-full">

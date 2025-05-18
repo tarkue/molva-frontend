@@ -5,6 +5,7 @@ import { useMemo } from 'react';
 import { reviewCardVariants } from './variant';
 import { VariantProps } from 'class-variance-authority';
 import { getFullName } from '@/entity/user';
+import { getDateTime } from './utils/datetime';
 
 interface ReviewCardProps
   extends VariantProps<typeof reviewCardVariants> {
@@ -27,17 +28,19 @@ const ReviewCard = ({ review, actions, type }: ReviewCardProps) => {
   return (
     <article className={reviewCardVariants({ type })}>
       <div className="flex items-center justify-between w-full shadow flex-col-reverse sm:flex-row">
-        <p className="text-subhead text-contrast">{review.comment}</p>
+        <p className="text-subhead text-contrast">
+          {review.author ? getFullName(review.author) : 'Аноним'}
+        </p>
         <Stars value={review.grade} />
       </div>
       <data className="flex flex-col gap-3">
         <p className="text-body">{review.comment}</p>
-        <div className="flex items-center w-full flex-col sm:flex-row justify-start sm:justify-between gap-2 sm:gap-0">
+        <div className="flex items-flex-start sm:items-center w-full flex-col sm:flex-row justify-start sm:justify-between gap-2 sm:gap-0">
           <span className="text-caption text-gray truncate">
             {teacherNames}
           </span>
           <span className="text-caption text-gray truncate">
-            {review.created_at}
+            {getDateTime(review.created_at)}
           </span>
         </div>
         <span className="h-[1px] bg-gray w-full"></span>

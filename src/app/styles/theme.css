@@ -23,7 +23,7 @@ html[data-theme='light'] {
 
 html[data-theme='dark'] {
   --base-color-yellow: #c7b47d;
-  --base-color--green: #4f9945;
+  --base-color-green: #4f9945;
   --base-color-blue: #83a6ff;
   --base-color-dark-blue: #497dff;
   --base-color-red: #dc585a;

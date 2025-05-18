@@ -9,6 +9,8 @@ type Param = [string, (value: string) => void];
 
 const NAVIGATE_OPTIONS: NavigateOptions = {
   relative: 'path',
+  preventScrollReset: true,
+  replace: true,
 } as const;
 
 const RELATIVE_PATH = './' as const;
