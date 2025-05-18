@@ -34,7 +34,10 @@ export const useOpenConfirmRemoveForm = ({
     addModal({
       form: form,
       className: 'w-[593px]',
-      title: 'Подтвердите удаление',
+      title:
+        type == 'COMPLAIN'
+          ? 'Подтвердите пожалование'
+          : 'Подтвердите удаление',
       buttons: <ConfirmButton text={text} type={type} />,
       onSubmit: onSubmit,
     });

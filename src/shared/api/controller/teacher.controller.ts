@@ -26,7 +26,7 @@ export const update = async (dto: UpdateTeacherDTO) =>
     .json<Teacher>();
 
 export const remove = async (dto: RemoveTeacherDTO) =>
-  await client.delete(`${BASE_URL}/remove`, {
+  await client.delete(`${BASE_URL}/admin/teacher/delete`, {
     body: JSON.stringify(dto),
   });
 
