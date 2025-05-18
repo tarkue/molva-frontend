@@ -20,7 +20,6 @@ const ProfilePage = () => {
 
   return (
     <>
-      <title>Профиль</title>
       <Container className="flex flex-col gap-8 py-8">
         <UserCard user={user} actions={<UserActions />} />
         <ProfileTabsWithPanel />

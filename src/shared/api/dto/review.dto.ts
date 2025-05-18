@@ -1,3 +1,4 @@
+import { SortOrder } from '../types/order';
 import { PageOffsetOptions } from '../types/page';
 import { ResolveAction } from '../types/resolve';
 import { ReviewStatus } from '../types/review_status';
@@ -43,4 +44,5 @@ export type ResolveComplaintDTO = OnlyId & { action: ResolveAction };
 export type GetReviewOptions = PageOffsetOptions & {
   teacher_id?: string;
   sort_by?: SortForDiscipline;
+  sort_order?: SortOrder;
 };

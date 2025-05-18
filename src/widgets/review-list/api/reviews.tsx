@@ -1,4 +1,4 @@
-import { api, SortForDiscipline } from '@/shared/api';
+import { api, SortForDiscipline, SortOrder } from '@/shared/api';
 import { useSearchParam } from '@/shared/models/search-params';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
@@ -7,6 +7,7 @@ export const useGetDisciplineReviews = () => {
   const { id } = useParams<{ id: string }>();
   const [teacherId] = useSearchParam<string>('teacher_id');
   const [page] = useSearchParam<number>('offset');
+  const [order] = useSearchParam<SortOrder>('order');
   const [sort] = useSearchParam<SortForDiscipline>('sort');
 
   if (!id) {
@@ -22,6 +23,7 @@ export const useGetDisciplineReviews = () => {
           teacher_id: teacherId,
           page,
           sort_by: sort,
+          sort_order: order,
         },
       ),
   });

@@ -24,22 +24,12 @@ export function useSearchParam<T>(
     ? validator(searchParams.get(key) as string)
     : options.default;
 
-  useEffect(() => {
-    if (options.default !== undefined) {
-      if (!searchParams.has(key)) {
-        setTimeout(() =>
-          setSearchParams((prev) => {
-            prev.set(key, String(options.default));
-            return prev;
-          }),
-        );
-      }
-    }
-  }, [options]);
-
   return [
     value,
     (value: T) =>
-      setSearchParams((prev) => ({ ...prev, [key]: String(value) })),
+      setSearchParams((prev) => {
+        prev.set(key, String(value));
+        return prev;
+      }),
   ];
 }

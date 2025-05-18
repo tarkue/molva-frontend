@@ -9,6 +9,7 @@ import { AddToFavorites } from '@/features/toggle-favorite';
 import { AddReview } from '@/features/add-review';
 import { TeacherParam } from '@/features/teacher-param';
 import { SortForDisciplineParam } from '@/features/sort-for-discipline-param';
+import { OrderParam } from '@/features/order-param';
 
 const DisciplinePage = () => {
   const { data: discipline, isError, isLoading } = useGetDiscipline();
@@ -34,7 +35,10 @@ const DisciplinePage = () => {
         />
         <div className="flex w-full justify-between items-center pt-2 pb-6 flex-col gap-3 sm:gap-0 sm:flex-row">
           <TeacherParam discipline={discipline} />
-          <SortForDisciplineParam />
+          <div className="flex gap-2">
+            <OrderParam />
+            <SortForDisciplineParam />
+          </div>
         </div>
         <ReviewList />
       </Container>
