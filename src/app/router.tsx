@@ -2,8 +2,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Outlet,
-  Navigate,
 } from 'react-router';
 import AppLayout from './layouts/app';
 import MainPage from '@/pages/main';

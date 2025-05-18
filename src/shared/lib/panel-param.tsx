@@ -10,6 +10,6 @@ export const usePanelParam = (panels: Pair<string, string>[]) => {
 
   return useParam('panel', {
     default: panels[0].value,
-    validator: (value: string) => panelKeys.includes(value),
+    validator: (value?: string) => panelKeys.includes(value ?? ''),
   });
 };

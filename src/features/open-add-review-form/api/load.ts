@@ -5,7 +5,7 @@ export const loadTeachers =
   (discipline: Discipline) => async (search: string) => {
     const { data } = await api.teacher.getByDiscipline(
       discipline.id,
-      { search },
+      { name_search: search },
     );
 
     return data.map((user) => ({

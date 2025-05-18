@@ -1,6 +1,6 @@
 import { AsyncSelect } from '@/shared/ui/select';
 import { TeachersLoad } from './api/load';
-import { api, Discipline } from '@/shared/api';
+import { Discipline } from '@/shared/api';
 import { useSearchParam } from '@/shared/models/search-params';
 import { useState } from 'react';
 import { Pair } from '@/shared/ui/select/pair';
