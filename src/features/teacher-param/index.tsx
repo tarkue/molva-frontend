@@ -12,10 +12,7 @@ export const TeacherParam = ({
 }: {
   discipline: Discipline;
 }) => {
-  const [_, setTeacher] = useSearchParam('teacher_id', {
-    validator: (el) =>
-      
-  });
+  const [_, setTeacher] = useSearchParam('teacher_id');
   const [selected, setSelected] =
     useState<SingleValue<Pair<string, string>>>(DEFAULT_VALUE);
 

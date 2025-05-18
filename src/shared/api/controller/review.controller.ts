@@ -27,7 +27,7 @@ export const edit = async (dto: UpdateReviewDTO) =>
   });
 
 export const remove = async (dto: OnlyId) =>
-  await client.delete(`${BASE_URL}/delete`, {
+  await client.delete(`${BASE_URL}/review/delete`, {
     body: JSON.stringify(dto),
   });
 
