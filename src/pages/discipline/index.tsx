@@ -24,7 +24,7 @@ const DisciplinePage = () => {
 
   return (
     <>
-      <DisciplinePageMeta name={discipline.name} />
+      <DisciplinePageMeta discipline={discipline} />
       <Container className="flex flex-col items-center py-6">
         <DisciplineContent
           discipline={discipline}
