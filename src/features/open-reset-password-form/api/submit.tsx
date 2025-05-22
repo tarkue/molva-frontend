@@ -6,7 +6,7 @@ import { useSearchParam } from '@/shared/models/search-params';
 import { useModals } from '@/shared/ui/modal';
 
 export const useResetPasswordSubmit = () => {
-  const [token, setToken] = useSearchParam<string>('token');
+  const [token, _, clearToken] = useSearchParam<string>('token');
   const { clear } = useModals();
   return async (
     data: z.infer<typeof UserForms.resetPasswordFormSchema>,
@@ -23,9 +23,8 @@ export const useResetPasswordSubmit = () => {
     try {
       await api.auth.resetPassword({
         token: token,
-        new_password: data.newPasswpord,
+        new_password: data.password,
       });
-      clear();
       toast({
         title: 'Пароль успешно изменен',
       });
@@ -35,7 +34,8 @@ export const useResetPasswordSubmit = () => {
         description: 'Попробуйте восстановить пароль ещё раз',
         variant: 'destructive',
       });
-      setToken('');
     }
+    clear();
+    clearToken();
   };
 };

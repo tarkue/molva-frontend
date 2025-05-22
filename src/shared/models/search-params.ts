@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router';
 type SearchParam<T> = [
   value: T | undefined,
   update: (value: T) => void,
+  clear: () => void,
 ];
 
 interface useSearchParamOptions<T> {
@@ -24,6 +25,13 @@ export function useSearchParam<T>(
   const value = hasKeyInSearchParams
     ? validator(searchParams.get(key) as string)
     : options.default;
+
+  const clear = () => {
+    setSearchParams((prev) => {
+      prev.delete(key);
+      return prev;
+    });
+  };
 
   const setSearchParamWithTimeout = (value?: T) => {
     setTimeout(() => {
@@ -49,5 +57,5 @@ export function useSearchParam<T>(
     }
   }, [options]);
 
-  return [value, setSearchParamWithTimeout];
+  return [value, setSearchParamWithTimeout, clear];
 }
