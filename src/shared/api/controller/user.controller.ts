@@ -4,6 +4,8 @@ import {
   RegisterDTO,
   SafeUser,
   SignInDTO,
+  UserRestorePasswordDTO,
+  UserResetPasswordDTO,
   UserUpdateDTO,
   UserUpdatePasswordDTO,
 } from '../dto/user.dto';
@@ -62,6 +64,20 @@ const getAll = async (search: string, page: number) =>
 const remove = async (dto: OnlyId) =>
   await client.delete(`${BASE_URL}/admin/user/${dto.id}/delete`);
 
+const forgotPassword = async (dto: UserRestorePasswordDTO) =>
+  await client
+    .post(`${BASE_URL}/forgot-password`, {
+      body: JSON.stringify(dto),
+    })
+    .json<SafeUser>();
+
+const resetPassword = async (dto: UserResetPasswordDTO) =>
+  await client
+    .post(`${BASE_URL}/reset-password`, {
+      body: JSON.stringify(dto),
+    })
+    .json<SafeUser>();
+
 export {
   login,
   register,
@@ -72,4 +88,6 @@ export {
   get,
   getAll,
   remove,
+  forgotPassword,
+  resetPassword,
 };

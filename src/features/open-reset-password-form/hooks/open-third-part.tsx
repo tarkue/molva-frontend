@@ -5,7 +5,7 @@ import { SaveButton } from '../ui/buttons';
 import { useRecoveryPasswordSubmit } from '../api/submit';
 
 export const useOpenRecoveryPasswordThirdPart = () => {
-  const form = UserForms.useRecoveryPasswordFormThirdPart();
+  const form = UserForms.useResetPasswordForm();
   const onSubmit = useRecoveryPasswordSubmit();
   const { addModal, clear } = useModals();
 

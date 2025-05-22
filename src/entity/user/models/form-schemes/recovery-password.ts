@@ -3,49 +3,45 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { scheme } from '@/shared/api';
 
-const recoveryPasswordFormSchemaFirstPart = z.object({
+const forgotPasswordFormSchemaFirstPart = z.object({
   email: scheme.user.email,
 });
 
-const recoveryPasswordFormSchemaSecondPart = z.object({
-  code: scheme.user.code,
-});
+const resetPasswordFormSchema = z
+  .object({
+    password: scheme.user.password,
+    confirmPassword: scheme.user.confirmPassword,
+  })
+  .refine(
+    (data) => {
+      return data.password == data.confirmPassword;
+    },
+    {
+      path: ['confirmPassword'],
+      message: 'Пароли не совпадают',
+    },
+  );
 
-const recoveryPasswordFormSchemaThirdPart = z.object({
-  newPasswpord: scheme.user.newPasswpord,
-  confirmPassword: scheme.user.confirmPassword,
-});
-
-const useRecoveryPasswordFormFirstPart = () =>
-  useForm<z.infer<typeof recoveryPasswordFormSchemaFirstPart>>({
-    resolver: zodResolver(recoveryPasswordFormSchemaFirstPart),
+const useForgotPasswordFormFirstPart = () =>
+  useForm<z.infer<typeof forgotPasswordFormSchemaFirstPart>>({
+    resolver: zodResolver(forgotPasswordFormSchemaFirstPart),
     defaultValues: {
       email: '',
     },
   });
 
-const useRecoveryPasswordFormSecondPart = () =>
-  useForm<z.infer<typeof recoveryPasswordFormSchemaSecondPart>>({
-    resolver: zodResolver(recoveryPasswordFormSchemaSecondPart),
+const useResetPasswordForm = () =>
+  useForm<z.infer<typeof resetPasswordFormSchema>>({
+    resolver: zodResolver(resetPasswordFormSchema),
     defaultValues: {
-      code: '',
-    },
-  });
-
-const useRecoveryPasswordFormThirdPart = () =>
-  useForm<z.infer<typeof recoveryPasswordFormSchemaThirdPart>>({
-    resolver: zodResolver(recoveryPasswordFormSchemaThirdPart),
-    defaultValues: {
-      newPasswpord: '',
+      password: '',
       confirmPassword: '',
     },
   });
 
 export {
-  useRecoveryPasswordFormFirstPart,
-  useRecoveryPasswordFormSecondPart,
-  useRecoveryPasswordFormThirdPart,
-  recoveryPasswordFormSchemaFirstPart,
-  recoveryPasswordFormSchemaSecondPart,
-  recoveryPasswordFormSchemaThirdPart,
+  useForgotPasswordFormFirstPart,
+  useResetPasswordForm,
+  forgotPasswordFormSchemaFirstPart,
+  resetPasswordFormSchema,
 };
