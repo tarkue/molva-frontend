@@ -32,10 +32,12 @@ cd molva-frontend
 npm install
 ```
 
-3. Укажите в `.env` файле ссылку на API
+3. Укажите в `.env` файле ссылку на API, ссылку на сайт и email-адрес для связи
 
 ```env
 VITE_API_URL="http://localhost:5000/api"
+VITE_URL="https://localhost:5000"
+VITE_EMAIL=""
 ```
 
 4. Запустите проект в режиме разработки:
@@ -51,3 +53,10 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## Scripts
+
+- `npm run dev` - Запуск сервера разработки
+- `npm run build` - Сборка для продакшена
+- `npm run lint` - Запуск ESLint
+- `npm run preview` - Предпросмотр продакшен-сборки

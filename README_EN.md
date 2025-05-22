@@ -1,4 +1,4 @@
-## 🇬🇧 Project Description
+## 🇬🇧 Project Description | [ru](https://github.com/tarkue/molva-frontend/)
 
 Molva Frontend is a modern web application developed using cutting-edge technologies and best practices in web development. The project represents the client-side application built with React and TypeScript, providing a responsive and intuitive user interface.
 
@@ -30,10 +30,12 @@ cd molva-frontend
 npm install
 ```
 
-3. Specify the API URL in the `.env` file
+3. Specify the API URL, website URL, and contact email in the `.env` file
 
 ```env
 VITE_API_URL="http://localhost:5000/api"
+VITE_URL="https://localhost:5000"
+VITE_EMAIL=""
 ```
 
 4. Start the development server:
