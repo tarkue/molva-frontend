@@ -3,8 +3,7 @@ import { useSearchParams } from 'react-router';
 
 type SearchParam<T> = [
   value: T | undefined,
-  update: (value: T) => void,
-  clear: () => void,
+  update: (value: T | undefined) => void,
 ];
 
 interface useSearchParamOptions<T> {
@@ -34,6 +33,10 @@ export function useSearchParam<T>(
   };
 
   const setSearchParamWithTimeout = (value?: T) => {
+    if (value === undefined) {
+      clear();
+      return;
+    }
     setTimeout(() => {
       if (String(value) == '') {
         setSearchParams((prev) => {
@@ -57,5 +60,5 @@ export function useSearchParam<T>(
     }
   }, [options]);
 
-  return [value, setSearchParamWithTimeout, clear];
+  return [value, setSearchParamWithTimeout];
 }

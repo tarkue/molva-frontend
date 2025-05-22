@@ -6,7 +6,7 @@ import { useSearchParam } from '@/shared/models/search-params';
 import { useModals } from '@/shared/ui/modal';
 
 export const useResetPasswordSubmit = () => {
-  const [token, _, clearToken] = useSearchParam<string>('token');
+  const [token, setToken] = useSearchParam<string>('token');
   const { clear } = useModals();
   return async (
     data: z.infer<typeof UserForms.resetPasswordFormSchema>,
@@ -36,6 +36,6 @@ export const useResetPasswordSubmit = () => {
       });
     }
     clear();
-    clearToken();
+    setToken(undefined);
   };
 };
