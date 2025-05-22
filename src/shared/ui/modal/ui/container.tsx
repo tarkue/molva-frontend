@@ -17,7 +17,9 @@ export const ModalContainer = ({
         open={true}
         className="flex justify-center items-center sticky z-20 bg-transparent top-0 rounded-3xl m-auto px-4 md:px-0 w-full"
       >
-        {children}
+        <div className="flex justify-center relative w-full">
+          {children}
+        </div>
       </dialog>
       <div
         className="absolute z-10 top-0 left-0 w-full h-full"

@@ -1,6 +1,5 @@
 import { DisciplineCard } from '@/entity/discipline';
-import { DeleteDiscipline } from '@/features/delete-discipline';
-import { UpdateDiscipline } from '@/features/update-discipline';
+import { DisciplineActions } from '@/features/discipline-actions';
 import { Discipline } from '@/shared/api';
 
 export const DisciplineUpdateCard = ({
@@ -12,9 +11,6 @@ export const DisciplineUpdateCard = ({
     <div className="w-[calc(100%-30px)] sm:w-[calc(100%-96px)]">
       <DisciplineCard discipline={discipline} />
     </div>
-    <div className="flex gap-3 flex-col sm:flex-row justify-center sm:justfify-end">
-      <UpdateDiscipline discipline={discipline} />
-      <DeleteDiscipline discipline={discipline} />
-    </div>
+    <DisciplineActions discipline={discipline} />
   </div>
 );

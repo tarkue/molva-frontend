@@ -5,11 +5,11 @@ import ReviewList from '@/widgets/review-list';
 import DisciplinePageMeta from './meta';
 import { useGetDiscipline } from './api';
 import { Spinner } from '@/shared/ui/spinner';
-import { AddToFavorites } from '@/features/toggle-favorite';
 import { AddReview } from '@/features/add-review';
 import { TeacherParam } from '@/features/teacher-param';
 import { SortForDisciplineParam } from '@/features/sort-for-discipline-param';
 import { OrderParam } from '@/features/order-param';
+import { DisciplineActions } from '@/features/discipline-actions';
 
 const DisciplinePage = () => {
   const { data: discipline, isError, isLoading } = useGetDiscipline();
@@ -30,7 +30,7 @@ const DisciplinePage = () => {
           discipline={discipline}
           headerMainAction={<AddReview discipline={discipline} />}
           headerTopRightAction={
-            <AddToFavorites discipline={discipline} />
+            <DisciplineActions discipline={discipline} />
           }
         />
         <div className="flex w-full justify-between items-center pt-2 pb-6 flex-col gap-3 sm:gap-0 sm:flex-row">

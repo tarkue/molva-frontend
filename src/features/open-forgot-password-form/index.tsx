@@ -1,12 +1,12 @@
 import { UserForms } from '@/entity/user';
-import { useRecoveryPasswordSubmitFirstPart } from './api/first-part';
+import { useForgotPasswordSubmitFirstPart } from './api/submit';
 import { useModals } from '@/shared/ui/modal';
 import { ContinueButton } from './ui/buttons';
-import { FirstPartFields } from './ui/fields';
+import { ForgotPasswordFields } from './ui/fields';
 
-export const useOpenRecoveryPasswordForm = () => {
-  const form = UserForms.useRecoveryPasswordFormFirstPart();
-  const onSubmit = useRecoveryPasswordSubmitFirstPart();
+export const useOpenForgotPasswordForm = () => {
+  const form = UserForms.useForgotPasswordFormFirstPart();
+  const onSubmit = useForgotPasswordSubmitFirstPart();
   const { addModal } = useModals();
 
   return () => {
@@ -15,7 +15,7 @@ export const useOpenRecoveryPasswordForm = () => {
       className: 'max-w-[400px]',
       title: 'Восстановление пароля',
       onSubmit: onSubmit,
-      fields: <FirstPartFields form={form} />,
+      fields: <ForgotPasswordFields form={form} />,
       buttons: <ContinueButton />,
     });
   };

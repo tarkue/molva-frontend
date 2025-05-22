@@ -1,8 +1,4 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from 'react-router';
+import { BrowserRouter, Routes, Route } from 'react-router';
 import AppLayout from './layouts/app';
 import MainPage from '@/pages/main';
 import NotFoundPage from '@/pages/not-found';
@@ -12,13 +8,16 @@ import { CheckReviewPage } from '@/pages/check-review';
 import { AboutPage } from '@/pages/about';
 import ProfileRedirectToDefault from '@/pages/profile-redirect-to-default';
 import CheckReviewRedirectToDefault from '@/pages/check-redirect-to-default';
+import ResetPasswordPage from '@/pages/reset-password/reset-password';
 
 export default function Router() {
   return (
     <BrowserRouter>
       <AppLayout>
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route path="/" element={<ResetPasswordPage />}>
+            <Route path="/" element={<MainPage />} />
+          </Route>
           <Route
             path="/discipline/:id"
             element={<DisciplinePage />}
