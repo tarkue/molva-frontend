@@ -8,7 +8,7 @@ const Tab = forwardRef<HTMLDivElement, TabProps>(
       <div
         role="tab"
         className={cn(
-          'flex flex-col gap-2 cursor-pointer h-9',
+          'flex flex-col gap-2 cursor-pointer h-9 w-max',
           className,
         )}
         ref={ref}
