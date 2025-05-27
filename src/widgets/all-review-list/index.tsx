@@ -1,12 +1,12 @@
 import { ContentNotFound } from '@/shared/ui/content-not-found';
-import { useGetReviewOnCheck } from './api/review-on-check';
+import { useGetAllReview } from './api/all-review';
 import { Spinner } from '@/shared/ui/spinner';
 import { OffsetParam } from '@/features/offset-param';
 import { ReviewCard } from '@/entity/review';
-import { ReviewActionsForResolve } from '@/features/review-actions';
+import { DeleteReview } from '@/features/review-actions';
 
-const ReviewOnCheckList = () => {
-  const { data, isLoading, isError } = useGetReviewOnCheck();
+const AllReviewList = () => {
+  const { data, isLoading, isError } = useGetAllReview();
 
   if (isLoading) return <Spinner />;
 
@@ -22,7 +22,7 @@ const ReviewOnCheckList = () => {
             <ReviewCard
               type="pending"
               review={el}
-              actions={<ReviewActionsForResolve review={el} />}
+              actions={<DeleteReview review={el} />}
             />
           </li>
         ))}
@@ -34,4 +34,4 @@ const ReviewOnCheckList = () => {
   );
 };
 
-export default ReviewOnCheckList;
+export default AllReviewList;

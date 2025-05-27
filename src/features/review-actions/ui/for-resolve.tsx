@@ -1,11 +1,9 @@
 import { ReviewProps } from '../models/review-props';
-import { ResolveComplaint } from './actions/resolve';
+import { ReviewActions } from './actions/resolve';
 
-export const ReviewActionsForResolveComplaint = ({
-  review,
-}: ReviewProps) => (
+export const ReviewActionsForResolve = ({ review }: ReviewProps) => (
   <div className="flex gap-2">
-    <ResolveComplaint.Dismiss review={review} />
-    <ResolveComplaint.Delete review={review} />
+    <ReviewActions.Publish review={review} />
+    <ReviewActions.Reject review={review} />
   </div>
 );
