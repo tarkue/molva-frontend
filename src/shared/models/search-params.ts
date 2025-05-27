@@ -33,7 +33,7 @@ export function useSearchParam<T>(
   };
 
   const setSearchParamWithTimeout = (value?: T) => {
-    if (value === undefined) {
+    if (value === undefined || value == "") {
       clear();
       return;
     }
