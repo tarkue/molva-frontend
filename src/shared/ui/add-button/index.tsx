@@ -18,6 +18,7 @@ export const AddButton = forwardRef<
       {...props}
       ref={ref}
       onClick={handleClick}
+      className='max-w-[50px] max-h-[50px] min-w-[50px] min-h-[50px]'
     >
       <Icon glyph={'add'} stroke="gray" />
     </Button>

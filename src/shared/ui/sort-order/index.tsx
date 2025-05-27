@@ -8,7 +8,8 @@ const SortOrderCircle = forwardRef<HTMLButtonElement, DescProps>(
     const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
       if (onOrderChange) {
-        onOrderChange(value == 'desc' ? 'asc' : 'desc');
+        const newValue = value == 'desc' ? 'asc' : 'desc'
+        onOrderChange(newValue);
       }
     };
 
@@ -16,14 +17,18 @@ const SortOrderCircle = forwardRef<HTMLButtonElement, DescProps>(
       <Button
         variant="circle"
         onClick={clickHandler}
+        className='max-w-[50px] max-h-[50px] min-w-[50px] min-h-[50px]'
         ref={ref}
         aria-label="change sort order"
         {...props}
       >
-        <Icon
-          glyph={value == 'desc' ? 'sort-desc' : 'sort-asc'}
+        {value == 'desc' ? <Icon
+          glyph="sort-desc"
           stroke="gray"
-        />
+        /> : <Icon
+          glyph="sort-asc"
+          stroke="gray"
+        />}
       </Button>
     );
   },
