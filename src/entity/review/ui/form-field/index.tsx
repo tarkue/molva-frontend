@@ -64,7 +64,7 @@ export const Lector = <T extends FieldValues>({
       control={form}
       render={({ field }) => (
         <AsyncSelect
-          placeholder={FieldLabel.Practic}
+          placeholder={FieldLabel.Lector}
           {...field}
           defaultOptions
           cacheOptions
