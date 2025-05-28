@@ -13,7 +13,7 @@ export const ModuleParam = () => {
         placeholder="Наименование модуля"
         aria-label="Выберите наименование модуля"
         defaultOptions
-        isClearable
+        isClearable={false}
         cacheOptions
         defaultValue={
           module ? { label: module, value: module } : undefined
@@ -21,9 +21,13 @@ export const ModuleParam = () => {
         loadOptions={loadModules}
         value={selected}
         onChange={(e) => {
-          if (!e) return;
-          setSelected(e);
-          setModule(e.label);
+          if (!e) {
+            setSelected(undefined);
+            setModule(undefined);
+          } else {
+            setSelected(e);
+            setModule(e.label);
+          }
         }}
       />
     </fieldset>
