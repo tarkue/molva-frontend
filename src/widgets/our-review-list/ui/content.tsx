@@ -1,8 +1,8 @@
+import { ReviewCard } from '@/entity/review';
+import { OffsetParam } from '@/features/offset-param';
 import { ContentNotFound } from '@/shared/ui/content-not-found';
 import { Spinner } from '@/shared/ui/spinner';
-import { OffsetParam } from '@/features/offset-param';
 import { useGetOurReview } from '../api/our-review';
-import { ReviewCard } from '@/entity/review';
 
 export const OurReviewContent = () => {
   const { data, isLoading, isError } = useGetOurReview();

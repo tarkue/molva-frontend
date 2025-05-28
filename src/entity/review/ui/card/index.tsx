@@ -1,19 +1,17 @@
-import { Stars } from '@/shared/ui/stars/stars';
-import { Review } from '@/shared/api';
-import { getTeacherNames } from './utils/names';
-import { useMemo } from 'react';
-import { reviewCardVariants } from './variant';
-import { VariantProps } from 'class-variance-authority';
 import { getFullName } from '@/entity/user';
+import { Review } from '@/shared/api';
+import { Stars } from '@/shared/ui/stars/stars';
+import { useMemo } from 'react';
 import { getDateTime } from './utils/datetime';
+import { getTeacherNames } from './utils/names';
+import { reviewCardVariants } from './variant';
 
-interface ReviewCardProps
-  extends VariantProps<typeof reviewCardVariants> {
+interface ReviewCardProps {
   review: Review;
   actions?: React.ReactNode;
 }
 
-const ReviewCard = ({ review, actions, type }: ReviewCardProps) => {
+const ReviewCard = ({ review, actions }: ReviewCardProps) => {
   const teacherNames = useMemo(
     () =>
       review.lector && review.practic
@@ -26,7 +24,7 @@ const ReviewCard = ({ review, actions, type }: ReviewCardProps) => {
   );
 
   return (
-    <article className={reviewCardVariants({ type })}>
+    <article className={reviewCardVariants({ type: review.status })}>
       <div className="flex items-center justify-between w-full flex-col-reverse sm:flex-row">
         <p className="text-subhead text-contrast">
           {review.author ? getFullName(review.author) : 'Аноним'}

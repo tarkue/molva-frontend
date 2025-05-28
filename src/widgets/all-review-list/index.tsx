@@ -1,9 +1,9 @@
-import { ContentNotFound } from '@/shared/ui/content-not-found';
-import { useGetAllReview } from './api/all-review';
-import { Spinner } from '@/shared/ui/spinner';
-import { OffsetParam } from '@/features/offset-param';
 import { ReviewCard } from '@/entity/review';
+import { OffsetParam } from '@/features/offset-param';
 import { DeleteReview } from '@/features/review-actions';
+import { ContentNotFound } from '@/shared/ui/content-not-found';
+import { Spinner } from '@/shared/ui/spinner';
+import { useGetAllReview } from './api/all-review';
 
 const AllReviewList = () => {
   const { data, isLoading, isError } = useGetAllReview();
@@ -20,7 +20,6 @@ const AllReviewList = () => {
         {data.data.map((el, key) => (
           <li key={key}>
             <ReviewCard
-              type="pending"
               review={el}
               actions={<DeleteReview review={el} />}
             />

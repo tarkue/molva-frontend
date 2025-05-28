@@ -1,9 +1,9 @@
-import { ContentNotFound } from '@/shared/ui/content-not-found';
-import { useGetComplaints } from './api/complaints';
-import { Spinner } from '@/shared/ui/spinner';
-import { OffsetParam } from '@/features/offset-param';
 import { ReviewCard } from '@/entity/review';
+import { OffsetParam } from '@/features/offset-param';
 import { ReviewActionsForResolveComplaint } from '@/features/review-actions';
+import { ContentNotFound } from '@/shared/ui/content-not-found';
+import { Spinner } from '@/shared/ui/spinner';
+import { useGetComplaints } from './api/complaints';
 
 const ComplaintList = () => {
   const { data, isLoading, isError } = useGetComplaints();
@@ -20,7 +20,6 @@ const ComplaintList = () => {
         {data.data.map((el, key) => (
           <li key={key}>
             <ReviewCard
-              type="rejected"
               review={el}
               actions={
                 <ReviewActionsForResolveComplaint review={el} />
