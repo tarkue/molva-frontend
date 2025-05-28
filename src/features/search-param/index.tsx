@@ -7,7 +7,7 @@ export const SearchParam = ({
   placeholder?: string;
 }) => {
   const [search, setSearch] = useSearchParam<string>('q', {
-    default: '',
+    default: undefined,
   });
 
   return (
