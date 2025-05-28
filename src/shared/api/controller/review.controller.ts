@@ -22,7 +22,7 @@ export const add = async (dto: CreateReviewDTO) =>
     .json<Review>();
 
 export const edit = async (dto: UpdateReviewDTO) =>
-  await client.patch(`${BASE_URL}/admin/review/status/edit`, {
+  await client.patch(`${BASE_URL}/review/admin/status/edit`, {
     body: JSON.stringify(dto),
   });
 
@@ -38,7 +38,7 @@ export const vote = async (dto: VoteReviewDTO) =>
 
 export const get = async (dto: OnlyId, options: GetReviewOptions) => {
   const cleanParams = Object.fromEntries(
-    Object.entries(options).filter(([_, v]) => v != null),
+    Object.entries(options).filter(([_, v]) => v != null && v != undefined),
   );
 
   return await client

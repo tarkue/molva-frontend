@@ -37,14 +37,14 @@ const DismissComplaint = ({ review }: ReviewProps) => {
   return <DismissButton onSubmit={onSubmit} />;
 };
 
-const Publish = ({ review }: ReviewProps) => {
-  const onSubmit = useResolveSubmit(review, ResolveAction.Dismiss);
+const Reject = ({ review }: ReviewProps) => {
+  const onSubmit = useResolveSubmit(review, ResolveAction.Delete);
 
   return <DeleteButton onSubmit={onSubmit} />;
 };
 
-const Reject = ({ review }: ReviewProps) => {
-  const onSubmit = useResolveSubmit(review, ResolveAction.Delete);
+const Publish = ({ review }: ReviewProps) => {
+  const onSubmit = useResolveSubmit(review, ResolveAction.Dismiss);
 
   return <DismissButton onSubmit={onSubmit} />;
 };

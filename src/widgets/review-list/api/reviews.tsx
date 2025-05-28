@@ -20,7 +20,7 @@ export const useGetDisciplineReviews = () => {
       api.review.get(
         { id },
         {
-          teacher_id: teacherId,
+          teacher_id: teacherId || undefined,
           page,
           sort_by: sort,
           sort_order: order,
