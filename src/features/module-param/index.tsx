@@ -13,7 +13,7 @@ export const ModuleParam = () => {
         placeholder="Наименование модуля"
         aria-label="Выберите наименование модуля"
         defaultOptions
-        isClearable={false}
+        isClearable={true}
         cacheOptions
         defaultValue={
           module ? { label: module, value: module } : undefined
