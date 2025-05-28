@@ -11,7 +11,7 @@ export const TeacherParam = ({
 }: {
   discipline: Discipline;
 }) => {
-  const [_, setTeacher] = useSearchParam('teacher_id');
+  const [_, setTeacher] = useSearchParam<string | undefined>('teacher_id');
   const [selected, setSelected] =
     useState<SingleValue<Pair<string, string> | undefined>>();
 
