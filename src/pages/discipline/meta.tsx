@@ -44,7 +44,7 @@ const DisciplinePageMeta = ({
           {
             '@type': 'Offer',
             price: 0,
-            category: 'Paid',
+            category: 'Free',
             priceCurrency: 'RUB',
           },
         ],
