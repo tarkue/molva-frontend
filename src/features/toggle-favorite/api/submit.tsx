@@ -1,5 +1,6 @@
 import { api, Discipline } from '@/shared/api';
 import { useRefresh } from '@/shared/lib/refresh';
+import { ERROR_TOAST_BODY } from '@/shared/models/toast-body';
 import { toast } from '@/shared/ui/toast';
 import { useEffect, useState } from 'react';
 
@@ -8,11 +9,7 @@ const addToFavoriteSubmit = (discipline: Discipline) => {
     try {
       await api.discipline.favorite.add({ id: discipline.id });
     } catch {
-      toast({
-        title: 'Что-то пошло не так',
-        description: 'Попробуйте еще раз',
-        variant: 'destructive',
-      });
+      toast(ERROR_TOAST_BODY);
     }
   };
 };
@@ -24,11 +21,7 @@ const removeFromFavoriteSubmit = (discipline: Discipline) => {
       await api.discipline.favorite.remove({ id: discipline.id });
       refresh();
     } catch {
-      toast({
-        title: 'Что-то пошло не так',
-        description: 'Попробуйте еще раз',
-        variant: 'destructive',
-      });
+      toast(ERROR_TOAST_BODY);
     }
   };
 };

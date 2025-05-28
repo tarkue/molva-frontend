@@ -1,6 +1,10 @@
 import { TeacherForms } from '@/entity/teacher';
 import { api, Teacher } from '@/shared/api';
 import { useRefresh } from '@/shared/lib/refresh';
+import {
+  ERROR_TOAST_BODY,
+  SUCCESS_UPDATE_DATA_TOAST_BODY,
+} from '@/shared/models/toast-body';
 import { useModals } from '@/shared/ui/modal';
 import { toast } from '@/shared/ui/toast';
 import { z } from 'zod';
@@ -17,7 +21,15 @@ export const useUpdateTeacherSubmit = (teacher: Teacher) => {
         ...data,
       });
 
-      teacher.disciplines.map(
+      const new_disciplines = data.disciplines.filter(
+        (e) => !teacher.disciplines.some((el) => el.id == e),
+      );
+
+      const removed_disciplines = teacher.disciplines.filter(
+        (e) => !data.disciplines.some((el) => el == e.id),
+      );
+
+      removed_disciplines.map(
         async (e) =>
           await api.teacher.discipline.remove({
             id: teacher.id,
@@ -26,17 +38,14 @@ export const useUpdateTeacherSubmit = (teacher: Teacher) => {
       );
       await api.teacher.discipline.appoint({
         id: teacher.id,
-        discipline_ids: data.disciplines,
+        discipline_ids: new_disciplines,
       });
 
       refresh();
+      toast(SUCCESS_UPDATE_DATA_TOAST_BODY);
       clear();
     } catch {
-      toast({
-        title: 'Что-то пошло не так',
-        description: 'Попробуйте еще раз',
-        variant: 'destructive',
-      });
+      toast(ERROR_TOAST_BODY);
     }
   };
 };

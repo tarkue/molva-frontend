@@ -4,7 +4,7 @@ import { loadDisciplines } from '@/features/open-add-teacher-form/api/load';
 import { Pair } from '@/shared/ui/select/pair';
 import { FieldValues, UseFormReturn } from 'react-hook-form';
 
-export const EditTeacherFormFields = <T extends FieldValues>({
+export const UpdateTeacherFormFields = <T extends FieldValues>({
   form,
   defaultDisciplines,
 }: {

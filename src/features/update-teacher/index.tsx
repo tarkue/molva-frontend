@@ -1,8 +1,8 @@
 import { Teacher } from '@/shared/api';
-import { useOpenEditTeacherForm } from '../open-edit-teacher-form';
 import { UpdateButton } from '@/shared/ui/update-button';
+import { useOpenUpdateTeacherForm } from '../open-update-teacher-form';
 
 export const EditTeacher = ({ teacher }: { teacher: Teacher }) => {
-  const open = useOpenEditTeacherForm(teacher);
+  const open = useOpenUpdateTeacherForm(teacher);
   return <UpdateButton onClick={open} />;
 };

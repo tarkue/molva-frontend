@@ -1,6 +1,10 @@
 import { DisciplineForms } from '@/entity/discipline';
 import { api } from '@/shared/api';
 import { useRefresh } from '@/shared/lib/refresh';
+import {
+  ERROR_TOAST_BODY,
+  SUCCESS_ADD_TOAST_BODY,
+} from '@/shared/models/toast-body';
 import { useModals } from '@/shared/ui/modal';
 import { toast } from '@/shared/ui/toast';
 import { z } from 'zod';
@@ -18,13 +22,10 @@ export const useAddDisciplineSubmit = () => {
       });
       await api.discipline.create({ ...data, module_id: module.id });
       refresh();
+      toast(SUCCESS_ADD_TOAST_BODY.DISCIPLINE);
       clear();
     } catch {
-      toast({
-        title: 'Что-то пошло не так',
-        description: 'Попробуйте еще раз',
-        variant: 'destructive',
-      });
+      toast(ERROR_TOAST_BODY);
     }
   };
 };
