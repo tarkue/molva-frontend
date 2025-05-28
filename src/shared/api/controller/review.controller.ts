@@ -38,7 +38,7 @@ export const vote = async (dto: VoteReviewDTO) =>
 
 export const get = async (dto: OnlyId, options: GetReviewOptions) => {
   const cleanParams = Object.fromEntries(
-    Object.entries(options).filter(([_, v]) => v != null && v != undefined),
+    Object.entries(options).filter(([_, v]) => v != null && v != 'undefined'),
   );
 
   return await client
