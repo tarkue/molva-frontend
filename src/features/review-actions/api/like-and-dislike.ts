@@ -1,8 +1,14 @@
 import { api, Review } from '@/shared/api';
 
-type SetVoteType = React.Dispatch<
-  React.SetStateAction<'like' | 'dislike' | undefined>
->;
+const DEFAULT_STEP = 1 as const;
+const EXTENDED_STEP = 2 as const;
+
+type VoteType = [
+  'like' | 'dislike' | undefined,
+  React.Dispatch<
+    React.SetStateAction<'like' | 'dislike' | undefined>
+  >,
+];
 
 type SetTotalRatingType = React.Dispatch<
   React.SetStateAction<number>
@@ -11,23 +17,25 @@ type SetTotalRatingType = React.Dispatch<
 export const likeSubmit =
   (
     review: Review,
-    setVote: SetVoteType,
+    vote: VoteType,
     setTotalRating: SetTotalRatingType,
   ) =>
   async () => {
+    const step = vote[0] == 'dislike' ? EXTENDED_STEP : DEFAULT_STEP;
     await api.review.vote({ id: review.id, vote: 'like' });
-    setVote('like');
-    setTotalRating((prev) => (prev > 0 ? prev + 1 : 1));
+    vote[1]('like');
+    setTotalRating((prev) => prev + step);
   };
 
 export const dislikeSubmit =
   (
     review: Review,
-    setVote: SetVoteType,
+    vote: VoteType,
     setTotalRating: SetTotalRatingType,
   ) =>
   async () => {
+    const step = vote[0] == 'like' ? EXTENDED_STEP : DEFAULT_STEP;
     await api.review.vote({ id: review.id, vote: 'dislike' });
-    setVote('dislike');
-    setTotalRating((prev) => (prev < 0 ? prev - 1 : -1));
+    vote[1]('dislike');
+    setTotalRating((prev) => prev - step);
   };

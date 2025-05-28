@@ -1,20 +1,20 @@
+import { getColorClassByLikes } from '@/entity/review';
+import { useUser } from '@/entity/user';
+import { cn } from '@/shared/lib/utils';
 import Button from '@/shared/ui/button';
 import Icon from '@/shared/ui/icon';
-import { ReviewProps } from '../../models/review-props';
-import { cn } from '@/shared/lib/utils';
 import { useMemo, useState } from 'react';
-import { getColorClassByLikes } from '@/entity/review';
 import {
   dislikeSubmit,
   likeSubmit,
 } from '../../api/like-and-dislike';
-import { useUser } from '@/entity/user';
+import { ReviewProps } from '../../models/review-props';
 
 export const LikeAndDislike = ({ review }: ReviewProps) => {
   const { isAuthorized } = useUser();
-  const [userVote, setUserVote] = useState<
-    'like' | 'dislike' | undefined
-  >(review.user_vote);
+  const vote = useState<'like' | 'dislike' | undefined>(
+    review.user_vote,
+  );
   const [totalRating, setTotalRating] = useState(review.total_rating);
   const like_text_color = useMemo(
     () => getColorClassByLikes(totalRating),
@@ -25,8 +25,8 @@ export const LikeAndDislike = ({ review }: ReviewProps) => {
     <div className="flex gap-3">
       <Button
         variant="icon"
-        disabled={userVote === 'like' || !isAuthorized}
-        onClick={likeSubmit(review, setUserVote, setTotalRating)}
+        disabled={vote[0] === 'like' || !isAuthorized}
+        onClick={likeSubmit(review, vote, setTotalRating)}
       >
         <Icon glyph="like" />
       </Button>
@@ -35,8 +35,8 @@ export const LikeAndDislike = ({ review }: ReviewProps) => {
       </p>
       <Button
         variant="icon"
-        disabled={userVote === 'dislike' || !isAuthorized}
-        onClick={dislikeSubmit(review, setUserVote, setTotalRating)}
+        disabled={vote[0] === 'dislike' || !isAuthorized}
+        onClick={dislikeSubmit(review, vote, setTotalRating)}
       >
         <Icon glyph="dislike" />
       </Button>
