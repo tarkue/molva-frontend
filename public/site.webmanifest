@@ -1,0 +1,20 @@
+{
+  "name": "Молва",
+  "start_url": "https://student-feedbacks.irit-rtf.ru/",
+  "prefer_related_applications": "true",
+  "short_name": "Молва",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#8EAEFF",
+  "display": "standalone"
+}
