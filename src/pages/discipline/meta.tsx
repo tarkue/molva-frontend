@@ -44,10 +44,26 @@ const DisciplinePageMeta = ({
           {
             '@type': 'Offer',
             price: 0,
+            category: 'Paid',
             priceCurrency: 'RUB',
           },
         ],
-        hasCourseInstance: [],
+        hasCourseInstance: [
+          {
+            // Onsite, instructor-led class meeting weekly in August 202
+            '@type': 'CourseInstance',
+            courseMode: 'Onsite',
+            location: 'Уральский федеральный университет',
+            courseSchedule: {
+              '@type': 'Schedule',
+              duration: 'PT5H',
+              repeatCount: 4,
+              repeatFrequency: 'Weekly',
+              startDate: '2022-12-01',
+              endDate: '2030-12-31',
+            },
+          },
+        ],
         name: discipline.name,
         description: discipline.description,
         aggregateRating: {
