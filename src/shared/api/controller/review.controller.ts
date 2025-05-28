@@ -1,3 +1,4 @@
+import { SearchParamsOption } from 'ky';
 import client from '../base';
 import {
   CreateReviewDTO,
@@ -36,17 +37,23 @@ export const vote = async (dto: VoteReviewDTO) =>
     body: JSON.stringify(dto),
   });
 
-export const get = async (dto: OnlyId, options: GetReviewOptions) => {
-  const cleanParams = Object.fromEntries(
-    Object.entries(options).filter(([_, v]) => v != null && v != 'undefined'),
+export const get = async (
+  dto: Partial<OnlyId> | undefined = undefined,
+  options: GetReviewOptions,
+) => {
+  const extendedOptions = {
+    ...options,
+    discipline_id: dto?.id ?? undefined,
+  };
+  const searchParams = Object.fromEntries(
+    Object.entries(extendedOptions).filter(
+      ([_, v]) => v != null && v != 'undefined',
+    ),
   );
 
   return await client
     .get(`${BASE_URL}`, {
-      searchParams: {
-        discipline_id: dto.id,
-        ...cleanParams,
-      },
+      searchParams: searchParams as SearchParamsOption,
     })
     .json<GetResponse<Review[]>>();
 };

@@ -8,8 +8,7 @@ export const useGetAllReview = () => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ['all-reviews', offset],
     queryFn: () =>
-      api.review.getForModerate({
-        status: 'published',
+      api.review.get(undefined, {
         page: offset,
       }),
   });
