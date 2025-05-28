@@ -40,6 +40,14 @@ const DisciplinePageMeta = ({
         '@context': 'https://schema.org/',
         '@id': discipline.presentation_link,
         '@type': 'Course',
+        offers: [
+          {
+            '@type': 'Offer',
+            price: 0,
+            priceCurrency: 'RUB',
+          },
+        ],
+        hasCourseInstance: [],
         name: discipline.name,
         description: discipline.description,
         aggregateRating: {
