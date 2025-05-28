@@ -21,7 +21,7 @@ export const TeacherParam = ({
         placeholder="Преподаватели"
         cacheOptions
         defaultOptions
-        isClearable={true}
+        isClearable
         defaultValue={selected}
         value={selected}
         onChange={(e) => {
