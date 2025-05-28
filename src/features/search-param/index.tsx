@@ -6,7 +6,7 @@ export const SearchParam = ({
 }: {
   placeholder?: string;
 }) => {
-  const [search, setSearch] = useSearchParam<string>('q', {
+  const [search, setSearch] = useSearchParam<string | undefined>('q', {
     default: undefined,
   });
 
@@ -18,7 +18,7 @@ export const SearchParam = ({
         placeholder={placeholder}
         aria-label="Поисковая строка"
         type="seach"
-        value={search}
+        value={search || ''}
         onChange={(e) => setSearch(e.currentTarget.value)}
       />
     </fieldset>
