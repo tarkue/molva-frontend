@@ -13,7 +13,7 @@ export const SignInFormButtons = () => {
         <span className="text-caption text-contrast w-[135px] text-center">
           Нет аккаунта?
           <a className="text-dark-blue" onClick={openRegister}>
-            Зарегестрируйтесь
+            Зарегистрируйтесь
           </a>
         </span>
       </div>
