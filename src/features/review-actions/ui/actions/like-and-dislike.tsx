@@ -9,6 +9,7 @@ import {
   likeSubmit,
 } from '../../api/like-and-dislike';
 import { ReviewProps } from '../../models/review-props';
+import { isDislikeDisabled, isLikeDisabled } from '../libs/utils';
 
 export const LikeAndDislike = ({ review }: ReviewProps) => {
   const { isAuthorized } = useUser();
@@ -25,7 +26,7 @@ export const LikeAndDislike = ({ review }: ReviewProps) => {
     <div className="flex gap-3">
       <Button
         variant="icon"
-        disabled={vote[0] === 'like' || !isAuthorized}
+        disabled={isLikeDisabled(vote, isAuthorized)}
         onClick={likeSubmit(review, vote, setTotalRating)}
       >
         <Icon glyph="like" />
@@ -35,7 +36,7 @@ export const LikeAndDislike = ({ review }: ReviewProps) => {
       </p>
       <Button
         variant="icon"
-        disabled={vote[0] === 'dislike' || !isAuthorized}
+        disabled={isDislikeDisabled(vote, isAuthorized)}
         onClick={dislikeSubmit(review, vote, setTotalRating)}
       >
         <Icon glyph="dislike" />
