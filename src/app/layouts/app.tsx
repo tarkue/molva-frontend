@@ -1,9 +1,10 @@
-import Header from '@/widgets/header';
-import Footer from '@/widgets/footer';
 import { UserProvider } from '@/entity/user';
+import { Metrics } from '@/features/metrics';
 import { ThemeProvider } from '@/shared/models/theme-store';
-import { Toaster } from '@/shared/ui/toast';
 import { ModalProvider } from '@/shared/ui/modal';
+import { Toaster } from '@/shared/ui/toast';
+import Footer from '@/widgets/footer';
+import Header from '@/widgets/header';
 import {
   QueryClient,
   QueryClientProvider,
@@ -17,19 +18,22 @@ export default function AppLayout({
   children: React.ReactNode;
 }) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <UserProvider>
-          <ModalProvider>
-            <Header />
-            <main className="flex min-w-full min-h-[calc(100dvh-130px)]">
-              {children}
-            </main>
-            <Footer />
-            <Toaster />
-          </ModalProvider>
-        </UserProvider>
-      </ThemeProvider>
-    </QueryClientProvider>
+    <>
+      <Metrics />
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider>
+          <UserProvider>
+            <ModalProvider>
+              <Header />
+              <main className="flex min-w-full min-h-[calc(100dvh-130px)]">
+                {children}
+              </main>
+              <Footer />
+              <Toaster />
+            </ModalProvider>
+          </UserProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </>
   );
 }
