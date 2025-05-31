@@ -9,6 +9,7 @@ import {
   likeSubmit,
 } from '../../api/like-and-dislike';
 import { ReviewProps } from '../../models/review-props';
+import { showToastIfUserNotAuthorized } from '../libs/show-toast';
 import { isDislikeDisabled, isLikeDisabled } from '../libs/utils';
 
 export const LikeAndDislike = ({ review }: ReviewProps) => {
@@ -23,7 +24,10 @@ export const LikeAndDislike = ({ review }: ReviewProps) => {
   );
 
   return (
-    <div className="flex gap-3">
+    <div
+      className="flex gap-3"
+      onClick={showToastIfUserNotAuthorized(isAuthorized)}
+    >
       <Button
         variant="icon"
         disabled={isLikeDisabled(vote, isAuthorized)}
