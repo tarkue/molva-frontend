@@ -26,7 +26,7 @@ export const LikeAndDislike = ({ review }: ReviewProps) => {
   return (
     <div
       className="flex gap-3"
-      onClick={showToastIfUserNotAuthorized(isAuthorized)}
+      onTouchEnd={showToastIfUserNotAuthorized(isAuthorized)}
     >
       <Button
         variant="icon"
