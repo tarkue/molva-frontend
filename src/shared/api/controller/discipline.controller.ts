@@ -40,8 +40,11 @@ export const getAll = async () =>
 export const search = async (params: DisciplineSearchOptions) => {
   params.sort_by;
   const cleanParams = Object.fromEntries(
-    Object.entries(params).filter(([_, v]) => v != null && v != 'undefined'),
+    Object.entries(params).filter(
+      ([_, v]) => v != null && v != 'undefined' && v != '',
+    ),
   );
+
   return await client
     .get(`${BASE_URL}/search`, { searchParams: cleanParams })
     .json<GetResponse<Discipline[]>>();

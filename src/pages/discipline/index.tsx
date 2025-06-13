@@ -1,15 +1,15 @@
 import { DisciplineContent } from '@/entity/discipline';
-import Container from '@/shared/ui/сontainer';
-import NotFoundPage from '../not-found';
-import ReviewList from '@/widgets/review-list';
-import DisciplinePageMeta from './meta';
-import { useGetDiscipline } from './api';
-import { Spinner } from '@/shared/ui/spinner';
 import { AddReview } from '@/features/add-review';
-import { TeacherParam } from '@/features/teacher-param';
-import { SortForDisciplineParam } from '@/features/sort-for-discipline-param';
-import { OrderParam } from '@/features/order-param';
 import { DisciplineActions } from '@/features/discipline-actions';
+import { OrderParam } from '@/features/order-param';
+import { SortForReviewsParam } from '@/features/sort-for-reviews-param';
+import { TeacherParam } from '@/features/teacher-param';
+import { Spinner } from '@/shared/ui/spinner';
+import Container from '@/shared/ui/сontainer';
+import ReviewList from '@/widgets/review-list';
+import NotFoundPage from '../not-found';
+import { useGetDiscipline } from './api';
+import DisciplinePageMeta from './meta';
 
 const DisciplinePage = () => {
   const { data: discipline, isError, isLoading } = useGetDiscipline();
@@ -37,7 +37,7 @@ const DisciplinePage = () => {
           <TeacherParam discipline={discipline} />
           <div className="flex gap-2 w-full sm:w-auto">
             <OrderParam />
-            <SortForDisciplineParam />
+            <SortForReviewsParam />
           </div>
         </div>
         <ReviewList />

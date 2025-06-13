@@ -1,17 +1,17 @@
-import { AsyncSelect } from '@/shared/ui/select';
-import { TeachersLoad } from './api/load';
 import { Discipline } from '@/shared/api';
-import { useSearchParam } from '@/shared/models/search-params';
-import { useState } from 'react';
+import { AsyncSelect } from '@/shared/ui/select';
 import { Pair } from '@/shared/ui/select/pair';
+import { useState } from 'react';
 import { SingleValue } from 'react-select';
+import { TeachersLoad } from './api/load';
+import { useTeacherParam } from './teacher-param';
 
 export const TeacherParam = ({
   discipline,
 }: {
   discipline: Discipline;
 }) => {
-  const [_, setTeacher] = useSearchParam<string | undefined>('teacher_id');
+  const [_, setTeacher] = useTeacherParam();
   const [selected, setSelected] =
     useState<SingleValue<Pair<string, string> | undefined>>();
 

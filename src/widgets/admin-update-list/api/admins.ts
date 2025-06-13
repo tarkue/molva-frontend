@@ -1,14 +1,15 @@
+import { useOffsetParam } from '@/features/offset-param';
+import { useQueryParam } from '@/features/query-param';
 import { api } from '@/shared/api';
-import { useSearchParam } from '@/shared/models/search-params';
 import { useQuery } from '@tanstack/react-query';
 
 export const useGetAdminList = () => {
-  const [q] = useSearchParam<string>('q');
-  const [offset] = useSearchParam<number>('offset');
+  const [query] = useQueryParam();
+  const [offset] = useOffsetParam();
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['admins', q, offset],
-    queryFn: () => api.admin.getAll(q ? q : '', offset ? offset : 1),
+    queryKey: ['admins', query, offset],
+    queryFn: () => api.admin.getAll(query, offset),
   });
 
   return { data, isError, isLoading };

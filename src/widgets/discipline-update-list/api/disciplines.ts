@@ -1,14 +1,19 @@
-import { api, Format, SortBy, SortOrder } from '@/shared/api';
-import { useSearchParam } from '@/shared/models/search-params';
+import { useFormatParam } from '@/features/format-param';
+import { useModuleParam } from '@/features/module-param';
+import { useOffsetParam } from '@/features/offset-param';
+import { useOrderParam } from '@/features/order-param';
+import { useQueryParam } from '@/features/query-param';
+import { useSortParam } from '@/features/sort-param/sort-param';
+import { api } from '@/shared/api';
 import { useQuery } from '@tanstack/react-query';
 
 export const useGetDisciplines = () => {
-  const [sortOrder] = useSearchParam<SortOrder>('order');
-  const [format] = useSearchParam<Format>('format');
-  const [module] = useSearchParam<string>('module');
-  const [offset] = useSearchParam<string>('offset');
-  const [search] = useSearchParam<string>('q');
-  const [sort] = useSearchParam<keyof typeof SortBy>('sort');
+  const [sortOrder] = useOrderParam();
+  const [format] = useFormatParam();
+  const [module] = useModuleParam();
+  const [offset] = useOffsetParam();
+  const [query] = useQueryParam();
+  const [sort] = useSortParam();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: [
@@ -17,12 +22,12 @@ export const useGetDisciplines = () => {
       format,
       module,
       offset,
-      search,
+      query,
       sort,
     ],
     queryFn: () =>
       api.discipline.search({
-        name_search: search,
+        name_search: query,
         module_search: module,
         format_filter: format,
         sort_by: sort,

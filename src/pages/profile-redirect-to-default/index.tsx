@@ -1,21 +1,21 @@
 import { getPanels } from '@/widgets/profile-tabs';
 import { useEffect } from 'react';
-import { useNavigate, useParams, Outlet } from 'react-router';
+import { Outlet, useNavigate, useParams } from 'react-router';
 
 export default function ProfileRedirectToDefault() {
   const panels = getPanels();
-  if (!panels) {
-    return <></>;
-  }
   const { panel } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!panels || panels.length < 1) return;
-    if (!panel || !panels.find((e) => e.value == panel)) {
-      navigate(`/profile/${panels[0].value}`, { replace: true });
+    if (panels && panels.length > 0) {
+      const isValidPanel = panels.some((p) => p.value === panel);
+
+      if (!panel || !isValidPanel) {
+        navigate(`/profile/${panels[0].value}`, { replace: true });
+      }
     }
-  }, [panel, panels]);
+  }, [panels, navigate, panel]);
 
   return <Outlet />;
 }

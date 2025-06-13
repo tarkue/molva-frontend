@@ -1,17 +1,12 @@
 import { SortBy } from '@/shared/api';
 import { enumToPair, getValue } from '@/shared/lib/enum-utils';
-import { useSearchParam } from '@/shared/models/search-params';
 import { Select } from '@/shared/ui/select';
+import { useSortParam } from './sort-param';
 
 const SortPair = enumToPair(SortBy);
 
 export const SortParam = () => {
-  const [sort, setSort] = useSearchParam<keyof typeof SortBy>(
-    'sort',
-    {
-      default: 'rating',
-    },
-  );
+  const [sort, setSort] = useSortParam();
   return (
     <fieldset className="w-full lg:w-[235px]">
       <Select

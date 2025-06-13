@@ -2,7 +2,7 @@ import { SortOrder } from '../types/order';
 import { PageOffsetOptions } from '../types/page';
 import { ResolveAction } from '../types/resolve';
 import { ReviewStatus } from '../types/review_status';
-import { SortForDiscipline } from '../types/sort-for-discipine';
+import { SortForReviews } from '../types/sort-for-reviews';
 import { Vote } from '../types/vote';
 import { OnlyId } from './shared.dto';
 import { Teacher } from './teacher.dto';
@@ -43,6 +43,6 @@ export type VoteReviewDTO = OnlyId & { vote: Vote };
 export type ResolveComplaintDTO = OnlyId & { action: ResolveAction };
 export type GetReviewOptions = PageOffsetOptions & {
   teacher_id?: string;
-  sort_by?: SortForDiscipline;
+  sort_by?: keyof typeof SortForReviews;
   sort_order?: SortOrder;
 };

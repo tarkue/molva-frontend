@@ -1,15 +1,16 @@
+import { useOffsetParam } from '@/features/offset-param';
+import { useQueryParam } from '@/features/query-param';
 import { api } from '@/shared/api';
-import { useSearchParam } from '@/shared/models/search-params';
 import { useQuery } from '@tanstack/react-query';
 
 export const useGetTeacherList = () => {
-  const [q] = useSearchParam<string>('q');
-  const [offset] = useSearchParam<number>('offset');
+  const [query] = useQueryParam();
+  const [offset] = useOffsetParam();
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['teachers', q, offset],
+    queryKey: ['teachers', query, offset],
     queryFn: () =>
-      api.teacher.getAll(q ? q : '', offset ? offset : 1),
+      api.teacher.getAll(query, offset),
   });
 
   return { data, isError, isLoading };

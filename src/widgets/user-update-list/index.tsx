@@ -1,9 +1,9 @@
-import { SearchParam } from '@/features/search-param';
+import { QueryParam } from '@/features/query-param';
 import { UserUpdateListContent } from './ui/content';
 
 export const UserUpdateList = () => (
   <>
-    <SearchParam placeholder="Найти пользователя" />
+    <QueryParam placeholder="Найти пользователя" />
     <UserUpdateListContent />
   </>
 );

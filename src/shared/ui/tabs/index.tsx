@@ -36,8 +36,8 @@ export const Tabs = (props: TabsProps) => {
         >
           <div className="max-[660px]:px-6">
             <ul className="flex gap-3 w-fit m-auto" ref={container}>
-              {props.panels.map((el, key) => (
-                <li key={key}>
+              {props.panels.map((el) => (
+                <li key={el.value}>
                   <Tab
                     active={props.state[0] == el.value}
                     onClick={() => props.state[1](el.value)}

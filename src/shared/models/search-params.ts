@@ -1,19 +1,21 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useSearchParams } from 'react-router';
 
 type SearchParam<T> = [
-  value: T | undefined,
+  value: T,
   update: (value: T | undefined) => void,
 ];
 
 interface useSearchParamOptions<T> {
-  default?: T;
+  default: T;
   validator?: (el?: string) => T;
 }
 
 export function useSearchParam<T>(
   key: string,
-  options: useSearchParamOptions<T> = {},
+  options: useSearchParamOptions<T> = {
+    default: '' as T,
+  },
 ): SearchParam<T> {
   const validator = options.validator
     ? options.validator
@@ -25,40 +27,30 @@ export function useSearchParam<T>(
     ? validator(searchParams.get(key) as string)
     : options.default;
 
-  const clear = () => {
-    setSearchParams((prev) => {
-      prev.delete(key);
-      return prev;
-    });
-  };
-
-  const setSearchParamWithTimeout = (value?: T) => {
-    if (value === undefined) {
-      clear();
-      return;
-    }
-    setTimeout(() => {
-      if (String(value) == '') {
-        setSearchParams((prev) => {
-          prev.set(key, options.default as string);
-          return prev;
-        });
-      } else {
-        setSearchParams((prev) => {
-          prev.set(key, String(value));
-          return prev;
-        });
-      }
-    });
-  };
+  const setSearchParamWithClear = useCallback(
+    (value?: T) => {
+      setSearchParams((prev) => {
+        const newParams = new URLSearchParams(prev);
+        if (value === undefined || value === null) {
+          newParams.delete(key);
+        } else {
+          newParams.set(key, String(value));
+        }
+        return newParams;
+      });
+    },
+    [key, setSearchParams],
+  );
 
   useEffect(() => {
-    if (options.default !== undefined) {
-      if (!hasKeyInSearchParams) {
-        setSearchParamWithTimeout(options.default);
-      }
+    if (options.default !== undefined && !hasKeyInSearchParams) {
+      setSearchParamWithClear(options.default);
     }
-  }, [options]);
+  }, [
+    options.default,
+    hasKeyInSearchParams,
+    setSearchParamWithClear,
+  ]);
 
-  return [value, setSearchParamWithTimeout];
+  return [value, setSearchParamWithClear];
 }

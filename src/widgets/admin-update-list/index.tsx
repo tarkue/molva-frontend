@@ -1,11 +1,11 @@
-import { SearchParam } from '@/features/search-param';
-import { AdminUpdateListContent } from './ui/content';
 import { AddAdmin } from '@/features/add-admin';
+import { QueryParam } from '@/features/query-param';
+import { AdminUpdateListContent } from './ui/content';
 
 export const AdminUpdateList = () => (
   <>
     <div className="flex gap-3 w-full">
-      <SearchParam placeholder="Найти администратора" />
+      <QueryParam placeholder="Найти администратора" />
       <AddAdmin />
     </div>
     <AdminUpdateListContent />

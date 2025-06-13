@@ -1,12 +1,12 @@
 import { Format } from '@/shared/api';
 import { enumToPair } from '@/shared/lib/enum-utils';
-import { useSearchParam } from '@/shared/models/search-params';
 import { Select } from '@/shared/ui/select';
+import { useFormatParam } from './format-param';
 
 const FormatPair = enumToPair(Format);
 
-export const FormatParam = () => {
-  const [format, setFormat] = useSearchParam<Format | undefined>('format');
+const FormatParam = () => {
+  const [format, setFormat] = useFormatParam();
   return (
     <fieldset className="w-full lg:w-[230px]">
       <Select
@@ -20,3 +20,5 @@ export const FormatParam = () => {
     </fieldset>
   );
 };
+
+export { FormatParam, useFormatParam };
