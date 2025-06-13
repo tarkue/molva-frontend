@@ -1,10 +1,10 @@
 import {
   FC,
+  ReactNode,
   createContext,
   useContext,
-  ReactNode,
-  useState,
   useEffect,
+  useState,
 } from 'react';
 
 const ATTRIBUTE_NAME = 'data-theme';

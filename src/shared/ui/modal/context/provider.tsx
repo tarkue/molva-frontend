@@ -21,6 +21,7 @@ export const ModalProvider = ({
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
+      document.body.style.overflowX = 'hidden';
     }
   }, [modals]);
 

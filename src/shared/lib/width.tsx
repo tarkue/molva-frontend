@@ -1,7 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
-export const useWidth = (ref: React.RefObject<HTMLElement | null>) => {
+export const useWidth = (
+  ref: React.RefObject<HTMLElement | null>,
+) => {
   const [width, setWidth] = useState(ref.current?.offsetWidth);
+
+  useEffect(() => {
+    setWidth(ref.current?.offsetWidth);
+  }, [ref.current]);
 
   useEffect(() => {
     const handleResize = () => setWidth(ref.current?.offsetWidth);
@@ -10,7 +16,7 @@ export const useWidth = (ref: React.RefObject<HTMLElement | null>) => {
   }, []);
 
   return width;
-}
+};
 
 export const useBodyWidth = () => {
   const ref = useRef<HTMLElement>(document.body);
