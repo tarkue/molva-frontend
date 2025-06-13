@@ -8,7 +8,7 @@ export const DisciplineUpdateCard = ({
   discipline: Discipline;
 }) => (
   <div className="flex gap-3 sm:gap-6 w-full">
-    <div className="w-[calc(100%-30px)] sm:w-[calc(100%-96px)]">
+    <div className="w-[calc(100%-42px)] sm:w-[calc(100%-96px)]">
       <DisciplineCard discipline={discipline} />
     </div>
     <DisciplineActions discipline={discipline} />
