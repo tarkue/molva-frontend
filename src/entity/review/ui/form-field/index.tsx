@@ -2,6 +2,7 @@ import {
   DefaultFormField,
   DefaultFormFieldProps,
   FormField,
+  FormMessage,
 } from '@/shared/ui/form';
 import { FieldLabel } from '../../models/field-label';
 import {
@@ -129,17 +130,27 @@ export const Star = <T extends FieldValues>({
       <FormField
         name={'grade' as Path<T>}
         control={form}
-        render={({ field }) => (
-          <StarsInput
-            state={[
-              stars,
-              (new_count) => {
-                field.onChange(new_count);
-                setStars(new_count);
-              },
-            ]}
-          />
-        )}
+        render={({ field, formState }) => {
+          console.log(formState.errors['grade']);
+          return (
+            <div className="flex flex-col gap-4 justify-center items-center">
+              <StarsInput
+                state={[
+                  stars,
+                  (new_count) => {
+                    field.onChange(new_count);
+                    setStars(new_count);
+                  },
+                ]}
+              />
+              <FormMessage className="m-0 p-0">
+                {formState.errors[
+                  'grade' as Path<T>
+                ]?.message?.toString()}
+              </FormMessage>
+            </div>
+          );
+        }}
       />
     </fieldset>
   );
