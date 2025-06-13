@@ -1,14 +1,15 @@
+import { useOffsetParam } from '@/features/offset-param';
+import { useQueryParam } from '@/features/query-param';
 import { api } from '@/shared/api';
-import { useSearchParam } from '@/shared/models/search-params';
 import { useQuery } from '@tanstack/react-query';
 
 export const useGetUserList = () => {
-  const [offset] = useSearchParam<number>('offset');
-  const [q] = useSearchParam<string>('q');
+  const [offset] = useOffsetParam();
+  const [query] = useQueryParam();
 
   const { data, isLoading, isError, refetch } = useQuery({
-    queryKey: ['users', offset, q],
-    queryFn: () => api.user.getAll(q ? q : '', offset ? offset : 1),
+    queryKey: ['users', offset, query],
+    queryFn: () => api.user.getAll(query, offset),
   });
 
   return { data, isLoading, isError, refetch };

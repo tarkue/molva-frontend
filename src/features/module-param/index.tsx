@@ -1,12 +1,12 @@
 import { AsyncSelect } from '@/shared/ui/select';
-import { loadModules } from './api/load';
-import { useSearchParam } from '@/shared/models/search-params';
-import { useState } from 'react';
 import { Pair } from '@/shared/ui/select/pair';
+import { useState } from 'react';
+import { loadModules } from './api/load';
+import { useModuleParam } from './module-param';
 
-export const ModuleParam = () => {
+const ModuleParam = () => {
   const [selected, setSelected] = useState<Pair<string, string>>();
-  const [module, setModule] = useSearchParam<string>('module');
+  const [module, setModule] = useModuleParam();
   return (
     <fieldset className="w-full lg:w-[250px]">
       <AsyncSelect
@@ -33,3 +33,5 @@ export const ModuleParam = () => {
     </fieldset>
   );
 };
+
+export { ModuleParam, useModuleParam };

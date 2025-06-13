@@ -1,10 +1,9 @@
-import { SortOrder } from '@/shared/api';
-import { useSearchParam } from '@/shared/models/search-params';
 import { SortOrderCircle } from '@/shared/ui/sort-order';
+import { useOrderParam } from './use-order-param';
 
-export const OrderParam = () => {
-  const [order, setOrder] = useSearchParam<SortOrder>('order', {
-    default: 'desc',
-  });
+const OrderParam = () => {
+  const [order, setOrder] = useOrderParam();
   return <SortOrderCircle onOrderChange={setOrder} value={order} />;
 };
+
+export { OrderParam, useOrderParam };
