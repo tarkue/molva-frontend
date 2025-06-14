@@ -1,12 +1,12 @@
 import { ResolveAction, Review, api } from '@/shared/api';
-import { useRefresh } from '@/shared/lib/refresh';
+import { useRefresh } from '@/shared/models/refresh-store';
 import { toast } from '@/shared/ui/toast';
 
 export const useComplaintResolveSubmit = (
   review: Review,
   action: ResolveAction,
 ) => {
-  const refresh = useRefresh();
+  const { refresh } = useRefresh();
 
   return async () => {
     try {
@@ -31,14 +31,18 @@ export const useComplaintResolveSubmit = (
   };
 };
 
-export const useResolveSubmit = (review: Review, action: ResolveAction) => {
-  const refresh = useRefresh();
+export const useResolveSubmit = (
+  review: Review,
+  action: ResolveAction,
+) => {
+  const { refresh } = useRefresh();
 
   return async () => {
     try {
       await api.review.edit({
         id: review.id,
-        status: action === ResolveAction.Dismiss ? 'published' : 'rejected',
+        status:
+          action === ResolveAction.Dismiss ? 'published' : 'rejected',
       });
       refresh();
       toast({

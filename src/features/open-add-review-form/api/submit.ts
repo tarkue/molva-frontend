@@ -1,6 +1,6 @@
 import { ReviewForms } from '@/entity/review';
 import { api, Discipline } from '@/shared/api';
-import { useRefresh } from '@/shared/lib/refresh';
+import { useRefresh } from '@/shared/models/refresh-store';
 import {
   ERROR_TOAST_BODY,
   SUCCESS_ADD_TOAST_BODY,
@@ -10,7 +10,7 @@ import { toast } from '@/shared/ui/toast';
 import { z } from 'zod';
 
 export const useAddReviewSubmit = (discipline: Discipline) => {
-  const refresh = useRefresh();
+  const { refresh } = useRefresh();
   const { clear } = useModals();
 
   return async (

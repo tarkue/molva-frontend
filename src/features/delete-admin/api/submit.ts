@@ -1,5 +1,5 @@
 import { api, User } from '@/shared/api';
-import { useRefresh } from '@/shared/lib/refresh';
+import { useRefresh } from '@/shared/models/refresh-store';
 import {
   FAILED_REMOVE_TOAST_BODY,
   SUCCESS_REMOVE_TOAST_BODY,
@@ -8,7 +8,7 @@ import { useModals } from '@/shared/ui/modal';
 import { toast } from '@/shared/ui/toast';
 
 export const useDeleteAdminSubmit = (admin: User) => {
-  const refresh = useRefresh();
+  const { refresh } = useRefresh();
   const { clear } = useModals();
 
   return async () => {

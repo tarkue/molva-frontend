@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 
 const useGetDiscipline = () => {
   const params = useParams();
+
   const id = params.id;
 
   if (!id) {

@@ -3,6 +3,7 @@ import { useOrderParam } from '@/features/order-param';
 import { useSortForReviews } from '@/features/sort-for-reviews-param';
 import { useTeacherParam } from '@/features/teacher-param/teacher-param';
 import { api } from '@/shared/api';
+import { useRefresh } from '@/shared/models/refresh-store';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
 
@@ -12,13 +13,22 @@ export const useGetDisciplineReviews = () => {
   const [page] = useOffsetParam();
   const [order] = useOrderParam();
   const [sort] = useSortForReviews();
+  const { refreshState } = useRefresh();
 
   if (!id) {
     return { data: null, isLoading: false, isError: false };
   }
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['reviews', id, teacherId, sort, order, page],
+    queryKey: [
+      'reviews',
+      id,
+      teacherId,
+      sort,
+      order,
+      page,
+      refreshState,
+    ],
     queryFn: () =>
       api.review.get(
         { id },

@@ -9,7 +9,8 @@ import {
 type Param = [string, (value: string) => void];
 
 const NAVIGATE_OPTIONS: NavigateOptions = {
-  replace: true,
+  replace: false,
+  flushSync: true,
 } as const;
 
 interface useParamOptions {
