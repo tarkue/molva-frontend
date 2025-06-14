@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { TabProps } from './props';
 
 const Tab = forwardRef<HTMLDivElement, TabProps>(
-  ({ className, active, children, ...props }, ref) => {
+  ({ className, active, onClick, children, ...props }, ref) => {
     return (
       <div
         role="tab"
@@ -12,6 +12,7 @@ const Tab = forwardRef<HTMLDivElement, TabProps>(
           className,
         )}
         ref={ref}
+        onClick={active ? undefined : onClick}
         {...props}
       >
         <span className="text-subhead text-contrast">{children}</span>
