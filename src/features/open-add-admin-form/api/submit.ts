@@ -1,6 +1,6 @@
 import { AdminForms } from '@/entity/admin';
 import { api } from '@/shared/api';
-import { useRefresh } from '@/shared/lib/refresh';
+import { useRefresh } from '@/shared/models/refresh-store';
 import {
   ERROR_TOAST_BODY,
   SUCCESS_ADD_TOAST_BODY,
@@ -11,7 +11,7 @@ import { z } from 'zod';
 
 export const useSubmit = () => {
   const { clear } = useModals();
-  const refresh = useRefresh();
+  const { refresh } = useRefresh();
   return async (
     data: z.infer<typeof AdminForms.addAdminFormSchema>,
   ) => {

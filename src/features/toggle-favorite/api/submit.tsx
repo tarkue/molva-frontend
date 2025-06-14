@@ -1,5 +1,5 @@
 import { api, Discipline } from '@/shared/api';
-import { useRefresh } from '@/shared/lib/refresh';
+import { useRefresh } from '@/shared/models/refresh-store';
 import { ERROR_TOAST_BODY } from '@/shared/models/toast-body';
 import { toast } from '@/shared/ui/toast';
 import { useEffect, useState } from 'react';
@@ -15,7 +15,7 @@ const addToFavoriteSubmit = (discipline: Discipline) => {
 };
 
 const removeFromFavoriteSubmit = (discipline: Discipline) => {
-  const refresh = useRefresh();
+  const { refresh } = useRefresh();
   return async () => {
     try {
       await api.discipline.favorite.remove({ id: discipline.id });
@@ -27,7 +27,7 @@ const removeFromFavoriteSubmit = (discipline: Discipline) => {
 };
 
 export const useToggleFavorite = (discipline: Discipline) => {
-  const refresh = useRefresh();
+  const { refresh } = useRefresh();
   const remove = removeFromFavoriteSubmit(discipline);
   const add = addToFavoriteSubmit(discipline);
   const [inFavorite, setInFavorite] = useState(false);

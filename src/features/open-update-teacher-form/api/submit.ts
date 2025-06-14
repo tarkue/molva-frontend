@@ -1,6 +1,6 @@
 import { TeacherForms } from '@/entity/teacher';
 import { api, Teacher } from '@/shared/api';
-import { useRefresh } from '@/shared/lib/refresh';
+import { useRefresh } from '@/shared/models/refresh-store';
 import {
   ERROR_TOAST_BODY,
   SUCCESS_UPDATE_DATA_TOAST_BODY,
@@ -10,7 +10,7 @@ import { toast } from '@/shared/ui/toast';
 import { z } from 'zod';
 
 export const useUpdateTeacherSubmit = (teacher: Teacher) => {
-  const refresh = useRefresh();
+  const { refresh } = useRefresh();
   const { clear } = useModals();
   return async (
     data: z.infer<typeof TeacherForms.updateTeacherFormSchema>,

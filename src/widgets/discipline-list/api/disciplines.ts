@@ -5,6 +5,7 @@ import { useOrderParam } from '@/features/order-param';
 import { useQueryParam } from '@/features/query-param';
 import { useSortParam } from '@/features/sort-param/sort-param';
 import { api } from '@/shared/api';
+import { useRefresh } from '@/shared/models/refresh-store';
 import { useQuery } from '@tanstack/react-query';
 
 export const useGetDisciplines = () => {
@@ -14,6 +15,7 @@ export const useGetDisciplines = () => {
   const [offset] = useOffsetParam();
   const [query] = useQueryParam();
   const [sort] = useSortParam();
+  const { refreshState } = useRefresh();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: [
@@ -24,6 +26,7 @@ export const useGetDisciplines = () => {
       offset,
       query,
       sort,
+      refreshState,
     ],
     queryFn: () =>
       api.discipline.search({
