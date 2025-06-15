@@ -14,6 +14,7 @@ export const useDeleteDisciplineSubmit = (discipline: Discipline) => {
   return async () => {
     try {
       await api.discipline.remove({ id: discipline.id });
+      await api.admin.module.remove({ id: discipline.module.id });
       refresh();
       toast(SUCCESS_REMOVE_TOAST_BODY.DISCIPLINE);
     } catch {

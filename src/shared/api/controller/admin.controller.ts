@@ -36,4 +36,8 @@ export const module = {
         body: JSON.stringify(module),
       })
       .json<Module>(),
+  remove: async (id: OnlyId) =>
+    await client.delete(`${BASE_URL}/module/delete`, {
+      body: JSON.stringify(id),
+    }),
 };

@@ -19,8 +19,8 @@ export const useAddDisciplineForm = () => {
       name: '',
       format: Format.mixed,
       description: '',
-      modeus_link: '',
-      presentation_link: '',
+      modeus_link: undefined,
+      presentation_link: undefined,
       module: '',
     },
   });
