@@ -6,8 +6,8 @@ export interface Discipline extends OnlyId {
   name: string;
   description: string;
   format: Format;
-  presentation_link: string;
-  modeus_link: string;
+  presentation_link?: string;
+  modeus_link?: string;
   module: Omit<Module, 'created_at'>;
 
   avg_rating: number;

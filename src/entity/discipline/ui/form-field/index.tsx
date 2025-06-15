@@ -1,14 +1,14 @@
+import { Format as FormatEnum } from '@/shared/api';
 import {
   DefaultFormField,
   DefaultFormFieldProps,
   FormField,
 } from '@/shared/ui/form';
-import { FieldLabel } from '../../models/field-label';
-import { FieldValues, Path } from 'react-hook-form';
 import { Select } from '@/shared/ui/select';
-import { Format as FormatEnum } from '@/shared/api';
-import { useState } from 'react';
 import { Pair } from '@/shared/ui/select/pair';
+import { useState } from 'react';
+import { FieldValues, Path } from 'react-hook-form';
+import { FieldLabel } from '../../models/field-label';
 
 export const Name = <T extends FieldValues>({
   form,
@@ -43,7 +43,6 @@ export const PresentationLink = <T extends FieldValues>({
   withPlaceholder,
 }: DefaultFormFieldProps<T>) => (
   <DefaultFormField
-    required
     name="presentation_link"
     label={withPlaceholder ? undefined : FieldLabel.presentationLink}
     placeholder={
@@ -59,7 +58,6 @@ export const ModeusLink = <T extends FieldValues>({
   withPlaceholder,
 }: DefaultFormFieldProps<T>) => (
   <DefaultFormField
-    required
     name="modeus_link"
     label={withPlaceholder ? undefined : FieldLabel.modeusLink}
     placeholder={withPlaceholder ? FieldLabel.modeusLink : undefined}

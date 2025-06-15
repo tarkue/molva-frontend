@@ -1,9 +1,9 @@
 import { DisciplineForms } from '@/entity/discipline';
-import { useUpdateDisciplineSubmit } from './api/submit';
-import { useModals } from '@/shared/ui/modal';
-import { UpdateDisciplineFormFields } from './ui/fields';
-import { UpdateDisciplineFormButtons } from './ui/buttons';
 import { Discipline } from '@/shared/api';
+import { useModals } from '@/shared/ui/modal';
+import { useUpdateDisciplineSubmit } from './api/submit';
+import { UpdateDisciplineFormButtons } from './ui/buttons';
+import { UpdateDisciplineFormFields } from './ui/fields';
 
 export const useOpenUpdateDisciplineForm = (
   discipline: Discipline,
