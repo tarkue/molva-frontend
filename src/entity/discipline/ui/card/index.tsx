@@ -1,5 +1,5 @@
-import { Link } from 'react-router';
 import { Discipline } from '@/shared/api';
+import { Link } from 'react-router';
 import { CardStatistics } from './statistics';
 
 interface DisciplineCardProps {
@@ -12,7 +12,7 @@ const DisciplineCard = ({ discipline }: DisciplineCardProps) => {
       className="flex justify-between items-center text-contrast elevation px-4 md:px-6 py-4 rounded-3xl bg-base-03 flex-col md:flex-row gap-3 md:gap-0"
       to={`/discipline/${discipline.id}`}
     >
-      <div className="w-full">
+      <div className="w-full lg:w-[calc(100%-200px)]">
         <p className="text-subhead w-full text-center md:text-start truncate p-0">
           {discipline.name}
         </p>
