@@ -1,4 +1,4 @@
-import { useOpenChangePassword } from '@/features/open-change-password-form';
+import { useOpenChangePassword } from '../hooks/open-change-password-form';
 import Button from '@/shared/ui/button';
 
 export const ChangePassword = () => {

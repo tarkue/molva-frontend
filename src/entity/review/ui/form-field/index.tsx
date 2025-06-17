@@ -86,7 +86,6 @@ export const Comment = <T extends FieldValues>({
   withPlaceholder,
 }: DefaultFormFieldProps<T>) => (
   <DefaultFormField
-    required
     name="comment"
     label={withPlaceholder ? undefined : FieldLabel.Comment}
     placeholder={withPlaceholder ? FieldLabel.Comment : undefined}
