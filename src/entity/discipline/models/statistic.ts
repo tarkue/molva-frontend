@@ -13,7 +13,7 @@ export interface StatisticProps {
 
 const generateStatistic = (data: StatisticProps): Statistic[] => [
   {
-    glyph: 'like',
+    glyph: 'heart',
     value: data.likes_count,
   },
   {
@@ -27,7 +27,7 @@ const generateStatistic = (data: StatisticProps): Statistic[] => [
 ];
 
 const statisticTitles = [
-  'Добавили в избранное',
+  'В избранном',
   'Средняя оценка',
   'Оставили отзывы',
 ];
