@@ -1,12 +1,12 @@
 import { UserForms } from '@/entity/user';
-import { useRegisterSubmit } from './api/submit';
 import { useModals } from '@/shared/ui/modal';
+import { useRegisterSubmit } from './api/submit';
 import { RegisterFormButtons } from './ui/buttons';
 import { RegisterFormFields } from './ui/fields';
 
 export const useOpenRegister = () => {
   const form = UserForms.useRegisterForm();
-  const onSubmit = useRegisterSubmit();
+  const onSubmit = useRegisterSubmit(form);
   const { addModal, clear } = useModals();
 
   return () => {
