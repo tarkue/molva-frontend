@@ -1,4 +1,4 @@
-import { useOpenResetPasswordForm } from '@/features/open-reset-password-form';
+import { useOpenResetPasswordForm } from './open-reset-password-form';
 import { useSearchParam } from '@/shared/models/search-params';
 import { useEffect } from 'react';
 import { Outlet } from 'react-router';

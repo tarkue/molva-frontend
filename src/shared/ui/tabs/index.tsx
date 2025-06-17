@@ -24,7 +24,7 @@ export const Tabs = (props: TabsProps) => {
   );
   return (
     <div className="relative h-9 w-full">
-      <div className="max-[660px]:-left-4 max-[660px]:absolute overflow-y-hidden max-[660px]:w-dvw max-w-dvw max-h-9">
+      <div className="max-[660px]:-left-4 max-[660px]:absolute w-vw sm:w-a overflow-y-hidden max-w-dvw max-h-9">
         <div
           className={cn(
             'flex items-center overflow-y-hidden w-full overfow-x-auto scroll-smooth box-content',

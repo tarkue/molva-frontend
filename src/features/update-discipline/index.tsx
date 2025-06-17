@@ -1,5 +1,5 @@
 import { Discipline } from '@/shared/api';
-import { useOpenUpdateDisciplineForm } from '../open-update-discipline-form';
+import { useOpenUpdateDisciplineForm } from './hooks/open-update-discipline-form';
 import { UpdateButton } from '@/shared/ui/update-button';
 
 export const UpdateDiscipline = ({
