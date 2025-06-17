@@ -46,7 +46,7 @@ const edit = async (dto: UserUpdateDTO) =>
 
 const changePassword = async (dto: UserUpdatePasswordDTO) =>
   await client
-    .patch(`${BASE_URL}/edit/password`, {
+    .patch(`${BASE_URL}/user/edit/password`, {
       body: JSON.stringify(dto),
     })
     .json<SafeUser>();
