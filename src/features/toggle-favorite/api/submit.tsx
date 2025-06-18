@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 const addToFavoriteSubmit = (discipline: Discipline) => {
   return async () => {
     try {
-      await api.discipline.favorite.add({ id: discipline.id });
+      await api.discipline.favorite.add(discipline);
     } catch {
       toast(ERROR_TOAST_BODY);
     }
@@ -18,7 +18,7 @@ const removeFromFavoriteSubmit = (discipline: Discipline) => {
   const { refresh } = useRefresh();
   return async () => {
     try {
-      await api.discipline.favorite.remove({ id: discipline.id });
+      await api.discipline.favorite.remove(discipline);
       refresh();
     } catch {
       toast(ERROR_TOAST_BODY);
@@ -38,7 +38,7 @@ export const useToggleFavorite = (discipline: Discipline) => {
       .then(({ data }) => {
         setInFavorite(data && data.length > 0);
       });
-  }, []);
+  }, [discipline]);
 
   const onSubmit = async () => {
     if (inFavorite) {

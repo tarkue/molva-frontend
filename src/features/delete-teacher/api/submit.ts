@@ -13,7 +13,7 @@ export const useDeleteTeacherSubmit = (teacher: Teacher) => {
 
   return async () => {
     try {
-      await api.teacher.remove({ id: teacher.id });
+      await api.teacher.remove(teacher);
       refresh();
       toast(SUCCESS_REMOVE_TOAST_BODY.TEACHER);
     } catch {
