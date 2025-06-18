@@ -10,7 +10,7 @@ type Param = [string, (value: string) => void];
 
 const NAVIGATE_OPTIONS: NavigateOptions = {
   replace: false,
-  flushSync: true,
+  flushSync: false,
 } as const;
 
 interface useParamOptions {

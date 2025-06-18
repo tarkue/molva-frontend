@@ -85,35 +85,43 @@ const formatList = Object.values(FormatEnum).map((el) => ({
   value: el,
 }));
 
+const getValueByLabel = (label: FormatEnum) =>
+  formatList.find((el) => el.label === label)?.value as string;
+
 export const Format = <T extends FieldValues>({
   form,
   withPlaceholder,
 }: DefaultFormFieldProps<T>) => {
-  const [selected, setSelected] = useState<Pair<string, string>>({
-    label: formatList[0].label,
-    value: formatList[0].value,
-  });
   return (
     <>
       <FormField
         name={'format' as Path<T>}
         control={form}
-        render={({ field, fieldState }) => (
-          <Select
-            placeholder={
-              withPlaceholder ? FieldLabel.Format : undefined
-            }
-            {...field}
-            value={selected}
-            invalid={fieldState.invalid}
-            onChange={(e) => {
-              if (!e) return;
-              field.onChange(e.value);
-              setSelected(e);
-            }}
-            options={formatList}
-          />
-        )}
+        render={({ field, fieldState }) => {
+          const [selected, setSelected] = useState<
+            Pair<string, string>
+          >({
+            label: field.value,
+            value: getValueByLabel(field.value),
+          });
+          return (
+            <Select
+              placeholder={
+                withPlaceholder ? FieldLabel.Format : undefined
+              }
+              {...field}
+              defaultValue={field.value}
+              value={selected}
+              invalid={fieldState.invalid}
+              onChange={(e) => {
+                if (!e) return;
+                field.onChange(e.value);
+                setSelected(e);
+              }}
+              options={formatList}
+            />
+          );
+        }}
       />
     </>
   );
