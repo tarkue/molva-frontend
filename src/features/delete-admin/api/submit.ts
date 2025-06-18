@@ -13,7 +13,7 @@ export const useDeleteAdminSubmit = (admin: User) => {
 
   return async () => {
     try {
-      await api.admin.remove({ id: admin.id });
+      await api.admin.remove(admin);
       refresh();
       toast(SUCCESS_REMOVE_TOAST_BODY.ADMIN);
     } catch {

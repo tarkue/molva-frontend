@@ -13,7 +13,7 @@ export const useDeleteUserSubmit = (user: User) => {
 
   return async () => {
     try {
-      await api.user.remove({ id: user.id });
+      await api.user.remove(user);
       toast(SUCCESS_REMOVE_TOAST_BODY.USER);
       refresh();
     } catch {
