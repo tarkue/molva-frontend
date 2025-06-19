@@ -36,9 +36,17 @@ export const useToggleFavorite = (discipline: Discipline) => {
     api.discipline.favorite
       .get(1, discipline.name)
       .then(({ data }) => {
-        setInFavorite(data && data.length > 0);
+        if (data && data.length > 0) {
+          if (
+            data.filter((el) => el.id === discipline.id).length > 0
+          ) {
+            setInFavorite(true);
+            return;
+          }
+        }
+        setInFavorite(false);
       });
-  }, [discipline]);
+  }, []);
 
   const onSubmit = async () => {
     if (inFavorite) {
